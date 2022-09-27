@@ -1,5 +1,8 @@
+import 'package:assignment_2/widgets/horizontal_sized_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
+import 'vertical_sized_widget.dart';
 
 class AllReviewsWidget extends StatelessWidget {
   double rating = 0;
@@ -8,7 +11,7 @@ class AllReviewsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 20.0,),
+        VerticalSizedWidget(20.0),
         SizedBox(
           height: 62.0,
           width: 232.0,
@@ -22,7 +25,7 @@ class AllReviewsWidget extends StatelessWidget {
               ),),
           ),
         ),
-        SizedBox(height: 3.0,),
+        VerticalSizedWidget(3.0),
         Padding(
           padding: const EdgeInsets.only(top: 8.0,left: 15.0,right: 15.0,bottom: 6.0),
           child: Row(
@@ -52,13 +55,11 @@ class AllReviewsWidget extends StatelessWidget {
                         CircleAvatar(
                           backgroundImage: AssetImage('assets/images/image.png'),
                         ),
-                        SizedBox(
-                          height: 3.0,
-                        ),
+              VerticalSizedWidget(3.0),
                         Text('John Mike',style: TextStyle(color: Color(0xffAFAFAF), fontSize: 10.0),),
                       ],
                     ),
-                    SizedBox(width: 15.0,),
+                    HorizontalSizedWidget(15.0),
                     Column(
                       children: [
                         RatingBar.builder(
