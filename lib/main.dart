@@ -1,3 +1,4 @@
+import 'package:assignment_2/screens/all_reviews_filter_screen.dart';
 import 'package:assignment_2/screens/all_reviews_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: AllReviews(),
+      home: AllReviewsFilterScreen(),
     );
   }
 }

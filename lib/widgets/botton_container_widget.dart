@@ -16,7 +16,7 @@ class BottomContainerWidget extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Color(0xffFFFFFF).withOpacity(0.5),
+            color: Color(0xffFFFFFF).withOpacity(1.0),
           ),
         ],
       ),
@@ -26,7 +26,12 @@ class BottomContainerWidget extends StatelessWidget {
             left: 350,
             right: 30,
             top: 20,
-            child: Icon(Icons.close,color: Color(0xffAFAFAF),),),
+            child: IconButton(
+              onPressed: (){},
+              icon: Icon(Icons.close,color: Color(0xffAFAFAF),
+              ),
+            ),
+          ),
           child,
         ],
       ),

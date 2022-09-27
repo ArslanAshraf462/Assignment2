@@ -22,7 +22,8 @@ class AllReviewsWidget extends StatelessWidget {
               backgroundColor: Color(0xff07AD5A),
               shape:  RoundedRectangleBorder(
                 borderRadius:  BorderRadius.circular(30.0),
-              ),),
+              ),
+            ),
           ),
         ),
         VerticalSizedWidget(3.0),
