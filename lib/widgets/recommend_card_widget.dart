@@ -28,7 +28,7 @@ class RecommendedCardWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 12.0,),
                       child: Center(child: SizedBox(
-                          height: 109,
+                          height: 105,
                           width: 77,
                           child: Image.asset('assets/images/image.png'))),
                     ),
