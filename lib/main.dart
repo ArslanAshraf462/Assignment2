@@ -1,6 +1,8 @@
+import 'package:assignment_2/screens/account_screen.dart';
 import 'package:assignment_2/screens/favorite_screen.dart';
 import 'package:assignment_2/screens/home_screen.dart';
 import 'package:assignment_2/screens/menu_screen.dart';
+import 'package:assignment_2/screens/search_result_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -27,6 +29,8 @@ class _MyAppState extends State<MyApp> {
     HomeScreen(),
     MenuScreen(),
     FavoriteScreen(),
+    AccountScreen(),
+    SearchResultScreen(),
   ];
 
   @override
@@ -40,7 +44,11 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         body: _pageOptions[selectedPage],
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionBtnWidget (),
+        floatingActionButton: FloatingActionBtnWidget(onPressed: () {
+          setState(() {
+            selectedPage=4;
+          });
+        },),
         bottomNavigationBar: ClipRRect(
           child: BottomAppBar(
           shape: const CircularNotchedRectangle(),
@@ -106,11 +114,11 @@ class BottomBarBtnWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children:  [
           selectedPage==pageNumber? Icon(icon,color: Color(0xff07AD5A),): Icon(icon,color: Colors.grey,),
-          selectedPage == pageNumber? Text(title,style: TextStyle(
+          selectedPage == pageNumber? Text(title,style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w400,
-            color: const Color(0xff07AD5A),
-          ),): Text(title,style: TextStyle(
+            color: Color(0xff07AD5A),
+          ),): Text(title,style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w400,
           ),),
