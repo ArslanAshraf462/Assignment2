@@ -19,7 +19,7 @@ class SearchResultScreen extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset('assets/images/top_nav.png', width: double.infinity,),
-                VerticalSizedWidget(15.0),
+                VerticalSizedWidget(25.0),
                 Row(
                   children: [
                     HorizontalSizedWidget(20.0),
@@ -28,20 +28,21 @@ class SearchResultScreen extends StatelessWidget {
                     TitleWidget(title: 'Search Result', fontWeight: FontWeight.normal),
                   ],
                 ),
-                VerticalSizedWidget(35),
+                VerticalSizedWidget(41),
                 SearchFilterWidget(),
                 VerticalSizedWidget(30),
                 Padding(
                   padding: const EdgeInsets.only(left: 20,right: 184),
                   child: Text('12 Results for “Cheese balls”'),
                 ),
-                VerticalSizedWidget(20),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20,right: 20),
-                  child: Container(
-                      width: double.infinity,
-                      height: 430,
-                      child: SearchResultGridViewWidget()),
+                VerticalSizedWidget(26),
+                SizedBox(
+                  width: double.infinity,
+                  height: 480,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20,right: 20),
+                    child: SearchResultGridViewWidget(),
+                  ),
                 ),
               ],
             ),

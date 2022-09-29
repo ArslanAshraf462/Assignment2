@@ -42,6 +42,8 @@ class _MyAppState extends State<MyApp> {
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
+        extendBody: true,
         body: _pageOptions[selectedPage],
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionBtnWidget(onPressed: () {

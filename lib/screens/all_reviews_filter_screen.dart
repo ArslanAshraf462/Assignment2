@@ -7,7 +7,13 @@ import 'package:flutter/material.dart';
 import '../widgets/title_widget.dart';
 
 class AllReviewsFilterScreen extends StatelessWidget {
-  const AllReviewsFilterScreen({Key? key}) : super(key: key);
+  List items = [
+    'Highest rating',
+    'Lowest rating',
+    'Most recent',
+    'Oldest',
+    'Default'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +32,7 @@ class AllReviewsFilterScreen extends StatelessWidget {
                 BottomContainerWidget(child: Column(
                   children: [
                     VerticalSizedWidget(75.0),
-                    RadioButtonWidget(),
+                    RadioButtonWidget(items: items,),
                     ClearApplyButtonWidget(),
                   ],
                 ),),

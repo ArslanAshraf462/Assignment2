@@ -1,94 +1,99 @@
+import 'package:assignment_2/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
-import 'container_widget.dart';
-import 'icon_widget.dart';
+
+class Category{
+  final String image;
+  final String heading;
+  final String text;
+  final String price;
+  final String rating;
+  final String text1;
+  final String text2;
+  final String text3;
+  Category({
+    required this.image,
+    required this.heading,
+    required this.text,
+    required this.price,
+    required this.rating,
+    required this.text1,
+    required this.text2,
+    required this.text3,
+});
+}
 
 class NewProductCardWidget extends StatelessWidget {
 
+ List DUMMY_CATEGORIES = [
+   Category(image: 'assets/images/Dominionsnack.png',
+     heading: "Veggie wendy the worm",
+     text: 'UTZ Cheese Balls',
+     price: '\$4.99',
+     rating: '4.8',
+     text1: 'Tesco',
+     text2: 'Aldi',
+     text3: 'Asda',
+   ),
+   Category(image: 'assets/images/Dominionsnack.png',
+     heading: "Veggie wendy the worm",
+     text: 'UTZ Cheese Balls',
+     price: '\$4.99',
+     rating: '4.8',
+     text1: 'Tesco',
+     text2: 'Aldi',
+     text3: 'Asda',
+   ),
+   Category(image: 'assets/images/Dominionsnack.png',
+     heading: "Veggie wendy the worm",
+     text: 'UTZ Cheese Balls',
+     price: '\$4.99',
+     rating: '4.8',
+     text1: 'Tesco',
+     text2: 'Aldi',
+     text3: 'Asda',
+   ),
+   Category(image: 'assets/images/Dominionsnack.png',
+     heading: "Veggie wendy the worm",
+     text: 'UTZ Cheese Balls',
+     price: '\$4.99',
+     rating: '4.8',
+     text1: 'Tesco',
+     text2: 'Aldi',
+     text3: 'Asda',
+   ),
+   Category(image: 'assets/images/Dominionsnack.png',
+     heading: "Veggie wendy the worm",
+     text: 'UTZ Cheese Balls',
+     price: '\$4.99',
+     rating: '4.8',
+     text1: 'Tesco',
+     text2: 'Aldi',
+     text3: 'Asda',
+   ),
+   Category(image: 'assets/images/Dominionsnack.png',
+     heading: "Veggie wendy the worm",
+     text: 'UTZ Cheese Balls',
+     price: '\$4.99',
+     rating: '4.8',
+     text1: 'Tesco',
+     text2: 'Aldi',
+     text3: 'Asda',
+   ),
+ ];
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.vertical,
-      itemCount: 5,
-      itemBuilder: (context, index) {
-      return Card(
-        elevation: 1,
-        color: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
-        child: SizedBox(
-          width: 360,
-          child: Stack(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 315,top: 8.0,),
-                child: IconWidget(),
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                      height: 122,
-                      width: 80,
-                      child: Image.asset('assets/images/Dominionsnack.png')),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.only(top: 9.0),
-                        child: Text('No chicken burger',style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600
-                        ),),
-                      ),
-                      const SizedBox(
-                        height: 39,
-                        width: 220,
-                        child: Padding(
-                          padding: EdgeInsets.only(top: 5.0),
-                          child: Text('Lorem ipsum is a placeholder text used to demonstrate the visual',
-                            style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w400
-                            ),),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top:15.0),
-                        child: Row(
-                          children: [
-                            const Text('\$4.99',style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600
-                            ),),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 12.0),
-                              child: Row(
-                                children: const [
-                                  Icon(Icons.star_half,color: Color(0xffF3D434),size: 14,),
-                                  Text('4.8',style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400
-                                  ),),
-                                ],
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(left: 30.0),
-                              child: ContainerWidget(text: 'Tesco',),
-                            ),
-                            const SizedBox(width: 5,),
-                            ContainerWidget(text: 'Aldi'),
-                            const SizedBox(width: 5,),
-                            ContainerWidget(text: 'Asda'),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      );
-    },);
+    return Column(
+      children: DUMMY_CATEGORIES.map((catData) => CardWidget(
+          text: catData.text,
+          image: catData.image,
+          heading: catData.heading,
+          price: catData.price,
+          rating: catData.rating,
+          text1: catData.text1,
+          text2: catData.text2,
+          text3: catData.text3),
+      ).toList()
+    );
   }
 }

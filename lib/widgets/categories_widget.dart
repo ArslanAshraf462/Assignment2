@@ -20,7 +20,7 @@ class CategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10.0,left: 24),
+      padding: const EdgeInsets.only(top: 16.0,left: 24),
       child: SizedBox(
         height: 70,
         child: ListView.builder(
@@ -31,7 +31,7 @@ class CategoriesWidget extends StatelessWidget {
               children: [
                 Container(
                   height: 79,
-                  width: 53,
+                  width: 50,
                   decoration: BoxDecoration(
                       image: DecorationImage(
                         image: items[index],fit: BoxFit.fill,

@@ -1,3 +1,4 @@
+import 'package:assignment_2/screens/search_result_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeRefsTextWidget extends StatelessWidget {
@@ -7,7 +8,7 @@ class HomeRefsTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 5.0,left: 24,right: 24),
+      padding: const EdgeInsets.only(top: 34.0,left: 24,right: 24),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -16,13 +17,16 @@ class HomeRefsTextWidget extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),),
           Row(
-            children: const [
-              Text("View all",style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: Color(0xffF3D434),
-              ),),
-              Icon(Icons.arrow_forward,color: Color(0xffF3D434),size: 14,)
+            children: [
+              InkWell(
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchResultScreen(),)),
+                child: const Text("View all",style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xffF3D434),
+                ),),
+              ),
+              const Icon(Icons.arrow_forward,color: Color(0xffF3D434),size: 14,)
             ],
           ),
         ],

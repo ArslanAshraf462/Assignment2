@@ -1,3 +1,4 @@
+import 'package:assignment_2/screens/search_result_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomContainerWidget extends StatelessWidget {
@@ -8,7 +9,7 @@ class BottomContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 600,
+      height: 670,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(50),
@@ -27,7 +28,7 @@ class BottomContainerWidget extends StatelessWidget {
             right: 30,
             top: 20,
             child: IconButton(
-              onPressed: (){},
+              onPressed: () {},
               icon: Icon(Icons.close,color: Color(0xffAFAFAF),
               ),
             ),
