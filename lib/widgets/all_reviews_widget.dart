@@ -2,6 +2,7 @@ import 'package:assignment_2/widgets/horizontal_sized_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import 'elevated_btn_widget.dart';
 import 'vertical_sized_widget.dart';
 
 class AllReviewsWidget extends StatelessWidget {
@@ -12,20 +13,10 @@ class AllReviewsWidget extends StatelessWidget {
     return Column(
       children: [
         VerticalSizedWidget(20.0),
-        SizedBox(
-          height: 62.0,
-          width: 232.0,
-          child: ElevatedButton(
-            onPressed: (){},
-            child: const Text('Add your review', style: TextStyle(fontSize: 18.0),),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff07AD5A),
-              shape:  RoundedRectangleBorder(
-                borderRadius:  BorderRadius.circular(30.0),
-              ),
-            ),
-          ),
-        ),
+        ElevatedButtonWidget(
+          text: 'Add your review',
+        width: 232.0,
+        height: 62.0,),
         VerticalSizedWidget(3.0),
         Padding(
           padding: const EdgeInsets.only(top: 8.0,left: 15.0,right: 15.0,bottom: 6.0),

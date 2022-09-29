@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'container_widget.dart';
-import 'icon_widget.dart';
+import 'favorite_icon_widget.dart';
 class RecommendedCardWidget extends StatelessWidget {
 
   @override
@@ -20,7 +20,7 @@ class RecommendedCardWidget extends StatelessWidget {
               children: [
                 const Padding(
                   padding: EdgeInsets.only(left: 140,top: 8.0),
-                  child: IconWidget(),
+                  child: FavoriteIconWidget(),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

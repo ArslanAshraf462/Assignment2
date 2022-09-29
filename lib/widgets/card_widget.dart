@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'container_widget.dart';
-import 'icon_widget.dart';
+import 'favorite_icon_widget.dart';
 
 class CardWidget extends StatelessWidget {
   final String text;
@@ -27,7 +27,7 @@ class CardWidget extends StatelessWidget {
           children: [
             const Padding(
               padding: EdgeInsets.only(left: 315,top: 8.0,),
-              child: IconWidget(),
+              child: FavoriteIconWidget(),
             ),
             Row(
               children: [
