@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
 import 'horizontal_sized_widget.dart';
 
 class ClearApplyButtonWidget extends StatelessWidget {
@@ -15,11 +16,7 @@ class ClearApplyButtonWidget extends StatelessWidget {
             width: 145,
             height: 55,
             child: TextButton(onPressed: (){}, child: Text('Clear All'),
-              style: TextButton.styleFrom(
-                foregroundColor: Color(0xff9F9F9F),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),),
-                side: BorderSide(color: Color(0xff9F9F9F), width: 1,),
-              ),
+              style: ConstantButtonStyle.clearButtonStyle,
             ),
           ),
           HorizontalSizedWidget(10.0),
@@ -27,12 +24,7 @@ class ClearApplyButtonWidget extends StatelessWidget {
             width: 145,
             height: 55,
             child: ElevatedButton(onPressed: (){}, child: Text('Apply'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xff9F9F9F),
-                shape:  RoundedRectangleBorder(
-                  borderRadius:  BorderRadius.circular(30.0),
-                ),
-              ),
+              style: ConstantButtonStyle.applyButtonStyle,
             ),
           ),
         ]

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+
 class TextFieldWidget extends StatelessWidget {
   final double height;
   final double width;
@@ -23,10 +25,7 @@ class TextFieldWidget extends StatelessWidget {
             color: Colors.grey,
           ),
           hintText: hintText,
-          hintStyle: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w300,
-          ),
+          hintStyle: ConstantTextStyle.textFieldWidgetStyle,
         ),
       ),
     );

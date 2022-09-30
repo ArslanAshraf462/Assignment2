@@ -1,9 +1,9 @@
-import 'package:assignment_2/screens/search_result_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomContainerWidget extends StatelessWidget {
   final Widget child;
-  BottomContainerWidget({required this.child});
+  final Widget closeIcon;
+  BottomContainerWidget({required this.child,required this.closeIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +24,10 @@ class BottomContainerWidget extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            left: 350,
-            right: 30,
-            top: 20,
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.close,color: Color(0xffAFAFAF),
-              ),
-            ),
+            left: 330,
+            right: 40,
+            top: 5,
+            child: closeIcon,
           ),
           child,
         ],

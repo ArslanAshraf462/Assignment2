@@ -1,20 +1,9 @@
+import '../constants.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesWidget extends StatelessWidget {
 
-  final List items=[
-    const AssetImage('assets/images/dessert.png'),
-    const AssetImage('assets/images/snacks.png'),
-    const AssetImage('assets/images/breakfast.png'),
-    const AssetImage('assets/images/beer.png'),
-    const AssetImage('assets/images/sausage.png'),
-    const AssetImage('assets/images/milk.png'),
-    const AssetImage('assets/images/FastFood.png'),
-    const AssetImage('assets/images/Dinner.png'),
-    const AssetImage('assets/images/BBQ.png'),
-    const AssetImage('assets/images/Partyfood.png'),
-    const AssetImage('assets/images/Kids.png'),
-  ];
+  List items=ConstantImage.itemsImageList;
 
    CategoriesWidget({Key? key}) : super(key: key);
   @override

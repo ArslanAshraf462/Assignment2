@@ -1,4 +1,6 @@
-import 'package:assignment_2/widgets/horizontal_sized_widget.dart';
+import '../constants.dart';
+import '../screens/all_reviews_filter_screen.dart';
+import '../widgets/horizontal_sized_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -7,6 +9,42 @@ import 'vertical_sized_widget.dart';
 
 class AllReviewsWidget extends StatelessWidget {
   double rating = 0;
+
+  void startAddNewTransaction(BuildContext ctx){
+    showModalBottomSheet(
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(50),
+            topRight: Radius.circular(50),),
+        ),
+
+        context: ctx,
+        builder: (builder){
+          return Container(
+            height: 450.0,
+            color: Colors.transparent, //could change this to Color(0xFF737373),
+            //so you don't have to change MaterialApp canvasColor
+            child: Container(
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50.0),
+                      topRight: Radius.circular(50.0))),
+              child: GestureDetector(
+                onTap: () {},
+                behavior: HitTestBehavior.opaque,
+                child: AllReviewsFilterScreen(child: IconButton(
+                  onPressed: () => Navigator.pop(ctx),
+                  icon: const Icon(Icons.close,color: Color(0xffAFAFAF),
+                  ),
+                ),),
+              ),
+            ),
+          );
+        }
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +55,15 @@ class AllReviewsWidget extends StatelessWidget {
           text: 'Add your review',
         width: 232.0,
         height: 62.0,),
-        VerticalSizedWidget(3.0),
         Padding(
-          padding: const EdgeInsets.only(top: 8.0,left: 15.0,right: 15.0,bottom: 6.0),
+          padding: const EdgeInsets.only(top: 11.0,left: 15.0,right: 15.0,bottom: 6.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('200 reviews'),
               GestureDetector(
-                onTap: (){},
-                child: Icon(Icons.filter_list_sharp),),
+                onTap: () =>startAddNewTransaction(context),
+                child: Icon(Icons.tune),),
             ],
           ),
         ),
@@ -44,15 +81,19 @@ class AllReviewsWidget extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           backgroundImage: AssetImage('assets/images/image.png'),
                         ),
-              VerticalSizedWidget(3.0),
-                        Text('John Mike',style: TextStyle(color: Color(0xffAFAFAF), fontSize: 10.0),),
+                         VerticalSizedWidget(3.0),
+                        const Text('John Mike',
+                          style: ConstantTextStyle.reviewNameTxtStyle,
+                        ),
                       ],
                     ),
                     HorizontalSizedWidget(15.0),
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         RatingBar.builder(
                           itemBuilder: (context, _) {
@@ -66,17 +107,15 @@ class AllReviewsWidget extends StatelessWidget {
                           minRating: 1.0,
                         ),
 
-                        Container(
+                        const SizedBox(
+                          width: 250.0,
                           child: Text('Lorem ipsum is a placeholder text commonly '
                               'used to demonstrate the visual form '
                               'of a document or a typeface without',
                             style: TextStyle(color: Color(0xffAFAFAF),),
                           ),
-                          width: 250.0,
                         ),
                       ],
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
                     ),
                   ],
                 ),

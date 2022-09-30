@@ -1,9 +1,47 @@
-import 'package:assignment_2/widgets/vertical_sized_widget.dart';
+import '../constants.dart';
+import '../screens/all_reviews_screen.dart';
+import '../widgets/vertical_sized_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class VendorRatingWidget extends StatelessWidget {
   double rating = 0;
+  void startAddNewTransaction(BuildContext ctx){
+    showModalBottomSheet(
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(50),
+            topRight: Radius.circular(50),),
+        ),
+
+        context: ctx,
+        builder: (builder){
+          return Container(
+            height: 670.0,
+            color: Colors.transparent, //could change this to Color(0xFF737373),
+            //so you don't have to change MaterialApp canvasColor
+            child: Container(
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50.0),
+                      topRight: Radius.circular(50.0))),
+              child: GestureDetector(
+                onTap: () {},
+                behavior: HitTestBehavior.opaque,
+                child: AllReviews(child: IconButton(
+                  onPressed: () => Navigator.pop(ctx),
+                  icon: const Icon(Icons.close,color: Color(0xffAFAFAF),
+                  ),
+                ),
+                ),
+              ),
+            ),
+          );
+        }
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +62,7 @@ class VendorRatingWidget extends StatelessWidget {
                 ),
                 Text(
                   '4.8  Rating',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: ConstantTextStyle.vendorRatingWidgetTxtStyle,
                 )
               ],
             ),
@@ -35,21 +70,15 @@ class VendorRatingWidget extends StatelessWidget {
               children: <Widget>[
                 const Text(
                   '200 reviews ',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: ConstantTextStyle.vendorRatingWidgetTxtStyle,
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () =>startAddNewTransaction(context),
                     child: const Text(
                       'See all',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff00A651),
-                      ),
-                    ))
+                      style: ConstantTextStyle.vendorRtgWgtSeeAllTxtStyle,
+                    ),
+                ),
               ],
             ),
           ],
@@ -58,10 +87,7 @@ class VendorRatingWidget extends StatelessWidget {
           children: <Widget>[
             const Text(
               'Give your rating',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              ),
+              style: ConstantTextStyle.vendorRatingWidgetTxtStyle,
             ),
             const SizedBox(
               height: 12,
@@ -84,33 +110,3 @@ class VendorRatingWidget extends StatelessWidget {
     );
   }
 }
-
-// Row(
-//   children: const <Widget>[
-//     Icon(
-//       Icons.star_border,
-//       size: 20,
-//       color: Color(0xffF3D434),
-//     ),
-//     Icon(
-//       Icons.star_border,
-//       size: 20,
-//       color: Color(0xffF3D434),
-//     ),
-//     Icon(
-//       Icons.star_border,
-//       size: 20,
-//       color: Color(0xffF3D434),
-//     ),
-//     Icon(
-//       Icons.star_border,
-//       size: 20,
-//       color: Color(0xffF3D434),
-//     ),
-//     Icon(
-//       Icons.star_border,
-//       size: 20,
-//       color: Color(0xffF3D434),
-//     ),
-//   ],
-// )

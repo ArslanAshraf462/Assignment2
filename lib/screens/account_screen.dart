@@ -1,11 +1,20 @@
+import '../constants.dart';
+import '../widgets/vertical_sized_widget.dart';
 import 'package:flutter/material.dart';
 
 class AccountScreen extends StatelessWidget {
+  const AccountScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text('This is Account screen!'),),
+    return SafeArea(
+      child: Column(
+        children: [
+          Image.asset(ConstantImage.navImage, width: double.infinity,),
+          VerticalSizedWidget(280),
+          Center(child: Text('This is account screen!'),),
+        ],
+      ),
     );
   }
 }

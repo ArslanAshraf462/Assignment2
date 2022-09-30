@@ -1,5 +1,6 @@
-import 'package:assignment_2/widgets/search_filter_widget.dart';
-import 'package:assignment_2/widgets/search_result_gridview_widget.dart';
+import '../constants.dart';
+import '../widgets/search_filter_widget.dart';
+import '../widgets/search_result_gridview_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/horizontal_sized_widget.dart';
@@ -18,12 +19,15 @@ class SearchResultScreen extends StatelessWidget {
           child: SafeArea(
             child: Column(
               children: [
-                Image.asset('assets/images/top_nav.png', width: double.infinity,),
+                Image.asset(ConstantImage.navImage, width: double.infinity,),
                 VerticalSizedWidget(25.0),
                 Row(
                   children: [
                     HorizontalSizedWidget(20.0),
-                    PopScreenWidget(title: 'Home'),
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).pop(),
+                        child: PopScreenWidget(title: 'Home'),
+                    ),
                     HorizontalSizedWidget(50.0),
                     TitleWidget(title: 'Search Result', fontWeight: FontWeight.normal),
                   ],
@@ -31,19 +35,20 @@ class SearchResultScreen extends StatelessWidget {
                 VerticalSizedWidget(41),
                 SearchFilterWidget(),
                 VerticalSizedWidget(30),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20,right: 184),
+                const Padding(
+                  padding: EdgeInsets.only(left: 20,right: 184),
                   child: Text('12 Results for “Cheese balls”'),
                 ),
                 VerticalSizedWidget(26),
-                SizedBox(
+                const SizedBox(
                   width: double.infinity,
                   height: 480,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 20,right: 20),
+                    padding: EdgeInsets.only(left: 20,right: 20),
                     child: SearchResultGridViewWidget(),
                   ),
                 ),
+                VerticalSizedWidget(60),
               ],
             ),
           ),

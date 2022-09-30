@@ -1,8 +1,7 @@
-import 'package:assignment_2/screens/account_screen.dart';
-import 'package:assignment_2/screens/favorite_screen.dart';
-import 'package:assignment_2/screens/home_screen.dart';
-import 'package:assignment_2/screens/menu_screen.dart';
-import 'package:assignment_2/screens/search_result_screen.dart';
+import '../screens/account_screen.dart';
+import '../screens/favorite_screen.dart';
+import '../screens/home_screen.dart';
+import '../screens/menu_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -30,7 +29,7 @@ class _MyAppState extends State<MyApp> {
     MenuScreen(),
     FavoriteScreen(),
     AccountScreen(),
-    SearchResultScreen(),
+   // SearchResultScreen(),
   ];
 
   @override
@@ -46,11 +45,13 @@ class _MyAppState extends State<MyApp> {
         extendBody: true,
         body: _pageOptions[selectedPage],
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionBtnWidget(onPressed: () {
-          setState(() {
-            selectedPage=4;
-          });
-        },),
+        floatingActionButton: FloatingActionBtnWidget(
+        //   onPressed: () {
+        //   setState(() {
+        //     selectedPage=4;
+        //   });
+        // },
+        ),
         bottomNavigationBar: ClipRRect(
           child: BottomAppBar(
           shape: const CircularNotchedRectangle(),

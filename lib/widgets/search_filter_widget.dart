@@ -1,4 +1,4 @@
-import 'package:assignment_2/screens/filters_screen.dart';
+import '../screens/filters_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'text_field_widget.dart';
@@ -7,10 +7,10 @@ class SearchFilterWidget extends StatelessWidget {
    void startAddNewTransaction(BuildContext ctx){
      showModalBottomSheet(
          isScrollControlled: true,
-       shape: RoundedRectangleBorder(
+       shape: const RoundedRectangleBorder(
              borderRadius: BorderRadius.only(
-                 topLeft: const Radius.circular(50),
-                 topRight: const Radius.circular(50),),
+                 topLeft: Radius.circular(50),
+                 topRight: Radius.circular(50),),
            ),
 
          context: ctx,
@@ -26,9 +26,15 @@ class SearchFilterWidget extends StatelessWidget {
                          topLeft: Radius.circular(50.0),
                          topRight: Radius.circular(50.0))),
                  child: GestureDetector(
-                   child: FiltersScreen(),
                    onTap: () {},
                    behavior: HitTestBehavior.opaque,
+                   child: FiltersScreen(
+                     child: IconButton(
+                       onPressed: () => Navigator.pop(ctx),
+               icon: const Icon(Icons.close,color: Color(0xffAFAFAF),
+               ),
+             ),
+                   ),
                  ),
                  ),
            );
@@ -65,7 +71,7 @@ class SearchFilterWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Text('Filters',style: TextStyle(color: Colors.white),),
-                    Icon(Icons.filter_list_sharp,color: Colors.white,),
+                    Icon(Icons.tune,color: Colors.white,),
                   ],
                 ),
               ),

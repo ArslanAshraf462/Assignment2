@@ -1,51 +1,48 @@
-import 'package:assignment_2/widgets/botton_container_widget.dart';
-import 'package:assignment_2/widgets/clear_apply_button_widget.dart';
-import 'package:assignment_2/widgets/radio_button_widget.dart';
-import 'package:assignment_2/widgets/vertical_sized_widget.dart';
+import '../constants.dart';
+
+import '../widgets/botton_container_widget.dart';
+import '../widgets/clear_apply_button_widget.dart';
+import '../widgets/radio_button_widget.dart';
+import '../widgets/vertical_sized_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/title_widget.dart';
-
 class AllReviewsFilterScreen extends StatelessWidget {
-  List items = [
-    'Highest rating',
-    'Lowest rating',
-    'Most recent',
-    'Oldest',
-    'Default'
-  ];
+  final Widget child;
+  AllReviewsFilterScreen({required this.child});
+  List items = itemz;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Image.asset('assets/images/top_nav.png', width: double.infinity,),
-            VerticalSizedWidget(15.0),
-            TitleWidget(title: 'Veggie Wendy the Worm', fontWeight: FontWeight.bold),
-            VerticalSizedWidget(38.0),
-            Stack(
-              textDirection: TextDirection.ltr,
-              clipBehavior: Clip.none,
-              children: [
-                BottomContainerWidget(child: Column(
-                  children: [
-                    VerticalSizedWidget(75.0),
-                    RadioButtonWidget(items: items,),
-                    ClearApplyButtonWidget(),
-                  ],
-                ),),
-                Padding(
-                  padding: const EdgeInsets.only(left: 33,top: 25,),
-                  child: Text('Sort by',style: TextStyle(fontSize: 28.0,fontWeight: FontWeight.bold),),
-                ),
-              ],
-            ),
-          ],
-        ),
+    return SingleChildScrollView(
+      child: SafeArea(
+          child: Column(
+            children: [
+              VerticalSizedWidget(12.0),
+              Stack(
+                textDirection: TextDirection.ltr,
+                clipBehavior: Clip.none,
+                children: [
+                  BottomContainerWidget(
+                    closeIcon: child,
+                    child: Column(
+                    children: [
+                      VerticalSizedWidget(40.0),
+                      RadioButtonWidget(items: items,),
+                      ClearApplyButtonWidget(),
+                      VerticalSizedWidget(270.0),
+                    ],
+                  ),),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 33,top: 12,),
+                    child: Text('Sort by',style: ConstantTextStyle.sortBy,),
+                  ),
+                ],
+              ),
+            ],
+          ),
+
       ),
-    );;
+    );
   }
 }
 

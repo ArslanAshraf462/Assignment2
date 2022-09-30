@@ -1,3 +1,4 @@
+import '../constants.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/new_product_card_widget.dart';
@@ -17,7 +18,7 @@ class FavoriteScreen extends StatelessWidget {
           child: SafeArea(
               child: Column(
                 children: [
-                  Image.asset('assets/images/top_nav.png', width: double.infinity,),
+                  Image.asset(ConstantImage.navImage, width: double.infinity,),
                   VerticalSizedWidget(15.0),
                   TitleWidget(title: 'Favorites', fontWeight: FontWeight.normal),
                   Padding(

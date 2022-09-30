@@ -1,5 +1,6 @@
-import 'package:assignment_2/widgets/category_vender_widget.dart';
-import 'package:assignment_2/widgets/elevated_btn_widget.dart';
+import '../constants.dart';
+import '../widgets/category_vender_widget.dart';
+import '../widgets/elevated_btn_widget.dart';
 
 import '../widgets/circular_favorite_icon_widget.dart';
 import '../widgets/vender_rating_widget.dart';
@@ -40,19 +41,12 @@ class DetailBottomContainerWidget extends StatelessWidget {
                   children: <Widget>[
                     const Text(
                       'Veggie Wendy the Worm',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: ConstantTextStyle.detailBtmHeadngTxtStyle,
                     ),
                     VerticalSizedWidget(4),
                     const Text(
                       'Units: 100 g ',
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xffC8C8C8),
-                      ),
+                      style: ConstantTextStyle.detailBtmUnitTxtStyle,
                     ),
                   ],
                 ),
@@ -64,11 +58,7 @@ class DetailBottomContainerWidget extends StatelessWidget {
             padding: EdgeInsets.only(left: 24,top: 12),
             child: Text(
               '£4.50',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Color(0xff00A651),
-              ),
+              style: ConstantTextStyle.detailBtmPriceTxtStyle,
             ),
           ),
           Padding(
@@ -79,10 +69,7 @@ class DetailBottomContainerWidget extends StatelessWidget {
             padding: EdgeInsets.only(left: 24,top: 20),
             child: Text(
               'Categories',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
+              style: ConstantTextStyle.vendrRtgCategoryTxtStyle,
             ),
           ),
           Padding(
@@ -102,17 +89,11 @@ class DetailBottomContainerWidget extends StatelessWidget {
               children: const [
                 Text(
                   'Product Notes ',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: ConstantTextStyle.vendrProductTxtStyle,
                 ),
                 Text(
                   '(click to see more)',
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: ConstantTextStyle.vendrCTSMTxtStyle,
                 ),
               ],
             ),
