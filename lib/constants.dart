@@ -14,6 +14,7 @@ List itemz = [
   'Oldest',
   'Default'
 ];
+int selectedPage = 0;
 
 class ConstantImage{
   static const String navImage= 'assets/images/top_nav.png';
