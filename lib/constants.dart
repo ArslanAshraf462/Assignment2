@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+int selectedPage = 0;
+
 List item = [
   'Rating',
   'Most Popular',
@@ -14,7 +16,7 @@ List itemz = [
   'Oldest',
   'Default'
 ];
-int selectedPage = 0;
+
 
 class ConstantImage{
   static const String navImage= 'assets/images/top_nav.png';
