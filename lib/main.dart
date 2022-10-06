@@ -1,3 +1,5 @@
+import '../services/recommended_product_service.dart';
+
 import '../screens/account_screen.dart';
 import '../screens/favorite_screen.dart';
 import '../screens/home_screen.dart';
@@ -8,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'constants.dart';
 import 'widgets/bottom_bar_btn_widget.dart';
 import 'widgets/floating_action_btn_widget.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
