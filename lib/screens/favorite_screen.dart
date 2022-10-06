@@ -28,7 +28,7 @@ class FavoriteScreen extends StatelessWidget {
                   VerticalSizedWidget(29.0),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0,right: 20.0),
-                    child: NewProductCardWidget(),
+                    // child: NewProductCardWidget(),
                   ),
                   VerticalSizedWidget(35),
                 ],

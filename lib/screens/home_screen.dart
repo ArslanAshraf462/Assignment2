@@ -1,5 +1,6 @@
 import '../constants.dart';
 
+import '../widgets/card_widget.dart';
 import '../widgets/categories_widget.dart';
 import '../widgets/home_refs_text_widget.dart';
 import '../widgets/new_product_card_widget.dart';
@@ -55,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(
                       left: 20.0, right: 20.0, top: 20),
-                  child: NewProductCardWidget(),
+                  child: CardWidget(),//NewProductCardWidget(),
                 ),
                 VerticalSizedWidget(30),
               ],
