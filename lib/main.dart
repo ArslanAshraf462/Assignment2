@@ -1,9 +1,6 @@
-import 'package:assignment_2/services/categoriess_services.dart';
+import '../services/categoriess_services.dart';
 
 import '../services/new_product_services.dart';
-
-import '../services/recommended_product_service.dart';
-
 import '../screens/account_screen.dart';
 import '../screens/favorite_screen.dart';
 import '../screens/home_screen.dart';
@@ -12,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'constants.dart';
+import 'services/reviews_services.dart';
 import 'widgets/bottom_bar_btn_widget.dart';
 import 'widgets/floating_action_btn_widget.dart';
 import 'package:provider/provider.dart';
@@ -46,8 +44,8 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => NewProductServices(),),
-        ChangeNotifierProvider(create: (_) => CategoriesServices()
-          ,),
+        ChangeNotifierProvider(create: (_) => CategoriesServices(),),
+        ChangeNotifierProvider(create: (_) => ReviewsServices(),),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

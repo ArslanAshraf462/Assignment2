@@ -1,5 +1,8 @@
+import 'package:provider/provider.dart';
+
 import '../constants.dart';
 import '../screens/all_reviews_filter_screen.dart';
+import '../services/reviews_services.dart';
 import '../widgets/horizontal_sized_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -7,7 +10,20 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'elevated_btn_widget.dart';
 import 'vertical_sized_widget.dart';
 
-class AllReviewsWidget extends StatelessWidget {
+class AllReviewsWidget extends StatefulWidget {
+  @override
+  State<AllReviewsWidget> createState() => _AllReviewsWidgetState();
+}
+
+class _AllReviewsWidgetState extends State<AllReviewsWidget> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    Provider.of<ReviewsServices>(context,listen: false).getReviewData();
+    super.initState();
+  }
+
   double rating = 0;
 
   void startAddNewTransaction(BuildContext ctx){
@@ -46,83 +62,88 @@ class AllReviewsWidget extends StatelessWidget {
     );
   }
 
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        VerticalSizedWidget(20.0),
-        ElevatedButtonWidget(
-          text: 'Add your review',
-        width: 232.0,
-        height: 62.0,),
-        Padding(
-          padding: const EdgeInsets.only(top: 11.0,left: 15.0,right: 15.0,bottom: 6.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('200 reviews'),
-              GestureDetector(
-                onTap: () =>startAddNewTransaction(context),
-                child: Icon(Icons.tune),),
-            ],
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.only(left: 16.0,right: 16.0,bottom: 6.0,),
-          child: Divider(),
-        ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 25.0,top: 15.0 ),
+    return Consumer<ReviewsServices>(
+      builder: (context,review,_) {
+        return Column(
+          children: [
+            VerticalSizedWidget(20.0),
+            ElevatedButtonWidget(
+              text: 'Add your review',
+            width: 232.0,
+            height: 62.0,),
+            for(int index=0;index<review.reviewList.length;index++)...[
+              Padding(
+                padding: const EdgeInsets.only(top: 11.0,left: 15.0,right: 15.0,bottom: 6.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      children: [
-                        const CircleAvatar(
-                          backgroundImage: AssetImage('assets/images/image.png'),
-                        ),
-                         VerticalSizedWidget(3.0),
-                        const Text('John Mike',
-                          style: ConstantTextStyle.reviewNameTxtStyle,
-                        ),
-                      ],
-                    ),
-                    HorizontalSizedWidget(15.0),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        RatingBar.builder(
-                          itemBuilder: (context, _) {
-                            return Icon(Icons.star, color: Colors.amber,);
-                          },
-                          onRatingUpdate: (rating) {
-                            this.rating=rating;
-                          },
-                          itemSize: 15.0,
-                          updateOnDrag: true,
-                          minRating: 1.0,
-                        ),
-
-                        const SizedBox(
-                          width: 250.0,
-                          child: Text('Lorem ipsum is a placeholder text commonly '
-                              'used to demonstrate the visual form '
-                              'of a document or a typeface without',
-                            style: TextStyle(color: Color(0xffAFAFAF),),
-                          ),
-                        ),
-                      ],
-                    ),
+                    Text('200 reviews'),
+                    GestureDetector(
+                      onTap: () =>startAddNewTransaction(context),
+                      child: Icon(Icons.tune),),
                   ],
                 ),
-              );
-            },),
-        )
-      ],
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 16.0,right: 16.0,bottom: 6.0,),
+                child: Divider(),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: review.reviewList![index].results!.length,
+                  itemBuilder: (context, index2) {
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 20.0, right: 25.0,top: 15.0 ),
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              const CircleAvatar(
+                                backgroundImage: AssetImage('assets/images/image.png'),
+                              ),
+                              VerticalSizedWidget(3.0),
+                              const Text('John Mike',
+                                style: ConstantTextStyle.reviewNameTxtStyle,
+                              ),
+                            ],
+                          ),
+                          HorizontalSizedWidget(15.0),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              RatingBar.builder(
+                                itemBuilder: (context, _) {
+                                  return Icon(Icons.star, color: Colors.amber,);
+                                },
+                                onRatingUpdate: (rating) {
+                                  this.rating=rating;
+                                },
+                                itemSize: 15.0,
+                                updateOnDrag: true,
+                                minRating: 1.0,
+                              ),
+
+                              SizedBox(
+                                width: 250.0,
+                                child: Text(review.reviewList[index].results![index2].keep.toString(),
+                                  style: TextStyle(color: Color(0xffAFAFAF),),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    );
+                  },),
+              ),
+            ],
+          ],
+        );
+      }
     );
   }
 }
