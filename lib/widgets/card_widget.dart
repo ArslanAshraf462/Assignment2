@@ -21,7 +21,7 @@ class _CardWidgetState extends State<CardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    NewProductServices newProductServices =NewProductServices();
+    //NewProductServices newProductServices =NewProductServices();
     return Column(
       children: [
         // Container(

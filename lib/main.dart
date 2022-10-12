@@ -1,3 +1,5 @@
+import 'package:assignment_2/services/categoriess_services.dart';
+
 import '../services/new_product_services.dart';
 
 import '../services/recommended_product_service.dart';
@@ -43,7 +45,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => NewProductServices(),)
+        ChangeNotifierProvider(create: (_) => NewProductServices(),),
+        ChangeNotifierProvider(create: (_) => CategoriesServices()
+          ,),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
