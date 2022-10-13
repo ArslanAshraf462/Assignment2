@@ -1,17 +1,14 @@
 import 'dart:convert';
+import '/constants.dart';
 import 'package:flutter/material.dart';
-
-import '../model/new_product_model.dart';
 import 'package:http/http.dart' as http;
 
-class NewProductServices with ChangeNotifier {
+import '../model/product_detail_model.dart';
 
-  //List<NewProductModel> _newProList = [];
+class ProductDetailServices with ChangeNotifier {
 
- // List<NewProductModel> get newProList => _newProList;
-
-  String url = 'https://data-otterli-staging.com/api/latest_products/';
-  Future<NewProductModel> getNewProductdata() async {
+  String url = 'https://data-otterli-staging.com/api/product_details/$id';
+  Future<ProductDetailModel> getProductDetaildata() async {
     var response = await http.get(Uri.parse(url),
         headers: {
           'Content-Type': 'application/json',
@@ -24,11 +21,11 @@ class NewProductServices with ChangeNotifier {
       //  for(Map i in data){
       // newProList.add(NewProductModel.fromJson(data));
       //  }
-       notifyListeners();
-      return NewProductModel.fromJson(data);
+      notifyListeners();
+      return ProductDetailModel.fromJson(data);
     }else{
 
-      return NewProductModel.fromJson(data);
+      return ProductDetailModel.fromJson(data);
     }
   }
 }

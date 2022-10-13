@@ -1,5 +1,5 @@
+import '../services/product_detail_services.dart';
 import '../services/categoriess_services.dart';
-
 import '../services/new_product_services.dart';
 import '../screens/account_screen.dart';
 import '../screens/favorite_screen.dart';
@@ -7,7 +7,6 @@ import '../screens/home_screen.dart';
 import '../screens/menu_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'constants.dart';
 import 'services/reviews_services.dart';
 import 'widgets/bottom_bar_btn_widget.dart';
@@ -46,6 +45,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (_) => NewProductServices(),),
         ChangeNotifierProvider(create: (_) => CategoriesServices(),),
         ChangeNotifierProvider(create: (_) => ReviewsServices(),),
+        ChangeNotifierProvider(create: (_) => ProductDetailServices(),),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

@@ -1,19 +1,40 @@
+import 'package:assignment_2/model/new_product_model.dart';
+import 'package:assignment_2/model/recommended_product_model.dart';
+import 'package:assignment_2/services/recommended_product_service.dart';
+import 'package:provider/provider.dart';
+
 import '../constants.dart';
 
+import '../services/new_product_services.dart';
 import '../widgets/card_widget.dart';
 import '../widgets/categories_widget.dart';
 import '../widgets/home_refs_text_widget.dart';
-import '../widgets/new_product_card_widget.dart';
 import '../widgets/recommend_card_widget.dart';
 import '../widgets/text_field_widget.dart';
 import '../widgets/vertical_sized_widget.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+import 'search_result_screen.dart';
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    //Provider.of<RecommendedProductServices>(context,listen: false).getRecommendProductdata();
+    Provider.of<NewProductServices>(context,listen: false).getNewProductdata();
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
+    NewProductServices newProductServices =NewProductServices();
+    RecommendedProductServices recommendedProductServices = RecommendedProductServices();
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
@@ -44,7 +65,22 @@ class HomeScreen extends StatelessWidget {
                   child: Text("All Categories", style: ConstantTextStyle.homeTextHeadingStyle),
                 ),
                 CategoriesWidget(),
-                HomeRefsTextWidget(title: "Recommended"),
+                FutureBuilder<RecommendProductModel>(
+                  future: recommendedProductServices.getRecommendProductdata(),
+                  builder: (context, snapshot) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                          SearchResultScreen(snapshot!.data!.count!),
+
+                      ),
+                      );
+                    },
+                    child: HomeRefsTextWidget(title: "Recommended",
+                    ),
+                  );
+                },),
+
                 Padding(padding: const EdgeInsets.only(
                     left: 20.0, right: 24.0, top: 20),
                     child: Container(
@@ -52,19 +88,33 @@ class HomeScreen extends StatelessWidget {
                       height: 220,
                       child: RecommendedCardWidget(),),
                 ),
-                HomeRefsTextWidget(title: "New products"),
+                FutureBuilder<NewProductModel>(
+                  future: newProductServices.getNewProductdata(),
+                  builder: (context, snapshot) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                            SearchResultScreen(snapshot!.data!.count!),
+
+                        ),
+                        );
+                      },
+                      child: HomeRefsTextWidget(title: "New Products",
+                      ),
+                    );
+                  },),
                 Padding(
                   padding: const EdgeInsets.only(
                       left: 20.0, right: 20.0, top: 20),
                   child: CardWidget(),//NewProductCardWidget(),
                 ),
                 VerticalSizedWidget(30),
-              ],
+            ]
             ),
           ),
         ),
-      ),
-    );
+      )
+      );
   }
 }
 

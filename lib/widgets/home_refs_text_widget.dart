@@ -1,10 +1,9 @@
 import '../constants.dart';
-
-import '../screens/search_result_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeRefsTextWidget extends StatelessWidget {
   final String title;
+  // final Function onTap;
   HomeRefsTextWidget({required this.title});
 
   @override
@@ -18,10 +17,7 @@ class HomeRefsTextWidget extends StatelessWidget {
           ),
           Row(
             children: [
-              InkWell(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchResultScreen(),)),
-                child: const Text("View all",style: ConstantTextStyle.viewAllTextStyle,
-                ),
+              const Text("View all",style: ConstantTextStyle.viewAllTextStyle,
               ),
               const Icon(Icons.arrow_forward,color: Color(0xffF3D434),size: 14,)
             ],

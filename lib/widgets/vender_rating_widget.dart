@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class VendorRatingWidget extends StatelessWidget {
+  final String ratings;
+  final String reviews;
+  VendorRatingWidget({required this.ratings,required this.reviews});
+
   double rating = 0;
   void startAddNewTransaction(BuildContext ctx){
     showModalBottomSheet(
@@ -54,22 +58,22 @@ class VendorRatingWidget extends StatelessWidget {
           children: <Widget>[
             VerticalSizedWidget(10),
             Row(
-              children: const <Widget>[
+              children: <Widget>[
                 Icon(
                   Icons.star_half,
                   size: 20,
                   color: Color(0xffF3D434),
                 ),
                 Text(
-                  '4.8  Rating',
+                  '$ratings  Rating',
                   style: ConstantTextStyle.vendorRatingWidgetTxtStyle,
                 )
               ],
             ),
             Row(
               children: <Widget>[
-                const Text(
-                  '200 reviews ',
+                 Text(
+                  '$reviews reviews ',
                   style: ConstantTextStyle.vendorRatingWidgetTxtStyle,
                 ),
                 TextButton(

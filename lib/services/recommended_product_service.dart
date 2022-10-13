@@ -5,23 +5,11 @@ import '../model/recommended_product_model.dart';
 
 class RecommendedProductServices {
 
-  // Future<List<dynamic>> getRecommendProductdata () async {
-  //   var data;
-  //   String url = 'https://data-otterli-staging.com/api/recommended_products/';
-  //   final response = await http.get(Uri.parse(url));
-  //   if(response.statusCode == 200){
-  //     data = json.decode(response.body);
-  //     return data;
-  //   }else{
-  //     throw Exception('Error');
-  //   }
-  // }
-  List<RecommendProductModel> _recommendProList = [];
+ // List<RecommendProductModel> _recommendProList = [];
 
-  List<RecommendProductModel> get recommendProList => _recommendProList;
-  //String token= 'bfdf77e6a72ce81badfcc847aaf041255cd65928' ;
+ // List<RecommendProductModel> get recommendProList => _recommendProList;
   String url = 'https://data-otterli-staging.com/api/recommended_products/';
-  Future<List<RecommendProductModel>> getRecommendProductdata() async {
+  Future<RecommendProductModel> getRecommendProductdata() async {
     var response = await http.get(Uri.parse(url),
     headers: {
       'Content-Type': 'application/json',
@@ -32,13 +20,13 @@ class RecommendedProductServices {
     var data = json.decode(response.body);
     if(response.statusCode == 200 || response.statusCode == 201) {
     //  for(Map i in data){
-        recommendProList.add(RecommendProductModel.fromJson(data));
+       // recommendProList.add(RecommendProductModel.fromJson(data));
     //  }
 
-      return recommendProList;
+      return RecommendProductModel.fromJson(data);
     }else{
 
-      return [];
+      return RecommendProductModel.fromJson(data);
     }
   }
 }

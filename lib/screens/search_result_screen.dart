@@ -9,6 +9,8 @@ import '../widgets/title_widget.dart';
 import '../widgets/vertical_sized_widget.dart';
 
 class SearchResultScreen extends StatelessWidget {
+  final int idCount;
+  SearchResultScreen(this.idCount);
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,8 @@ class SearchResultScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: SafeArea(
             child: Column(
+             // mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(ConstantImage.navImage, width: double.infinity,),
                 VerticalSizedWidget(25.0),
@@ -35,17 +39,20 @@ class SearchResultScreen extends StatelessWidget {
                 VerticalSizedWidget(41),
                 SearchFilterWidget(),
                 VerticalSizedWidget(30),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20,right: 184),
-                  child: Text('12 Results for “Cheese balls”'),
+                Padding(
+                  padding: EdgeInsets.only(left: 20),
+                  child:
+                  idCount == 25
+                      ? Text('25 Results for “Recommended Products”')
+                   : Text('75 Results for “New Products"'),
                 ),
                 VerticalSizedWidget(26),
-                const SizedBox(
+                 SizedBox(
                   width: double.infinity,
-                  height: 480,
+                  height: 550,
                   child: Padding(
                     padding: EdgeInsets.only(left: 20,right: 20),
-                    child: SearchResultGridViewWidget(),
+                    child: SearchResultGridViewWidget(id: idCount,),
                   ),
                 ),
                 VerticalSizedWidget(60),
