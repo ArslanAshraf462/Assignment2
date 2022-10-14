@@ -1,20 +1,20 @@
 class ReviewModel {
   int? count;
   String? next;
-  Null? previous;
   List<Results>? results;
 
-  ReviewModel({this.count, this.next, this.previous, this.results});
+  ReviewModel({this.count, this.next, this.results});
 
   ReviewModel.fromJson(Map<String, dynamic> json) {
     count = json['count'];
     next = json['next'];
-    previous = json['previous'];
     if (json['results'] != null) {
       results = <Results>[];
       json['results'].forEach((v) {
-        results!.add(new Results.fromJson(v));
+        results!.add(Results.fromJson(v));
       });
+    } else {
+      results = <Results>[];
     }
   }
 
@@ -22,7 +22,6 @@ class ReviewModel {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['count'] = this.count;
     data['next'] = this.next;
-    data['previous'] = this.previous;
     if (this.results != null) {
       data['results'] = this.results!.map((v) => v.toJson()).toList();
     }
@@ -32,57 +31,53 @@ class ReviewModel {
 
 class Results {
   int? id;
-  bool? useful;
-  bool? foundProduct;
-  String? keep;
-  String? change;
-  int? recommendProduct;
-  int? problemSolved;
-  int? age;
-  String? emailAddress;
-  String? diet;
+  String? product;
+  int? productId;
+  String? consumer;
+  int? rating;
+  String? review;
   String? createdDate;
+  String? lastUpdateDate;
+  String? reviewerRef;
+  String? username;
 
   Results(
       {this.id,
-        this.useful,
-        this.foundProduct,
-        this.keep,
-        this.change,
-        this.recommendProduct,
-        this.problemSolved,
-        this.age,
-        this.emailAddress,
-        this.diet,
-        this.createdDate});
+        this.product,
+        this.productId,
+        this.consumer,
+        this.rating,
+        this.review,
+        this.createdDate,
+        this.lastUpdateDate,
+        this.reviewerRef,
+        this.username});
 
   Results.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    useful = json['useful'];
-    foundProduct = json['found_product'];
-    keep = json['keep'];
-    change = json['change'];
-    recommendProduct = json['recommend_product'];
-    problemSolved = json['problem_solved'];
-    age = json['age'];
-    emailAddress = json['email_address'];
-    diet = json['diet'];
+    product = json['product'];
+    productId = json['product_id'];
+    consumer = json['consumer'];
+    rating = json['rating'];
+    review = json['review'];
     createdDate = json['created_date'];
+    lastUpdateDate = json['last_update_date'];
+    reviewerRef = json['reviewer_ref'];
+    username = json['username'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    data['useful'] = this.useful;
-    data['found_product'] = this.foundProduct;
-    data['keep'] = this.keep;
-    data['change'] = this.change;
-    data['recommend_product'] = this.recommendProduct;
-    data['problem_solved'] = this.problemSolved;
-    data['age'] = this.age;
-    data['email_address'] = this.emailAddress;
-    data['diet'] = this.diet;
+    data['product'] = this.product;
+    data['product_id'] = this.productId;
+    data['consumer'] = this.consumer;
+    data['rating'] = this.rating;
+    data['review'] = this.review;
     data['created_date'] = this.createdDate;
+    data['last_update_date'] = this.lastUpdateDate;
+    data['reviewer_ref'] = this.reviewerRef;
+    data['username'] = this.username;
     return data;
   }
 }

@@ -7,10 +7,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 class VendorRatingWidget extends StatelessWidget {
   final String ratings;
   final String reviews;
-  VendorRatingWidget({required this.ratings,required this.reviews});
+  final int id1;
+  VendorRatingWidget({required this.ratings,required this.reviews,required this.id1});
 
   double rating = 0;
-  void startAddNewTransaction(BuildContext ctx){
+  void startAddNewTransaction(BuildContext ctx,int reviewId){
     showModalBottomSheet(
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
@@ -34,7 +35,9 @@ class VendorRatingWidget extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {},
                 behavior: HitTestBehavior.opaque,
-                child: AllReviews(child: IconButton(
+                child: AllReviews(
+                  id2: id1,
+                  child: IconButton(
                   onPressed: () => Navigator.pop(ctx),
                   icon: const Icon(Icons.close,color: Color(0xffAFAFAF),
                   ),
@@ -59,7 +62,7 @@ class VendorRatingWidget extends StatelessWidget {
             VerticalSizedWidget(10),
             Row(
               children: <Widget>[
-                Icon(
+                const Icon(
                   Icons.star_half,
                   size: 20,
                   color: Color(0xffF3D434),
@@ -77,7 +80,7 @@ class VendorRatingWidget extends StatelessWidget {
                   style: ConstantTextStyle.vendorRatingWidgetTxtStyle,
                 ),
                 TextButton(
-                    onPressed: () =>startAddNewTransaction(context),
+                    onPressed: () =>startAddNewTransaction(context,id1),
                     child: const Text(
                       'See all',
                       style: ConstantTextStyle.vendorRtgWgtSeeAllTxtStyle,

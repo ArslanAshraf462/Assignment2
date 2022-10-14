@@ -1,4 +1,3 @@
-import '../model/new_product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,28 +7,15 @@ import '../services/new_product_services.dart';
 import 'container_widget.dart';
 import 'favorite_icon_widget.dart';
 
-class CardWidget extends StatefulWidget {
-  @override
-  State<CardWidget> createState() => _CardWidgetState();
-}
-
-class _CardWidgetState extends State<CardWidget> {
- @override
-  void initState() {
-    // TODO: implement initState
-   Provider.of<NewProductServices>(context,listen: false).getNewProductdata();
-    super.initState();
-  }
+class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    NewProductServices newProductServices =NewProductServices();
     return Column(
       children: [
-           FutureBuilder<NewProductModel>(
-             future: newProductServices.getNewProductdata(),
-             builder: (context,snapshot) {
-               if(snapshot.hasData){
+           Consumer<NewProductServices>(
+             builder: (context,snapshot,_) {
+               if(snapshot.isLoading){
                  return Column(
                    children: [
                      for(int index2 =0; index2 < snapshot.data!.results!.length ; index2++)...[

@@ -1,3 +1,5 @@
+import '../services/recommended_product_service.dart';
+
 import '../services/product_detail_services.dart';
 import '../services/categoriess_services.dart';
 import '../services/new_product_services.dart';
@@ -46,6 +48,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (_) => CategoriesServices(),),
         ChangeNotifierProvider(create: (_) => ReviewsServices(),),
         ChangeNotifierProvider(create: (_) => ProductDetailServices(),),
+        ChangeNotifierProvider(create: (_) => RecommendedProductServices(),),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

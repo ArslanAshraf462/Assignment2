@@ -1,27 +1,17 @@
+import 'package:provider/provider.dart';
 import '../screens/details_1_vender_screen.dart';
-
-import '../model/recommended_product_model.dart';
 import '../services/recommended_product_service.dart';
 import 'package:flutter/material.dart';
-
 import '../constants.dart';
 import 'container_widget.dart';
 import 'favorite_icon_widget.dart';
-class RecommendedCardWidget extends StatefulWidget {
-
-  @override
-  State<RecommendedCardWidget> createState() => _RecommendedCardWidgetState();
-}
-
-class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
+class RecommendedCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RecommendedProductServices productServices = RecommendedProductServices();
-    return  FutureBuilder<RecommendProductModel>(
-      future: productServices.getRecommendProductdata(),
-      builder: (context,snapshot) {
-        if(snapshot.hasData){
+    return  Consumer<RecommendedProductServices>(
+      builder: (context,snapshot,_) {
+        if(snapshot.isloaded){
           return ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: snapshot.data!.results!.length,
@@ -98,17 +88,6 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                                 : ContainerWidget(text: snapshot.data!.results![index].vendors![numb].vendor!.toString(),width: 36,
                                               height: 18,),
                                             SizedBox(width: 5,),
-                                            // snapshot.data![index].results![pro].vendors![numb].vendor!.isEmpty
-                                            //     ? Container()
-                                            //     : ContainerWidget(text: snapshot.data![index].results![pro].vendors![numb].vendor!.toString(),
-                                            //   height: 18,
-                                            //   width: 36,),
-                                            // SizedBox(width: 5,),
-                                            // snapshot.data![index].results![pro].vendors![numb].vendor!.isEmpty
-                                            //     ? Container()
-                                            //     : ContainerWidget(text: snapshot.data![index].results![pro].vendors![numb].vendor!.toString(),width: 36,
-                                            //   height: 18,),
-
                                           ],
                                         );
                                       }
@@ -123,10 +102,6 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                   ),
                 );
               }
-            //       ),
-            //     ),
-            //   ],
-            // );
 
           );
         }

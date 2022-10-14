@@ -5,10 +5,20 @@ import '../model/new_product_model.dart';
 import 'package:http/http.dart' as http;
 
 class NewProductServices with ChangeNotifier {
+  var _data;
+  bool _isLoading=false;
 
-  //List<NewProductModel> _newProList = [];
+  bool get isLoading => _isLoading;
 
- // List<NewProductModel> get newProList => _newProList;
+  set isLoading(bool value) {
+    _isLoading = value;
+  }
+
+  get data => _data;
+
+  set data(value) {
+    _data = value;
+  }
 
   String url = 'https://data-otterli-staging.com/api/latest_products/';
   Future<NewProductModel> getNewProductdata() async {
@@ -19,16 +29,14 @@ class NewProductServices with ChangeNotifier {
           'Authorization': 'Token bfdf77e6a72ce81badfcc847aaf041255cd65928',
         }
     );
-    var data = json.decode(response.body);
     if(response.statusCode == 200 || response.statusCode == 201) {
-      //  for(Map i in data){
-      // newProList.add(NewProductModel.fromJson(data));
-      //  }
+      data=NewProductModel.fromJson(json.decode(response.body));
+      isLoading=true;
        notifyListeners();
-      return NewProductModel.fromJson(data);
+      return data;
     }else{
-
-      return NewProductModel.fromJson(data);
+      isLoading=false;
+      return data;
     }
   }
 }

@@ -52,7 +52,7 @@ class SearchResultScreen extends StatelessWidget {
                   height: 550,
                   child: Padding(
                     padding: EdgeInsets.only(left: 20,right: 20),
-                    child: SearchResultGridViewWidget(id: idCount,),
+                    child: SearchResultGridViewWidget(ids: idCount,),
                   ),
                 ),
                 VerticalSizedWidget(60),

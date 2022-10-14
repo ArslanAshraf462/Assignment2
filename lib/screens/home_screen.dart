@@ -1,10 +1,6 @@
-import 'package:assignment_2/model/new_product_model.dart';
-import 'package:assignment_2/model/recommended_product_model.dart';
-import 'package:assignment_2/services/recommended_product_service.dart';
+import '../services/recommended_product_service.dart';
 import 'package:provider/provider.dart';
-
 import '../constants.dart';
-
 import '../services/new_product_services.dart';
 import '../widgets/card_widget.dart';
 import '../widgets/categories_widget.dart';
@@ -13,28 +9,15 @@ import '../widgets/recommend_card_widget.dart';
 import '../widgets/text_field_widget.dart';
 import '../widgets/vertical_sized_widget.dart';
 import 'package:flutter/material.dart';
-
 import 'search_result_screen.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    //Provider.of<RecommendedProductServices>(context,listen: false).getRecommendProductdata();
-    Provider.of<NewProductServices>(context,listen: false).getNewProductdata();
-    super.initState();
-  }
-  @override
   Widget build(BuildContext context) {
-    NewProductServices newProductServices =NewProductServices();
-    RecommendedProductServices recommendedProductServices = RecommendedProductServices();
+    Provider.of<RecommendedProductServices>(context,listen: false).getRecommendProductdata();
+    Provider.of<NewProductServices>(context,listen: false).getNewProductdata();
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
@@ -65,13 +48,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("All Categories", style: ConstantTextStyle.homeTextHeadingStyle),
                 ),
                 CategoriesWidget(),
-                FutureBuilder<RecommendProductModel>(
-                  future: recommendedProductServices.getRecommendProductdata(),
-                  builder: (context, snapshot) {
+                Consumer<RecommendedProductServices>(
+                  builder: (context, snapshot,_) {
                   return GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                          SearchResultScreen(snapshot!.data!.count!),
+                          SearchResultScreen(snapshot.data!.count!),
 
                       ),
                       );
@@ -88,9 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 220,
                       child: RecommendedCardWidget(),),
                 ),
-                FutureBuilder<NewProductModel>(
-                  future: newProductServices.getNewProductdata(),
-                  builder: (context, snapshot) {
+                Consumer<NewProductServices>(
+                  builder: (context, snapshot,_) {
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(builder: (context) =>

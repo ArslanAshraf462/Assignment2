@@ -1,7 +1,7 @@
+import '../widgets/card_widget.dart';
+
 import '../constants.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/new_product_card_widget.dart';
 import '../widgets/text_field_widget.dart';
 import '../widgets/title_widget.dart';
 import '../widgets/vertical_sized_widget.dart';
@@ -28,7 +28,7 @@ class FavoriteScreen extends StatelessWidget {
                   VerticalSizedWidget(29.0),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0,right: 20.0),
-                    // child: NewProductCardWidget(),
+                     child: CardWidget(),
                   ),
                   VerticalSizedWidget(35),
                 ],

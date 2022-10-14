@@ -11,20 +11,21 @@ import 'elevated_btn_widget.dart';
 import 'vertical_sized_widget.dart';
 
 class AllReviewsWidget extends StatefulWidget {
+  final int id3;
+  AllReviewsWidget(this.id3);
+
   @override
   State<AllReviewsWidget> createState() => _AllReviewsWidgetState();
 }
 
 class _AllReviewsWidgetState extends State<AllReviewsWidget> {
-
   @override
   void initState() {
     // TODO: implement initState
     Provider.of<ReviewsServices>(context,listen: false).getReviewData();
     super.initState();
   }
-
-  double rating = 0;
+  int a=0;
 
   void startAddNewTransaction(BuildContext ctx){
     showModalBottomSheet(
@@ -62,11 +63,8 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return Consumer<ReviewsServices>(
-      builder: (context,review,_) {
         return Column(
           children: [
             VerticalSizedWidget(20.0),
@@ -74,7 +72,6 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
               text: 'Add your review',
             width: 232.0,
             height: 62.0,),
-            for(int index=0;index<review.reviewList.length;index++)...[
               Padding(
                 padding: const EdgeInsets.only(top: 11.0,left: 15.0,right: 15.0,bottom: 6.0),
                 child: Row(
@@ -92,58 +89,68 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                 child: Divider(),
               ),
               Expanded(
-                child: ListView.builder(
-                  itemCount: review.reviewList![index].results!.length,
-                  itemBuilder: (context, index2) {
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 20.0, right: 25.0,top: 15.0 ),
-                      child: Row(
-                        children: [
-                          Column(
-                            children: [
-                              const CircleAvatar(
-                                backgroundImage: AssetImage('assets/images/image.png'),
-                              ),
-                              VerticalSizedWidget(3.0),
-                              const Text('John Mike',
-                                style: ConstantTextStyle.reviewNameTxtStyle,
-                              ),
-                            ],
-                          ),
-                          HorizontalSizedWidget(15.0),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              RatingBar.builder(
-                                itemBuilder: (context, _) {
-                                  return Icon(Icons.star, color: Colors.amber,);
-                                },
-                                onRatingUpdate: (rating) {
-                                  this.rating=rating;
-                                },
-                                itemSize: 15.0,
-                                updateOnDrag: true,
-                                minRating: 1.0,
-                              ),
+                child: Consumer<ReviewsServices>(
+                    builder: (context,review,_) {
+                    return review.data != null ? ListView.builder(
+                      itemCount: review.data!.results!.length,
+                      itemBuilder: (context, index2) {
 
-                              SizedBox(
-                                width: 250.0,
-                                child: Text(review.reviewList[index].results![index2].keep.toString(),
-                                  style: TextStyle(color: Color(0xffAFAFAF),),
+                          if(review.isloaded){
+                            if(widget.id3==review.data!.results![index2].productId){
+                              return Padding(
+                                padding: const EdgeInsets.only(left: 20.0, right: 25.0,top: 15.0 ),
+                                child: Row(
+                                  children: [
+                                    Column(
+                                      children: [
+                                        const CircleAvatar(
+                                          backgroundImage: AssetImage('assets/images/image.png'),
+                                        ),
+                                        VerticalSizedWidget(3.0),
+                                        Text(review.data!.results![index2].username.toString(),
+                                          style: ConstantTextStyle.reviewNameTxtStyle,
+                                        ),
+                                      ],
+                                    ),
+                                    HorizontalSizedWidget(15.0),
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        RatingBar.builder(
+                                          itemBuilder: (context, _) {
+                                            return Icon(Icons.star, color: Colors.amber,);
+                                          },
+                                          onRatingUpdate: (rating) {
+                                            rating=review.data!.results![index2].rating!.toDouble();
+                                          },
+                                          itemSize: 15.0,
+                                          updateOnDrag: false,
+                                          initialRating: review.data!.results![index2].rating!.toDouble(),
+                                          maxRating: review.data!.results![index2].rating!.toDouble(),
+                                        ),
+
+                                        SizedBox(
+                                          width: 250.0,
+                                          child: Text(review.data!.results![index2].review.toString(),
+                                            style: TextStyle(color: Color(0xffAFAFAF),),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  },),
+                              );
+                            }
+                          }
+
+                        return Container();
+                      },) : SizedBox.shrink();
+                  }
+                ),
               ),
-            ],
+           // ],
           ],
         );
-      }
-    );
   }
 }

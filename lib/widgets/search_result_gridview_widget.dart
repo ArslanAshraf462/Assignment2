@@ -9,38 +9,22 @@ import '../services/new_product_services.dart';
 import 'container_widget.dart';
 import 'favorite_icon_widget.dart';
 
-class SearchResultGridViewWidget extends StatefulWidget {
-  final int id;
-  SearchResultGridViewWidget({required this.id});
-
-  @override
-  State<SearchResultGridViewWidget> createState() => _SearchResultGridViewWidgetState();
-}
-
-class _SearchResultGridViewWidgetState extends State<SearchResultGridViewWidget> {
-  @override
-  void initState() {
-    // TODO: implement initState
-   // Provider.of<RecommendedProductServices>(context,listen: false).getRecommendProductdata();
-    Provider.of<NewProductServices>(context,listen: false).getNewProductdata();
-    super.initState();
-  }
+class SearchResultGridViewWidget extends StatelessWidget {
+  final int ids;
+  SearchResultGridViewWidget({required this.ids});
 
   @override
   Widget build(BuildContext context) {
-    RecommendedProductServices recommendedProductServices=RecommendedProductServices();
-    NewProductServices newProductServices= NewProductServices();
 
     return Column(
       children: [
-      if(widget.id==25)...[
+      if(ids==25)...[
     Container(
       width: double.infinity,
       height: 500,
-      child: FutureBuilder(
-      future: recommendedProductServices.getRecommendProductdata(),
-      builder: (context, snapshot) {
-      if (snapshot.hasData) {
+      child: Consumer<RecommendedProductServices>(
+      builder: (context, snapshot,_) {
+      if (snapshot.isloaded) {
       return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
       mainAxisSpacing: 2.0,
@@ -61,7 +45,6 @@ class _SearchResultGridViewWidgetState extends State<SearchResultGridViewWidget>
       },
       child: Column(
       children: [
-      //if(snapshot.data!.count == 25)...[
       Card(
       elevation: 1,
       color: const Color(0xffFFFFFF),
@@ -141,16 +124,7 @@ class _SearchResultGridViewWidgetState extends State<SearchResultGridViewWidget>
                           : ContainerWidget(text: snapshot.data!.results![index].vendors![numb].vendor!.toString(),width: 36,
                         height: 18,),
                       SizedBox(width: 5,),
-                      // snapshot.data![index].results![pro].vendors![numb].vendor!.isEmpty
-                      //     ? Container()
-                      //     : ContainerWidget(text: snapshot.data![index].results![pro].vendors![numb].vendor!.toString(),
-                      //   height: 18,
-                      //   width: 36,),
-                      // SizedBox(width: 5,),
-                      // snapshot.data![index].results![pro].vendors![numb].vendor!.isEmpty
-                      //     ? Container()
-                      //     : ContainerWidget(text: snapshot.data![index].results![pro].vendors![numb].vendor!.toString(),width: 36,
-                      //   height: 18,),
+
 
                     ],
                   );
@@ -165,8 +139,6 @@ class _SearchResultGridViewWidgetState extends State<SearchResultGridViewWidget>
       ),
       ),
       ],
-
-   // ],
       ),
       );
       }
@@ -177,14 +149,13 @@ class _SearchResultGridViewWidgetState extends State<SearchResultGridViewWidget>
       ),
     ),
       ],
-        if(widget.id==75)...[
+        if(ids==75)...[
           Container(
             width: double.infinity,
             height: 480,
-            child: FutureBuilder(
-                future: newProductServices.getNewProductdata(),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
+            child: Consumer<NewProductServices>(
+                builder: (context, snapshot,_) {
+                  if (snapshot.isLoading) {
                     return GridView.builder(
                         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           mainAxisSpacing: 2.0,

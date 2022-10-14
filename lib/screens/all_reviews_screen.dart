@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 
 class AllReviews extends StatelessWidget {
   final Widget child;
-  AllReviews({required this.child});
+  final int id2;
+  AllReviews({required this.child,required this.id2});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class AllReviews extends StatelessWidget {
               VerticalSizedWidget(33.0),
               BottomContainerWidget(
                 closeIcon: child,
-                child: AllReviewsWidget(),),
+                child: AllReviewsWidget(id2),),
             ],
           ),
 
