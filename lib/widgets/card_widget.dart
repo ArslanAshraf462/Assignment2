@@ -2,15 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../constants.dart';
-import '../screens/details_1_vender_screen.dart';
+import '../Detail_vendor_screen/details_1_vender_screen.dart';
 import '../services/new_product_services.dart';
 import 'container_widget.dart';
 import 'favorite_icon_widget.dart';
 
-class CardWidget extends StatelessWidget {
+class CardWidget extends StatefulWidget {
 
   @override
+  State<CardWidget> createState() => _CardWidgetState();
+}
+
+class _CardWidgetState extends State<CardWidget> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    Provider.of<NewProductServices>(context,listen: false).getNewProductdata();
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
+    var screenSize=MediaQuery.of(context).size;
     return Column(
       children: [
            Consumer<NewProductServices>(
@@ -29,28 +41,38 @@ class CardWidget extends StatelessWidget {
                            color: Colors.white,
                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
                            child: SizedBox(
-                             width: 379,
-                             height: 122,
+                             height:screenSize.height*0.15,
+                             width: screenSize.width*0.9,
+
+                             // width: 379,
+                             // height: 122,
                              child: Stack(
                                children: [
-                                 const Padding(
-                                   padding: EdgeInsets.only(left: 300,top: 8.0,),
+                                  Padding(
+                                   padding: EdgeInsets.only(left: screenSize.width*0.8,top: screenSize.height*0.01,),
                                    child: FavoriteIconWidget(),
                                  ),
                                  Row(
                                    children: [
                                      SizedBox(
-                                         height: 110,
-                                         width: 110,
+                                       height: screenSize.height*0.25,
+                                         width: screenSize.width*0.25,
+                                         // height: 110,
+                                         // width: 110,
                                          child: Image.network(snapshot.data!.results![index2].imageUrl.toString())),
                                      Column(
                                        crossAxisAlignment: CrossAxisAlignment.start,
                                        children: [
                                          Padding(
-                                           padding: const EdgeInsets.only(top: 9.0),
+                                           padding: EdgeInsets.only(
+                                             top: screenSize.height*0.01,
+                                               //top: 9.0
+                                           ),
                                            child: SizedBox(
-                                             height: 60,
-                                             width: 200,
+                                             height: screenSize.height*0.07,
+                                             width: screenSize.width*0.55,
+                                             // height: 60,
+                                             // width: 200,
                                              child: Text(snapshot.data!.results![index2].name.toString(),
                                                  style: ConstantTextStyle.productBodyHeadingStyle),
                                            ),
@@ -65,7 +87,10 @@ class CardWidget extends StatelessWidget {
                                          //   ),
                                          // ),
                                          Padding(
-                                           padding: const EdgeInsets.only(top:15.0),
+                                           padding: EdgeInsets.only(
+                                             top: screenSize.height*0.03,
+                                               //top:15.0,
+                                           ),
                                            child: Row(
                                              children: [
                                                for(int index3 = 0; index3 < snapshot.data!.results![index2].vendors!.length; index3++)...[
@@ -73,7 +98,10 @@ class CardWidget extends StatelessWidget {
                                                ],
 
                                                Padding(
-                                                 padding: const EdgeInsets.only(left: 12.0),
+                                                 padding:  EdgeInsets.only(
+                                                   left: screenSize.width*0.03
+                                                 //    left: 12.0
+                                                 ),
                                                  child: Row(
                                                    children: const [
                                                      Icon(Icons.star_half,color: Color(0xffF3D434),size: 14,),
@@ -81,22 +109,33 @@ class CardWidget extends StatelessWidget {
                                                    ],
                                                  ),
                                                ),
-                                               const Padding(
-                                                 padding: EdgeInsets.only(left: 30.0),
+                                                Padding(
+                                                 padding: EdgeInsets.only(
+                                                   left: screenSize.width*0.07,
+                                                   //  left: 30.0
+                                                 ),
                                                  child: ContainerWidget(
-                                                   width: 36,
-                                                   height: 18,
+                                                   width: screenSize.width*0.08,
+                                                   height: screenSize.height*0.025,
+                                                   // width: 36,
+                                                   // height: 18,
                                                    text: 'text1',
                                                  ),
                                                ),
-                                               const SizedBox(width: 5,),
-                                               const ContainerWidget(text: 'text2',
-                                                 height: 18,
-                                                 width: 23,),
-                                               const SizedBox(width: 5,),
-                                               const ContainerWidget(text: 'text3',
-                                                 height: 18,
-                                                 width: 32,),
+                                                SizedBox(width: screenSize.width*0.01,),
+                                                ContainerWidget(text: 'text2',
+                                                 width: screenSize.width*0.08,
+                                                 height: screenSize.height*0.025,
+                                                 // height: 18,
+                                                 // width: 23,
+                                               ),
+                                                SizedBox(width: screenSize.width*0.01,),
+                                                ContainerWidget(text: 'text3',
+                                                 width: screenSize.width*0.08,
+                                                 height: screenSize.height*0.025,
+                                                 // height: 18,
+                                                 // width: 32,
+                                               ),
                                              ],
                                            ),
                                          )

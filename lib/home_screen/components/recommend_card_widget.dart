@@ -1,12 +1,23 @@
 import 'package:provider/provider.dart';
-import '../screens/details_1_vender_screen.dart';
-import '../services/recommended_product_service.dart';
+import '../../Detail_vendor_screen/details_1_vender_screen.dart';
+import '../../services/recommended_product_service.dart';
 import 'package:flutter/material.dart';
-import '../constants.dart';
-import 'container_widget.dart';
-import 'favorite_icon_widget.dart';
-class RecommendedCardWidget extends StatelessWidget {
+import '../../constants.dart';
+import '../../widgets/container_widget.dart';
+import '../../widgets/favorite_icon_widget.dart';
+class RecommendedCardWidget extends StatefulWidget {
 
+  @override
+  State<RecommendedCardWidget> createState() => _RecommendedCardWidgetState();
+}
+
+class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    Provider.of<RecommendedProductServices>(context,listen: false).getRecommendProductdata();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return  Consumer<RecommendedProductServices>(
@@ -19,7 +30,8 @@ class RecommendedCardWidget extends StatelessWidget {
                 return GestureDetector(
                   onTap: () {
                     id=snapshot.data!.results![index].id;
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailVenderScreen(),));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                      return DetailVenderScreen();}));
                   },
                   child: Card(
                     elevation: 1,
@@ -44,7 +56,7 @@ class RecommendedCardWidget extends StatelessWidget {
                                     child: Image.network(snapshot.data!.results![index].imageUrl.toString()))),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(top: 8.0,left: 10.0),
+                                padding: const EdgeInsets.only(top: 8.0,left: 10.0),
                                 child: Text(snapshot.data!.results![index].name.toString(),
                                     overflow: TextOverflow.ellipsis,
                                     style: ConstantTextStyle.recommendTextHeadStyle),),
@@ -67,7 +79,9 @@ class RecommendedCardWidget extends StatelessWidget {
                                     ),
                                     Row(children: [
                                       const Icon(Icons.star_half,color: Color(0xffF3D434),size: 14,),
-                                      Text(snapshot.data!.results![index].reviews!.avgRating.toString(),style: ConstantTextStyle.recommendTextBodyStyle),
+                                      Text(snapshot.data!.results![index].reviews!.avgRating.toString(),
+                                          style: ConstantTextStyle.recommendTextBodyStyle,
+                                      ),
                                     ],)
                                   ],
                                 ),

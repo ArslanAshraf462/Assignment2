@@ -5,23 +5,16 @@ import 'package:http/http.dart' as http;
 
 class CategoriesServices with ChangeNotifier {
 
-  var _data;
+  CategoriesModel? _data;
   bool _isloaded = false;
 
   bool get isloaded => _isloaded;
 
-  set isloaded(bool value) {
-    _isloaded = value;
-  }
+  CategoriesModel? get data => _data;
 
-  get data => _data;
-
-  set data(value) {
-    _data = value;
-  }
 
   String url = 'https://data-otterli-staging.com/api/categories/?icons=True';
-  Future<CategoriesModel> getCategoriesdata() async {
+  Future getCategoriesdata() async {
     var response = await http.get(Uri.parse(url),
         headers: {
           'Content-Type': 'application/json',
@@ -29,18 +22,14 @@ class CategoriesServices with ChangeNotifier {
           'Authorization': 'Token bfdf77e6a72ce81badfcc847aaf041255cd65928',
         }
     );
-   // var data = json.decode(response.body);
     if(response.statusCode == 200 || response.statusCode == 201) {
-      //  for(Map i in data){
-     // newCatList.add(CategoriesModel.fromJson(data));
-      //  }
-      data = CategoriesModel.fromJson(json.decode(response.body));
-      isloaded= true;
+      _data = CategoriesModel.fromJson(json.decode(response.body));
+      _isloaded= true;
       notifyListeners();
-      return data;
     }else{
-      isloaded = false;
-      return data;
+      _isloaded = false;
+      notifyListeners();
+      throw Exception('Error');
     }
   }
 }

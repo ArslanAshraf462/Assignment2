@@ -3,22 +3,34 @@ import 'package:provider/provider.dart';
 import '../constants.dart';
 import '../services/new_product_services.dart';
 import '../widgets/card_widget.dart';
-import '../widgets/categories_widget.dart';
-import '../widgets/home_refs_text_widget.dart';
-import '../widgets/recommend_card_widget.dart';
+import 'components/categories_widget.dart';
+import 'components/home_refs_text_widget.dart';
+import 'components/recommend_card_widget.dart';
 import '../widgets/text_field_widget.dart';
 import '../widgets/vertical_sized_widget.dart';
 import 'package:flutter/material.dart';
-import 'search_result_screen.dart';
+import '../search_result_screen/search_result_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
     Provider.of<RecommendedProductServices>(context,listen: false).getRecommendProductdata();
     Provider.of<NewProductServices>(context,listen: false).getNewProductdata();
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+
     return Scaffold(
+      backgroundColor: Colors.white,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: SingleChildScrollView(
@@ -41,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(
                       left: 24, top: 31.0, right: 24),
                   child: TextFieldWidget(
-                      height: 48, width: 372, hintText: 'I\'m looking for...'),
+                      height: 48, width: 372, hintText: searchText),
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 26.0, left: 24),
@@ -75,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                            SearchResultScreen(snapshot!.data!.count!),
+                            SearchResultScreen(snapshot.data!.count!),
 
                         ),
                         );

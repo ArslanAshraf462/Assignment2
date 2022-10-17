@@ -1,6 +1,6 @@
-import '../constants.dart';
-import '../screens/all_reviews_screen.dart';
-import '../widgets/vertical_sized_widget.dart';
+import '../../constants.dart';
+import '../../all_reviews_screen/all_reviews_screen.dart';
+import '../../widgets/vertical_sized_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 

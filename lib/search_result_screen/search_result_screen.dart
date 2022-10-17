@@ -1,6 +1,6 @@
 import '../constants.dart';
-import '../widgets/search_filter_widget.dart';
-import '../widgets/search_result_gridview_widget.dart';
+import 'components/search_filter_widget.dart';
+import 'components/search_result_gridview_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/horizontal_sized_widget.dart';
@@ -15,6 +15,7 @@ class SearchResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: SingleChildScrollView(

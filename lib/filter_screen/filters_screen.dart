@@ -1,6 +1,6 @@
 import '../constants.dart';
 import '../widgets/botton_container_widget.dart';
-import '../widgets/filters_select_btn_widget.dart';
+import 'components/filters_select_btn_widget.dart';
 import '../widgets/vertical_sized_widget.dart';
 import 'package:flutter/material.dart';
 

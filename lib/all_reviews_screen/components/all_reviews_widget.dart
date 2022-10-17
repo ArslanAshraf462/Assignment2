@@ -1,14 +1,14 @@
 import 'package:provider/provider.dart';
 
-import '../constants.dart';
-import '../screens/all_reviews_filter_screen.dart';
-import '../services/reviews_services.dart';
-import '../widgets/horizontal_sized_widget.dart';
+import '../../constants.dart';
+import '../../all_review_filter_screen/all_reviews_filter_screen.dart';
+import '../../services/reviews_services.dart';
+import '../../widgets/horizontal_sized_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import 'elevated_btn_widget.dart';
-import 'vertical_sized_widget.dart';
+import '../../widgets/elevated_btn_widget.dart';
+import '../../widgets/vertical_sized_widget.dart';
 
 class AllReviewsWidget extends StatefulWidget {
   final int id3;

@@ -1,13 +1,13 @@
-import '../services/recommended_product_service.dart';
+import '../../services/recommended_product_service.dart';
 import 'package:provider/provider.dart';
 
-import '../constants.dart';
-import '../screens/details_1_vender_screen.dart';
+import '../../constants.dart';
+import '../../Detail_vendor_screen/details_1_vender_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../services/new_product_services.dart';
-import 'container_widget.dart';
-import 'favorite_icon_widget.dart';
+import '../../services/new_product_services.dart';
+import '../../widgets/container_widget.dart';
+import '../../widgets/favorite_icon_widget.dart';
 
 class SearchResultGridViewWidget extends StatelessWidget {
   final int ids;
@@ -279,7 +279,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
                 }
             ),
           ),
-        ]
+        ],
       ],
     );
 

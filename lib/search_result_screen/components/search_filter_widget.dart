@@ -1,7 +1,9 @@
-import '../screens/filters_screen.dart';
+import 'package:assignment_2/constants.dart';
+
+import '../../filter_screen/filters_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'text_field_widget.dart';
+import '../../widgets/text_field_widget.dart';
 
 class SearchFilterWidget extends StatelessWidget {
    void startAddNewTransaction(BuildContext ctx){
@@ -49,7 +51,7 @@ class SearchFilterWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          TextFieldWidget(height: 48, width: 240, hintText: 'I\'m looking for...'),
+          TextFieldWidget(height: 48, width: 240, hintText: searchText),
           GestureDetector(
             onTap: () => startAddNewTransaction(context),
             child: Container(

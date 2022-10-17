@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 int selectedPage = 0;
 var id;
+var name;
+String searchText='I\'m looking for...';
 List item = [
   'Rating',
   'Most Popular',

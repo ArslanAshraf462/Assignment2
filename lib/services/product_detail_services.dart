@@ -7,7 +7,7 @@ import '../model/product_detail_model.dart';
 
 class ProductDetailServices with ChangeNotifier {
 
-  var _data;
+  ProductDetailModel? _data;
   bool _isloading=false;
 
   bool get isloading => _isloading;
@@ -16,14 +16,10 @@ class ProductDetailServices with ChangeNotifier {
     _isloading = value;
   }
 
-  get data => _data;
-
-  set data(value) {
-    _data = value;
-  }
+  ProductDetailModel? get data => _data;
 
   String url = 'https://data-otterli-staging.com/api/product_details/$id';
-  Future<ProductDetailModel> getProductDetaildata() async {
+  Future getProductDetaildata() async {
     var response = await http.get(Uri.parse(url),
         headers: {
           'Content-Type': 'application/json',
@@ -32,13 +28,13 @@ class ProductDetailServices with ChangeNotifier {
         }
     );
     if(response.statusCode == 200 || response.statusCode == 201) {
-      data=ProductDetailModel.fromJson(json.decode(response.body));
-      isloading=true;
+      _data=ProductDetailModel.fromJson(json.decode(response.body));
+      _isloading=true;
       notifyListeners();
-      return data;
     }else{
-      isloading=false;
-      return data;
+      _isloading=false;
+      notifyListeners();
+      throw Exception('Error');
     }
   }
 }

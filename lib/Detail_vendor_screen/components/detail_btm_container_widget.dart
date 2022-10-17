@@ -1,13 +1,13 @@
-import '../services/product_detail_services.dart';
+import '../../services/product_detail_services.dart';
 import 'package:provider/provider.dart';
 
-import '../constants.dart';
-import '../widgets/category_vender_widget.dart';
-import '../widgets/elevated_btn_widget.dart';
+import '../../constants.dart';
+import 'category_vender_widget.dart';
+import '../../widgets/elevated_btn_widget.dart';
 
-import '../widgets/circular_favorite_icon_widget.dart';
-import '../widgets/vender_rating_widget.dart';
-import '../widgets/vertical_sized_widget.dart';
+import 'circular_favorite_icon_widget.dart';
+import 'vender_rating_widget.dart';
+import '../../widgets/vertical_sized_widget.dart';
 import 'package:flutter/material.dart';
 class DetailBottomContainerWidget extends StatelessWidget {
   const DetailBottomContainerWidget({
@@ -34,8 +34,8 @@ class DetailBottomContainerWidget extends StatelessWidget {
       ),
       child: Consumer<ProductDetailServices>(
         builder: (context,snapshot,_) {
-          if(snapshot.isloading)
-            {
+         if(snapshot.isloading)
+           {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -139,8 +139,8 @@ class DetailBottomContainerWidget extends StatelessWidget {
                   ),
                 ],
               );
-            }
-          return Center(child: CircularProgressIndicator(),);
+           }
+          return Container();//Center(child: CircularProgressIndicator(),);
         }
       ),
     );

@@ -1,11 +1,10 @@
 import '../services/recommended_product_service.dart';
-
 import '../services/product_detail_services.dart';
 import '../services/categoriess_services.dart';
 import '../services/new_product_services.dart';
 import '../screens/account_screen.dart';
-import '../screens/favorite_screen.dart';
-import '../screens/home_screen.dart';
+import 'favorite_screen/favorite_screen.dart';
+import 'home_screen/home_screen.dart';
 import '../screens/menu_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

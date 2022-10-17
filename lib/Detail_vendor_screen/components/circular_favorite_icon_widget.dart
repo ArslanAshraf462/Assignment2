@@ -1,4 +1,4 @@
-import '../widgets/favorite_icon_widget.dart';
+import '../../widgets/favorite_icon_widget.dart';
 import 'package:flutter/material.dart';
 
 class CircularFavoriteIconWidget extends StatelessWidget {

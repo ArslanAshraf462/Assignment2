@@ -5,23 +5,23 @@ import '../model/new_product_model.dart';
 import 'package:http/http.dart' as http;
 
 class NewProductServices with ChangeNotifier {
-  var _data;
+  NewProductModel? _data;
   bool _isLoading=false;
 
   bool get isLoading => _isLoading;
 
-  set isLoading(bool value) {
-    _isLoading = value;
-  }
+  // set isLoading(bool value) {
+  //   _isLoading = value;
+  // }
 
-  get data => _data;
+  NewProductModel? get data => _data;
 
   set data(value) {
     _data = value;
   }
 
   String url = 'https://data-otterli-staging.com/api/latest_products/';
-  Future<NewProductModel> getNewProductdata() async {
+  Future getNewProductdata() async {
     var response = await http.get(Uri.parse(url),
         headers: {
           'Content-Type': 'application/json',
@@ -30,13 +30,13 @@ class NewProductServices with ChangeNotifier {
         }
     );
     if(response.statusCode == 200 || response.statusCode == 201) {
-      data=NewProductModel.fromJson(json.decode(response.body));
-      isLoading=true;
+      _data=NewProductModel.fromJson(json.decode(response.body));
+      _isLoading=true;
        notifyListeners();
-      return data;
     }else{
-      isLoading=false;
-      return data;
+      _isLoading=false;
+      notifyListeners();
+      throw Exception('Error');
     }
   }
 }

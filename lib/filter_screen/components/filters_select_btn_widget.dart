@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'selection_button_widget.dart';
-import 'vertical_sized_widget.dart';
+import '../../widgets/vertical_sized_widget.dart';
 class FilterSelectBtnWidget extends StatelessWidget {
   const FilterSelectBtnWidget({
     Key? key,
