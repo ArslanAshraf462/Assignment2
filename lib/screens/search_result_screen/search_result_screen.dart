@@ -1,12 +1,12 @@
-import '../constants.dart';
+import '../../constants.dart';
 import 'components/search_filter_widget.dart';
 import 'components/search_result_gridview_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/horizontal_sized_widget.dart';
-import '../widgets/pop_screen_widget.dart';
-import '../widgets/title_widget.dart';
-import '../widgets/vertical_sized_widget.dart';
+import '../../widgets/horizontal_sized_widget.dart';
+import '../../widgets/pop_screen_widget.dart';
+import '../../widgets/title_widget.dart';
+import '../../widgets/vertical_sized_widget.dart';
 
 class SearchResultScreen extends StatelessWidget {
   final int idCount;
@@ -14,6 +14,7 @@ class SearchResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var screenSize=MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: GestureDetector(
@@ -24,16 +25,22 @@ class SearchResultScreen extends StatelessWidget {
              // mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(ConstantImage.navImage, width: double.infinity,),
+                Image.asset(AppAssets.navImage, width: double.infinity,),
                 VerticalSizedWidget(25.0),
                 Row(
                   children: [
-                    HorizontalSizedWidget(20.0),
+                    HorizontalSizedWidget(
+                      screenSize.width*0.04
+                       // 20.0
+                    ),
                     GestureDetector(
                       onTap: () => Navigator.of(context).pop(),
                         child: PopScreenWidget(title: 'Home'),
                     ),
-                    HorizontalSizedWidget(50.0),
+                    HorizontalSizedWidget(
+                        screenSize.width*0.15
+                        //50.0
+                    ),
                     TitleWidget(title: 'Search Result', fontWeight: FontWeight.normal),
                   ],
                 ),
@@ -41,7 +48,10 @@ class SearchResultScreen extends StatelessWidget {
                 SearchFilterWidget(),
                 VerticalSizedWidget(30),
                 Padding(
-                  padding: EdgeInsets.only(left: 20),
+                  padding: EdgeInsets.only(
+                    left: screenSize.width*0.05,
+                      //left: 20,
+                  ),
                   child:
                   idCount == 25
                       ? Text('25 Results for “Recommended Products”')
@@ -50,9 +60,15 @@ class SearchResultScreen extends StatelessWidget {
                 VerticalSizedWidget(26),
                  SizedBox(
                   width: double.infinity,
-                  height: 550,
+                 height: screenSize.height*8,
+                 // height: 550,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 20,right: 20),
+                    padding: EdgeInsets.only(
+                      left: screenSize.width*0.05,
+                        right: screenSize.width*0.05,
+                        // left: 20,
+                        // right: 20,
+                    ),
                     child: SearchResultGridViewWidget(ids: idCount,),
                   ),
                 ),

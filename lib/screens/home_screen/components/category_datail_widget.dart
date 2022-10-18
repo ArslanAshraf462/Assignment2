@@ -1,16 +1,16 @@
 import '../../Detail_vendor_screen/details_1_vender_screen.dart';
-import '../../services/product_detail_services.dart';
+import '../../../services/product_detail_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../constants.dart';
+import '../../../constants.dart';
 import '../../search_result_screen/components/search_filter_widget.dart';
-import '../../widgets/container_widget.dart';
-import '../../widgets/favorite_icon_widget.dart';
-import '../../widgets/horizontal_sized_widget.dart';
-import '../../widgets/pop_screen_widget.dart';
-import '../../widgets/title_widget.dart';
-import '../../widgets/vertical_sized_widget.dart';
+import '../../../widgets/container_widget.dart';
+import '../../../widgets/favorite_icon_widget.dart';
+import '../../../widgets/horizontal_sized_widget.dart';
+import '../../../widgets/pop_screen_widget.dart';
+import '../../../widgets/title_widget.dart';
+import '../../../widgets/vertical_sized_widget.dart';
 
 class CategoryDetailWidget extends StatelessWidget {
   final String namee;
@@ -31,7 +31,7 @@ class CategoryDetailWidget extends StatelessWidget {
               // mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(ConstantImage.navImage, width: double.infinity,),
+                Image.asset(AppAssets.navImage, width: double.infinity,),
                 VerticalSizedWidget(25.0),
                 Row(
                   children: [
@@ -76,7 +76,7 @@ class CategoryDetailWidget extends StatelessWidget {
                                           id = snapshot.data!.id;
                                           Navigator.of(context).push(
                                               MaterialPageRoute(builder: (context) {
-                                                return DetailVenderScreen();
+                                                return DetailVenderScreen(snapshot.data!.id!.toInt());
                                               },));
                                         },
                                         child: Column(

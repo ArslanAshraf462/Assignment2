@@ -12,9 +12,12 @@ class _SelectionButtonWidgetState extends State<SelectionButtonWidget> {
   bool _hasBeenPressed=false;
   @override
   Widget build(BuildContext context) {
+    var screenSize=MediaQuery.of(context).size;
     return Container(
-      height: 42,
-      width: 110,
+      height: screenSize.height*0.05,
+      width: screenSize.width*0.28,
+      // height: 42,
+      // width: 110,
       child: ElevatedButton(
         onPressed: (){
           setState(() {

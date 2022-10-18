@@ -1,9 +1,9 @@
-import '../constants.dart';
+import '../../constants.dart';
 
-import '../widgets/botton_container_widget.dart';
-import '../widgets/clear_apply_button_widget.dart';
-import '../widgets/radio_button_widget.dart';
-import '../widgets/vertical_sized_widget.dart';
+import '../../widgets/botton_container_widget.dart';
+import '../../widgets/clear_apply_button_widget.dart';
+import '../../widgets/radio_button_widget.dart';
+import '../../widgets/vertical_sized_widget.dart';
 import 'package:flutter/material.dart';
 
 class AllReviewsFilterScreen extends StatelessWidget {
@@ -13,11 +13,15 @@ class AllReviewsFilterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var screenSize=MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: SafeArea(
           child: Column(
             children: [
-              VerticalSizedWidget(12.0),
+              VerticalSizedWidget(
+                screenSize.height*0.02
+                 // 12.0,
+              ),
               Stack(
                 textDirection: TextDirection.ltr,
                 clipBehavior: Clip.none,
@@ -26,14 +30,24 @@ class AllReviewsFilterScreen extends StatelessWidget {
                     closeIcon: child,
                     child: Column(
                     children: [
-                      VerticalSizedWidget(40.0),
+                      VerticalSizedWidget(
+                          screenSize.height*0.04
+                      //    40.0
+                      ),
                       RadioButtonWidget(items: items,),
                       ClearApplyButtonWidget(),
-                      VerticalSizedWidget(270.0),
+                      VerticalSizedWidget(
+                          screenSize.height*0.35
+                      //    270.0
+                      ),
                     ],
                   ),),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 33,top: 12,),
+                   Padding(
+                    padding: EdgeInsets.only(
+                      top: screenSize.height*0.015,
+                      left: screenSize.width*0.08,
+                    //  left: 33,top: 12,
+                    ),
                     child: Text('Sort by',style: ConstantTextStyle.sortBy,),
                   ),
                 ],

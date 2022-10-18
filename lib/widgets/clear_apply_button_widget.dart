@@ -8,21 +8,29 @@ class ClearApplyButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var screenSize=MediaQuery.of(context).size;
     return Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 145,
-            height: 55,
+            width: screenSize.width*0.4,
+            height: screenSize.height*0.07,
+            // width: 145,
+            // height: 55,
             child: TextButton(onPressed: (){}, child: Text('Clear All'),
               style: ConstantButtonStyle.clearButtonStyle,
             ),
           ),
-          HorizontalSizedWidget(10.0),
+          HorizontalSizedWidget(
+            screenSize.width*0.02
+              //10.0
+          ),
           Container(
-            width: 145,
-            height: 55,
+            width: screenSize.width*0.4,
+            height: screenSize.height*0.07,
+            // width: 145,
+            // height: 55,
             child: ElevatedButton(onPressed: (){}, child: Text('Apply'),
               style: ConstantButtonStyle.applyButtonStyle,
             ),

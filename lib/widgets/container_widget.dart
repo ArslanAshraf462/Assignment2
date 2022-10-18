@@ -25,7 +25,11 @@ class ContainerWidget extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.only(left: 4.0,right: 4.0,top: 1.0,bottom: 1.0),
-        child: Text(text,style: ConstantTextStyle.containerWidgetTextStyle),
+        child: Center(
+          child: Text(text,
+              textAlign: TextAlign.center,
+              style: ConstantTextStyle.containerWidgetTextStyle),
+        ),
       ),
     );
   }

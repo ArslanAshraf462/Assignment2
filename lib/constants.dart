@@ -20,7 +20,7 @@ List itemz = [
 ];
 
 
-class ConstantImage{
+class AppAssets{
   static const String navImage= 'assets/images/top_nav.png';
   static const String logoImage ='assets/images/logo.png';
   static const List itemsImageList=[

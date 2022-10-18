@@ -36,7 +36,6 @@ class NewProductServices with ChangeNotifier {
     }else{
       _isLoading=false;
       notifyListeners();
-      throw Exception('Error');
     }
   }
 }

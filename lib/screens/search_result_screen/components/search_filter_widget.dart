@@ -3,11 +3,12 @@ import 'package:assignment_2/constants.dart';
 import '../../filter_screen/filters_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/text_field_widget.dart';
+import '../../../widgets/text_field_widget.dart';
 
 class SearchFilterWidget extends StatelessWidget {
    void startAddNewTransaction(BuildContext ctx){
      showModalBottomSheet(
+       isDismissible: false,
          isScrollControlled: true,
        shape: const RoundedRectangleBorder(
              borderRadius: BorderRadius.only(
@@ -18,7 +19,8 @@ class SearchFilterWidget extends StatelessWidget {
          context: ctx,
          builder: (builder){
            return Container(
-             height: 670.0,
+             height: MediaQuery.of(ctx).size.height*0.87,
+             //height: 670.0,
              color: Colors.transparent, //could change this to Color(0xFF737373),
              //so you don't have to change MaterialApp canvasColor
              child: Container(
@@ -46,17 +48,30 @@ class SearchFilterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var screenSize=MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.only(left: 20,right: 20),
+      padding: EdgeInsets.only(
+        left: screenSize.width*0.05,
+          right: screenSize.width*0.05,
+          // left: 20,
+          // right: 20,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          TextFieldWidget(height: 48, width: 240, hintText: searchText),
+          TextFieldWidget(
+              height: screenSize.height*0.06,
+              width: screenSize.width*0.6,
+              // height: 48,
+              // width: 240,
+              hintText: searchText),
           GestureDetector(
             onTap: () => startAddNewTransaction(context),
             child: Container(
-              height: 48,
-              width: 100,
+              height: screenSize.height*0.06,
+              width: screenSize.width*0.25,
+              // height: 48,
+              // width: 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
                 color: Color(0xff00A651),
@@ -68,7 +83,10 @@ class SearchFilterWidget extends StatelessWidget {
                 ],
               ),
               child: Padding(
-                padding: const EdgeInsets.all(13.0),
+                padding: EdgeInsets.only(
+                    left: screenSize.width*0.028,
+                    right: screenSize.width*0.028,
+                    top: screenSize.height*0.0045),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [

@@ -10,7 +10,7 @@ class AccountScreen extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          Image.asset(ConstantImage.navImage, width: double.infinity,),
+          Image.asset(AppAssets.navImage, width: double.infinity,),
           VerticalSizedWidget(280),
           Center(child: Text('This is account screen!'),),
         ],

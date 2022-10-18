@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'selection_button_widget.dart';
-import '../../widgets/vertical_sized_widget.dart';
+import '../../../widgets/vertical_sized_widget.dart';
 class FilterSelectBtnWidget extends StatelessWidget {
   const FilterSelectBtnWidget({
     Key? key,
@@ -9,8 +9,14 @@ class FilterSelectBtnWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var screenSize=MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.only(left: 15,right: 20),
+      padding: EdgeInsets.only(
+        left: screenSize.width *0.05,
+          right: screenSize.width *0.05,
+          // left: 15,
+          // right: 20,
+      ),
       child: Column(
         children: [
           Row(

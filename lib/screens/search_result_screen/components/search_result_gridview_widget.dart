@@ -1,13 +1,13 @@
-import '../../services/recommended_product_service.dart';
+import '../../../services/recommended_product_service.dart';
 import 'package:provider/provider.dart';
 
-import '../../constants.dart';
+import '../../../constants.dart';
 import '../../Detail_vendor_screen/details_1_vender_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../services/new_product_services.dart';
-import '../../widgets/container_widget.dart';
-import '../../widgets/favorite_icon_widget.dart';
+import '../../../services/new_product_services.dart';
+import '../../../widgets/container_widget.dart';
+import '../../../widgets/favorite_icon_widget.dart';
 
 class SearchResultGridViewWidget extends StatelessWidget {
   final int ids;
@@ -15,13 +15,14 @@ class SearchResultGridViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    var screenSize=MediaQuery.of(context).size;
     return Column(
       children: [
       if(ids==25)...[
     Container(
       width: double.infinity,
-      height: 500,
+      height: screenSize.height*1.25,
+      //height: 500,
       child: Consumer<RecommendedProductServices>(
       builder: (context, snapshot,_) {
       if (snapshot.isloaded) {
@@ -40,7 +41,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
         id = snapshot.data!.results![index].id;
       Navigator.of(context).push(
       MaterialPageRoute(builder: (context) {
-      return DetailVenderScreen();
+      return DetailVenderScreen(snapshot.data!.results![index].id!.toInt());
       },));
       },
       child: Column(
@@ -51,45 +52,68 @@ class SearchResultGridViewWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12.0)),
       child: SizedBox(
-      width: 170,
+        width: screenSize.width*0.47,
+      height: screenSize.height*0.2,
+      //width: 170,
       child: Stack(
       children: [
-      const Padding(
-      padding: EdgeInsets.only(left: 140, top: 8.0),
+       Padding(
+      padding: EdgeInsets.only(
+        left: screenSize.width*0.35,
+          top: screenSize.height*0.01,
+          // left: 140,
+          // top: 8.0,
+      ),
       child: FavoriteIconWidget(),
       ),
       Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
       Padding(
-      padding: const EdgeInsets.only(
-      top: 12.0,),
+      padding: EdgeInsets.only(
+        top: screenSize.height*0.013,
+      //top: 12.0,
+      ),
       child: Center(
       child: SizedBox(
-      height: 65,
-      width: 77,
+        height: screenSize.height*0.1,
+      width: screenSize.width*0.15,
+      // height: 65,
+      // width: 77,
       child: Image.network(
       snapshot.data!.results![index]
           .imageUrl.toString()))),
       ),
        Padding(
-      padding: const EdgeInsets.only(
-      top: 8.0, left: 10.0),
+      padding: EdgeInsets.only(
+        top: screenSize.height*0.006,
+      left: screenSize.width*0.025,
+      // top: 8.0,
+      //     left: 10.0,
+      ),
       child: Text(snapshot.data!.results![index].name.toString(),
       overflow: TextOverflow.ellipsis,
       style: ConstantTextStyle
           .recommendTextHeadStyle,),
       ),
       Padding(
-      padding: const EdgeInsets.only(
-      left: 10.0, right: 10.0, top: 7.0),
+      padding: EdgeInsets.only(
+        left: screenSize.width*0.02,
+      right: screenSize.width*0.02,
+      top: screenSize.height*0.0058
+      // left: 10.0,
+      //     right: 10.0,
+      //     top: 7.0,
+      ),
       child: Row(
       mainAxisAlignment: MainAxisAlignment
           .spaceBetween,
       children: [
         Container(
-          height: 17,
-          width: 40,
+          height: screenSize.height*0.018,
+          width: screenSize.width * 0.1,
+          // height: 17,
+          // width: 40,
           child: ListView.builder(
               itemCount: snapshot.data!.results![index].vendors!.length,
               itemBuilder: (context,num) {
@@ -109,10 +133,18 @@ class SearchResultGridViewWidget extends StatelessWidget {
       ),
       ),
         Padding(
-          padding: const EdgeInsets.only(top: 10.0,left: 8,bottom: 12.0),
+          padding: EdgeInsets.only(
+            left: screenSize.width*0.02,
+              top: screenSize.height*0.0058
+              //top: 10.0,
+              // left: 8,
+              // bottom: 12.0,
+          ),
           child: Container(
-            height: 20,
-            width: 120,
+            height: screenSize.height*0.02,
+            width: screenSize.width*0.33,
+            // height: 20,
+            // width: 120,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: snapshot.data!.results![index].vendors!.length,
@@ -121,9 +153,13 @@ class SearchResultGridViewWidget extends StatelessWidget {
                     children: [
                       snapshot.data!.results![index].vendors![numb].vendor!.isEmpty
                           ? Container()
-                          : ContainerWidget(text: snapshot.data!.results![index].vendors![numb].vendor!.toString(),width: 36,
-                        height: 18,),
-                      SizedBox(width: 5,),
+                          : ContainerWidget(text: snapshot.data!.results![index].vendors![numb].vendor!.toString(),
+                        width: screenSize.width*0.12,
+                        height: screenSize.height*0.02,
+                        // width: 36,
+                        // height: 18,
+                      ),
+                      SizedBox(width: screenSize.width*0.01,),
 
 
                     ],
@@ -152,7 +188,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
         if(ids==75)...[
           Container(
             width: double.infinity,
-            height: 480,
+            height: screenSize.height*1.25,
             child: Consumer<NewProductServices>(
                 builder: (context, snapshot,_) {
                   if (snapshot.isLoading) {
@@ -171,7 +207,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
                               id = snapshot.data!.results![index].id;
                               Navigator.of(context).push(
                                   MaterialPageRoute(builder: (context) {
-                                    return DetailVenderScreen();
+                                    return DetailVenderScreen(snapshot.data!.results![index].id!.toInt());
                                   },));
                             },
                             child: Column(
@@ -183,45 +219,64 @@ class SearchResultGridViewWidget extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12.0)),
                                   child: SizedBox(
-                                    width: 170,
+                                    width: screenSize.width*0.47,
+                                    height: screenSize.height*0.2,
                                     child: Stack(
                                       children: [
-                                        const Padding(
-                                          padding: EdgeInsets.only(left: 140, top: 8.0),
+                                         Padding(
+                                          padding: EdgeInsets.only(
+                                            left: screenSize.width*0.35,
+                                            top: screenSize.height*0.01,
+                                              // left: 140,
+                                              // top: 8.0,
+                                          ),
                                           child: FavoriteIconWidget(),
                                         ),
                                         Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsets.only(
-                                                top: 12.0,),
+                                              padding: EdgeInsets.only(
+                                                top: screenSize.height*0.013,
+                                                //top: 12.0,
+                                              ),
                                               child: Center(
                                                   child: SizedBox(
-                                                      height: 65,
-                                                      width: 77,
+                                                      height: screenSize.height*0.1,
+                                                      width: screenSize.width*0.15,
+                                                      // height: 65,
+                                                      // width: 77,
                                                       child: Image.network(
                                                           snapshot.data!.results![index]
                                                               .imageUrl.toString()))),
                                             ),
                                              Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 8.0, left: 10.0),
+                                              padding: EdgeInsets.only(
+                                                top: screenSize.height*0.006,
+                                                left: screenSize.width*0.025,
+                                                  // top: 8.0, left: 10.0
+                                              ),
                                               child: Text(snapshot.data!.results![index].name.toString(),
                                                 overflow: TextOverflow.ellipsis,
                                                 style: ConstantTextStyle
                                                     .recommendTextHeadStyle,),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 10.0, right: 10.0, top: 7.0),
+                                              padding: EdgeInsets.only(
+                                                left: screenSize.width*0.02,
+                                                right: screenSize.width*0.02,
+                                                  top: screenSize.height*0.0058,
+                                                 // left: 10.0, right: 10.0, top: 7.0
+                                              ),
                                               child: Row(
                                                 mainAxisAlignment: MainAxisAlignment
                                                     .spaceBetween,
                                                 children: [
                                                   Container(
-                                                    height: 17,
-                                                    width: 40,
+                                                    height: screenSize.height*0.018,
+                                                    width: screenSize.width * 0.1,
+                                                    // height: 17,
+                                                    // width: 40,
                                                     child: ListView.builder(
                                                         itemCount: snapshot.data!.results![index].vendors!.length,
                                                         itemBuilder: (context,num) {
@@ -242,21 +297,43 @@ class SearchResultGridViewWidget extends StatelessWidget {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 10.0, left: 8, bottom: 12.0),
+                                              padding: EdgeInsets.only(
+                                                  left: screenSize.width*0.02,
+                                                  top: screenSize.height*0.0058
+                                                  //top: 10.0, left: 8, bottom: 12.0,
+                                              ),
                                               child: Row(
-                                                children: const [
-                                                  ContainerWidget(text: 'Tesco',
-                                                    width: 36,
-                                                    height: 18,),
-                                                  SizedBox(width: 5,),
-                                                  ContainerWidget(text: 'Aldi',
-                                                    height: 18,
-                                                    width: 23,),
-                                                  SizedBox(width: 5,),
-                                                  ContainerWidget(text: 'Asda',
-                                                    width: 36,
-                                                    height: 18,),
+                                                children:  [
+                                                  for(int ind=0;ind<snapshot.data!.results![index].vendors!.length;ind++)...[
+                                                       ContainerWidget(
+                                                        width: screenSize.width*0.12,
+                                                        height: screenSize.height*0.023,
+                                                        // width: 36,
+                                                        // height: 18,
+                                                        text: snapshot.data!.results![index].vendors![ind].vendor!.toString(),
+                                                      ),
+
+                                                  ],
+                                                  // ContainerWidget(text: 'Tesco',
+                                                  //   width: screenSize.width*0.1,
+                                                  //   height: screenSize.height*0.023,
+                                                  //   // width: 36,
+                                                  //   // height: 18,
+                                                  // ),
+                                                  // SizedBox(width: screenSize.width*0.01,),
+                                                  // ContainerWidget(text: 'Aldi',
+                                                  //   width: screenSize.width*0.06,
+                                                  //   height: screenSize.height*0.023,
+                                                  //   // height: 18,
+                                                  //   // width: 23,
+                                                  // ),
+                                                  // SizedBox(width: screenSize.width*0.01,),
+                                                  // ContainerWidget(text: 'Asda',
+                                                  //   width: screenSize.width*0.1,
+                                                  //   height: screenSize.height*0.023,
+                                                  //   // width: 36,
+                                                  //   // height: 18,
+                                                  // ),
 
                                                 ],
                                               ),

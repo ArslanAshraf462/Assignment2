@@ -1,6 +1,6 @@
-import '../../constants.dart';
+import '../../../constants.dart';
 import '../../all_reviews_screen/all_reviews_screen.dart';
-import '../../widgets/vertical_sized_widget.dart';
+import '../../../widgets/vertical_sized_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -13,6 +13,7 @@ class VendorRatingWidget extends StatelessWidget {
   double rating = 0;
   void startAddNewTransaction(BuildContext ctx,int reviewId){
     showModalBottomSheet(
+      isDismissible: false,
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -23,7 +24,8 @@ class VendorRatingWidget extends StatelessWidget {
         context: ctx,
         builder: (builder){
           return Container(
-            height: 670.0,
+            height: MediaQuery.of(ctx).size.height*0.87,
+            //height: 670.0,
             color: Colors.transparent, //could change this to Color(0xFF737373),
             //so you don't have to change MaterialApp canvasColor
             child: Container(

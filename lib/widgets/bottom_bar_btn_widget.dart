@@ -12,8 +12,8 @@ class BottomBarBtnWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return MaterialButton(
-      onPressed: onPressed,
+    return GestureDetector(
+      onTap: onPressed,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children:  [

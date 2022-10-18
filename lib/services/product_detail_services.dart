@@ -8,6 +8,7 @@ import '../model/product_detail_model.dart';
 class ProductDetailServices with ChangeNotifier {
 
   ProductDetailModel? _data;
+
   bool _isloading=false;
 
   bool get isloading => _isloading;
@@ -18,8 +19,10 @@ class ProductDetailServices with ChangeNotifier {
 
   ProductDetailModel? get data => _data;
 
-  String url = 'https://data-otterli-staging.com/api/product_details/$id';
-  Future getProductDetaildata() async {
+
+
+  Future getProductDetaildata(int idss) async {
+    String url = 'https://data-otterli-staging.com/api/product_details/$idss';
     var response = await http.get(Uri.parse(url),
         headers: {
           'Content-Type': 'application/json',

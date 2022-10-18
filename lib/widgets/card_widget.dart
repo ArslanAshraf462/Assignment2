@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../constants.dart';
-import '../Detail_vendor_screen/details_1_vender_screen.dart';
+import '../screens/Detail_vendor_screen/details_1_vender_screen.dart';
 import '../services/new_product_services.dart';
 import 'container_widget.dart';
 import 'favorite_icon_widget.dart';
@@ -34,7 +34,8 @@ class _CardWidgetState extends State<CardWidget> {
                        GestureDetector(
                          onTap: () {
                            id=snapshot.data!.results![index2].id;
-                           Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailVenderScreen(),));
+                           Navigator.of(context).push(
+                               MaterialPageRoute(builder: (context) => DetailVenderScreen(snapshot.data!.results![index2].id!.toInt()),));
                          },
                          child: Card(
                            elevation: 1,
@@ -109,33 +110,36 @@ class _CardWidgetState extends State<CardWidget> {
                                                    ],
                                                  ),
                                                ),
-                                                Padding(
-                                                 padding: EdgeInsets.only(
-                                                   left: screenSize.width*0.07,
-                                                   //  left: 30.0
-                                                 ),
-                                                 child: ContainerWidget(
-                                                   width: screenSize.width*0.08,
-                                                   height: screenSize.height*0.025,
-                                                   // width: 36,
-                                                   // height: 18,
-                                                   text: 'text1',
-                                                 ),
-                                               ),
-                                                SizedBox(width: screenSize.width*0.01,),
-                                                ContainerWidget(text: 'text2',
-                                                 width: screenSize.width*0.08,
-                                                 height: screenSize.height*0.025,
-                                                 // height: 18,
-                                                 // width: 23,
-                                               ),
-                                                SizedBox(width: screenSize.width*0.01,),
-                                                ContainerWidget(text: 'text3',
-                                                 width: screenSize.width*0.08,
-                                                 height: screenSize.height*0.025,
-                                                 // height: 18,
-                                                 // width: 32,
-                                               ),
+                                                for(int ind=0;ind<snapshot.data!.results![index2].vendors!.length;ind++)...[
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                      left: screenSize.width*0.22,
+                                                      //  left: 30.0
+                                                    ),
+                                                    child: ContainerWidget(
+                                                      width: screenSize.width*0.12,
+                                                      height: screenSize.height*0.03,
+                                                      // width: 36,
+                                                      // height: 18,
+                                                      text: snapshot.data!.results![index2].vendors![ind].vendor!.toString(),
+                                                    ),
+                                                  ),
+                                                ],
+
+                                               //  SizedBox(width: screenSize.width*0.01,),
+                                               //  ContainerWidget(text: 'text2',
+                                               //   width: screenSize.width*0.09,
+                                               //   height: screenSize.height*0.025,
+                                               //   // height: 18,
+                                               //   // width: 23,
+                                               // ),
+                                               //  SizedBox(width: screenSize.width*0.01,),
+                                               //  ContainerWidget(text: 'text3',
+                                               //   width: screenSize.width*0.09,
+                                               //   height: screenSize.height*0.025,
+                                               //   // height: 18,
+                                               //   // width: 32,
+                                               // ),
                                              ],
                                            ),
                                          )

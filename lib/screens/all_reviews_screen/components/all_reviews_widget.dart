@@ -1,14 +1,14 @@
 import 'package:provider/provider.dart';
 
-import '../../constants.dart';
+import '../../../constants.dart';
 import '../../all_review_filter_screen/all_reviews_filter_screen.dart';
-import '../../services/reviews_services.dart';
-import '../../widgets/horizontal_sized_widget.dart';
+import '../../../services/reviews_services.dart';
+import '../../../widgets/horizontal_sized_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import '../../widgets/elevated_btn_widget.dart';
-import '../../widgets/vertical_sized_widget.dart';
+import '../../../widgets/elevated_btn_widget.dart';
+import '../../../widgets/vertical_sized_widget.dart';
 
 class AllReviewsWidget extends StatefulWidget {
   final int id3;
@@ -29,6 +29,8 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
 
   void startAddNewTransaction(BuildContext ctx){
     showModalBottomSheet(
+      isDismissible: false,
+     // enableDrag: false,
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -39,7 +41,8 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
         context: ctx,
         builder: (builder){
           return Container(
-            height: 450.0,
+            height: MediaQuery.of(ctx).size.height*0.6,
+            //height: 450.0,
             color: Colors.transparent, //could change this to Color(0xFF737373),
             //so you don't have to change MaterialApp canvasColor
             child: Container(
@@ -65,15 +68,28 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    var screenSize=MediaQuery.of(context).size;
         return Column(
           children: [
-            VerticalSizedWidget(20.0),
+            VerticalSizedWidget(
+              screenSize.height*0.023
+                //20.0
+            ),
             ElevatedButtonWidget(
               text: 'Add your review',
-            width: 232.0,
-            height: 62.0,),
+            width: screenSize.width*0.55,
+            height: screenSize.height* 0.07,
+            // width: 232.0,
+            // height: 62.0,
+            ),
               Padding(
-                padding: const EdgeInsets.only(top: 11.0,left: 15.0,right: 15.0,bottom: 6.0),
+                padding: EdgeInsets.only(
+                  top: screenSize.height*0.02,
+                    left: screenSize.width*0.05,
+                    right: screenSize.width*0.05,
+                    bottom: screenSize.height*0.01,
+                    //top: 11.0,left: 15.0,right: 15.0,bottom: 6.0,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -84,8 +100,13 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 16.0,right: 16.0,bottom: 6.0,),
+               Padding(
+                padding: EdgeInsets.only(
+                  left: screenSize.width*0.05,
+                right: screenSize.width*0.05,
+                bottom: screenSize.height*0.009,
+                //  left: 16.0,right: 16.0,bottom: 6.0,
+                ),
                 child: Divider(),
               ),
               Expanded(
@@ -98,7 +119,12 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                           if(review.isloaded){
                             if(widget.id3==review.data!.results![index2].productId){
                               return Padding(
-                                padding: const EdgeInsets.only(left: 20.0, right: 25.0,top: 15.0 ),
+                                padding: EdgeInsets.only(
+                                  left: screenSize.width*0.05,
+                                   right: screenSize.width*0.025,
+                                   top: screenSize.height*0.015,
+                                   // left: 20.0, right: 25.0,top: 15.0,
+                                ),
                                 child: Row(
                                   children: [
                                     Column(
@@ -106,13 +132,19 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                                         const CircleAvatar(
                                           backgroundImage: AssetImage('assets/images/image.png'),
                                         ),
-                                        VerticalSizedWidget(3.0),
+                                        VerticalSizedWidget(
+                                          screenSize.height*0.004
+                                            //3.0
+                                        ),
                                         Text(review.data!.results![index2].username.toString(),
                                           style: ConstantTextStyle.reviewNameTxtStyle,
                                         ),
                                       ],
                                     ),
-                                    HorizontalSizedWidget(15.0),
+                                    HorizontalSizedWidget(
+                                      screenSize.width*0.045,
+                                    //    15.0,
+                                    ),
                                     Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,7 +163,8 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                                         ),
 
                                         SizedBox(
-                                          width: 250.0,
+                                          width: screenSize.width*0.7,
+                                          //width: 250.0,
                                           child: Text(review.data!.results![index2].review.toString(),
                                             style: TextStyle(color: Color(0xffAFAFAF),),
                                           ),

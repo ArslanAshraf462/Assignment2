@@ -1,10 +1,10 @@
 import 'package:provider/provider.dart';
 import '../../Detail_vendor_screen/details_1_vender_screen.dart';
-import '../../services/recommended_product_service.dart';
+import '../../../services/recommended_product_service.dart';
 import 'package:flutter/material.dart';
-import '../../constants.dart';
-import '../../widgets/container_widget.dart';
-import '../../widgets/favorite_icon_widget.dart';
+import '../../../constants.dart';
+import '../../../widgets/container_widget.dart';
+import '../../../widgets/favorite_icon_widget.dart';
 class RecommendedCardWidget extends StatefulWidget {
 
   @override
@@ -20,6 +20,7 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
   }
   @override
   Widget build(BuildContext context) {
+    var screenSize=MediaQuery.of(context).size;
     return  Consumer<RecommendedProductServices>(
       builder: (context,snapshot,_) {
         if(snapshot.isloaded){
@@ -28,17 +29,19 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
               itemCount: snapshot.data!.results!.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () {
+                  onTap: () async{
                     id=snapshot.data!.results![index].id;
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                      return DetailVenderScreen();}));
+                      return DetailVenderScreen(snapshot.data!.results![index].id!.toInt());}));
+
                   },
                   child: Card(
                     elevation: 1,
                     color: const Color(0xffFFFFFF),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
                     child: SizedBox(
-                      width: 170,
+                      width: screenSize.width*0.47,
+                     // width: 170,
                       child: Stack(
                         children: [
                           const Padding(
@@ -52,7 +55,8 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                 padding: const EdgeInsets.only(top: 12.0,),
                                 child: Center(child: SizedBox(
                                     height: 105,
-                                    width: 77,
+                                    width: screenSize.width*0.1925,
+                                    //width: 77,
                                     child: Image.network(snapshot.data!.results![index].imageUrl.toString()))),
                               ),
                               Padding(
@@ -67,7 +71,8 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                   children: [
                                     Container(
                                       height: 18,
-                                      width: 40,
+                                     width: screenSize.width*0.1,
+                                     // width: 40,
                                       child: ListView.builder(
                                           itemCount: snapshot.data!.results![index].vendors!.length,
                                           itemBuilder: (context,num) {
@@ -90,7 +95,8 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                 padding: const EdgeInsets.only(top: 10.0,left: 8,bottom: 12.0),
                                 child: Container(
                                   height: 20,
-                                  width: 120,
+                                 width: screenSize.width*0.3,
+                                 // width: 120,
                                   child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemCount: snapshot.data!.results![index].vendors!.length,
@@ -99,7 +105,9 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                           children: [
                                             snapshot.data!.results![index].vendors![numb].vendor!.isEmpty
                                                 ? Container()
-                                                : ContainerWidget(text: snapshot.data!.results![index].vendors![numb].vendor!.toString(),width: 36,
+                                                : ContainerWidget(text: snapshot.data!.results![index].vendors![numb].vendor!.toString(),
+                                              width: screenSize.width*0.12,
+                                              //width: 36,
                                               height: 18,),
                                             SizedBox(width: 5,),
                                           ],
