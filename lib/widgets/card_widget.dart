@@ -113,7 +113,7 @@ class _CardWidgetState extends State<CardWidget> {
                                                 for(int ind=0;ind<snapshot.data!.results![index2].vendors!.length;ind++)...[
                                                   Padding(
                                                     padding: EdgeInsets.only(
-                                                      left: screenSize.width*0.22,
+                                                      left: screenSize.width*0.28,
                                                       //  left: 30.0
                                                     ),
                                                     child: ContainerWidget(

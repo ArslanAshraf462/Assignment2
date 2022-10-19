@@ -142,7 +142,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
           ),
           child: Container(
             height: screenSize.height*0.02,
-            width: screenSize.width*0.33,
+            width: screenSize.width*0.25,
             // height: 20,
             // width: 120,
             child: ListView.builder(

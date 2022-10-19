@@ -95,7 +95,7 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                 padding: const EdgeInsets.only(top: 10.0,left: 8,bottom: 12.0),
                                 child: Container(
                                   height: 20,
-                                 width: screenSize.width*0.3,
+                                 width: screenSize.width*0.25,
                                  // width: 120,
                                   child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
