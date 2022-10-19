@@ -64,7 +64,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
           // left: 140,
           // top: 8.0,
       ),
-      child: FavoriteIconWidget(),
+      child: const FavoriteIconWidget(),
       ),
       Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,7 +109,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment
           .spaceBetween,
       children: [
-        Container(
+        SizedBox(
           height: screenSize.height*0.018,
           width: screenSize.width * 0.1,
           // height: 17,
@@ -140,7 +140,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
               // left: 8,
               // bottom: 12.0,
           ),
-          child: Container(
+          child: SizedBox(
             height: screenSize.height*0.02,
             width: screenSize.width*0.4,
             // height: 20,
@@ -180,7 +180,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
       }
       );
       }
-      return Center(child: CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator());
       }
       ),
     ),
@@ -230,7 +230,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
                                               // left: 140,
                                               // top: 8.0,
                                           ),
-                                          child: FavoriteIconWidget(),
+                                          child: const FavoriteIconWidget(),
                                         ),
                                         Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -272,7 +272,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
                                                 mainAxisAlignment: MainAxisAlignment
                                                     .spaceBetween,
                                                 children: [
-                                                  Container(
+                                                  SizedBox(
                                                     height: screenSize.height*0.018,
                                                     width: screenSize.width * 0.1,
                                                     // height: 17,
@@ -352,7 +352,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
                         }
                     );
                   }
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
             ),
           ),

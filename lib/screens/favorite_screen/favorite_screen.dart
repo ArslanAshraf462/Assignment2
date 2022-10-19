@@ -22,7 +22,7 @@ class FavoriteScreen extends StatelessWidget {
                 children: [
                   Image.asset(AppAssets.navImage, width: double.infinity,),
                   VerticalSizedWidget(15.0),
-                  TitleWidget(title: 'Favorites', fontWeight: FontWeight.normal),
+                  TitleWidget(title: AppTextAssets.favoriteText, fontWeight: FontWeight.normal),
                   Padding(
                     padding: EdgeInsets.only(
                         left: screenSize.width*0.06,
@@ -37,7 +37,7 @@ class FavoriteScreen extends StatelessWidget {
                         width: screenSize.width*0.872,
                         // height: 48,
                         // width: 372,
-                        hintText: searchText),
+                        hintText: AppTextAssets.searchText),
                   ),
                   VerticalSizedWidget(29.0),
                   Padding(

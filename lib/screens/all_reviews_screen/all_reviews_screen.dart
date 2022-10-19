@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class AllReviews extends StatelessWidget {
   final Widget child;
   final int id2;
-  AllReviews({required this.child,required this.id2});
+  const AllReviews({required this.child,required this.id2});
 
   @override
   Widget build(BuildContext context) {

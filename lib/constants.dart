@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 int selectedPage = 0;
 var id;
 var name;
-String searchText='I\'m looking for...';
+
 List item = [
   'Rating',
   'Most Popular',
@@ -19,23 +19,37 @@ List itemz = [
   'Default'
 ];
 
-
+class AppTextAssets{
+  static const String searchText='I\'m looking for...';
+  static const String favoriteText='Favorites';
+  static const String categoriesText="All Categories";
+  static const String recommendedText="Recommended";
+  static const String newProductText="New Products";
+  static const String filterButtonText='Filters';
+  static const String searchBackText='Home';
+  static const String searchTitleText='Search Result';
+  static const String viewAllText="View all";
+  static const String recommendedItemText='25 Results for “Recommended Products”';
+  static const String newProductItemText='75 Results for “New Products"';
+  static const String sortByText='Sort by';
+  static const String detailScreenBackText='Back to results';
+}
 class AppAssets{
   static const String navImage= 'assets/images/top_nav.png';
   static const String logoImage ='assets/images/logo.png';
-  static const List itemsImageList=[
-     AssetImage('assets/images/dessert.png'),
-     AssetImage('assets/images/snacks.png'),
-    AssetImage('assets/images/breakfast.png'),
-     AssetImage('assets/images/beer.png'),
-     AssetImage('assets/images/sausage.png'),
-     AssetImage('assets/images/milk.png'),
-     AssetImage('assets/images/FastFood.png'),
-     AssetImage('assets/images/Dinner.png'),
-     AssetImage('assets/images/BBQ.png'),
-     AssetImage('assets/images/Partyfood.png'),
-     AssetImage('assets/images/Kids.png'),
-  ];
+  // static const List itemsImageList=[
+  //    AssetImage('assets/images/dessert.png'),
+  //    AssetImage('assets/images/snacks.png'),
+  //   AssetImage('assets/images/breakfast.png'),
+  //    AssetImage('assets/images/beer.png'),
+  //    AssetImage('assets/images/sausage.png'),
+  //    AssetImage('assets/images/milk.png'),
+  //    AssetImage('assets/images/FastFood.png'),
+  //    AssetImage('assets/images/Dinner.png'),
+  //    AssetImage('assets/images/BBQ.png'),
+  //    AssetImage('assets/images/Partyfood.png'),
+  //    AssetImage('assets/images/Kids.png'),
+  // ];
 }
 
 class ConstantTextStyle{

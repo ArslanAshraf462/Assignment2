@@ -35,13 +35,13 @@ class SearchResultScreen extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () => Navigator.of(context).pop(),
-                        child: PopScreenWidget(title: 'Home'),
+                        child: PopScreenWidget(title: AppTextAssets.searchBackText),
                     ),
                     HorizontalSizedWidget(
                         screenSize.width*0.15
                         //50.0
                     ),
-                    TitleWidget(title: 'Search Result', fontWeight: FontWeight.normal),
+                    TitleWidget(title: AppTextAssets.searchTitleText, fontWeight: FontWeight.normal),
                   ],
                 ),
                 VerticalSizedWidget(41),
@@ -54,8 +54,8 @@ class SearchResultScreen extends StatelessWidget {
                   ),
                   child:
                   idCount == 25
-                      ? Text('25 Results for “Recommended Products”')
-                   : Text('75 Results for “New Products"'),
+                      ? Text(AppTextAssets.recommendedItemText)
+                   : Text(AppTextAssets.newProductItemText),
                 ),
                 VerticalSizedWidget(26),
                  SizedBox(

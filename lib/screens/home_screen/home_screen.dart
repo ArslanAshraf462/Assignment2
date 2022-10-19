@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: screenSize.width*0.872,
                       // height: 48,
                       // width: 372,
-                      hintText: searchText),
+                      hintText: AppTextAssets.searchText),
                 ),
                  Padding(
                   padding: EdgeInsets.only(
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       // top: 26.0,
                       // left: 24,
                   ),
-                  child: Text("All Categories", style: ConstantTextStyle.homeTextHeadingStyle),
+                  child: const Text(AppTextAssets.categoriesText, style: ConstantTextStyle.homeTextHeadingStyle),
                 ),
                 CategoriesWidget(),
                 Consumer<RecommendedProductServices>(
@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       );
                     },
-                    child: HomeRefsTextWidget(title: "Recommended",
+                    child: HomeRefsTextWidget(title: AppTextAssets.recommendedText,
                     ),
                   );
                 },),
@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     // right: 24.0,
                     // top: 20,
                 ),
-                    child: Container(
+                    child: SizedBox(
                       width: double.infinity,
                       height: screenSize.width*0.6,
                       //height: 220,
@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         );
                       },
-                      child: HomeRefsTextWidget(title: "New Products",
+                      child: HomeRefsTextWidget(title: AppTextAssets.newProductText,
                       ),
                     );
                   },),

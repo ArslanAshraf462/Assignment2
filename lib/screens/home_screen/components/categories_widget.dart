@@ -1,4 +1,3 @@
-import '../../../constants.dart';
 import '../../../widgets/horizontal_sized_widget.dart';
 import '../../../widgets/vertical_sized_widget.dart';
 import '../../../services/categoriess_services.dart';
@@ -6,11 +5,10 @@ import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
-import 'category_datail_widget.dart';
 
 class CategoriesWidget extends StatelessWidget {
 
-   CategoriesWidget({Key? key}) : super(key: key);
+   const CategoriesWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -73,11 +71,11 @@ class CategoriesWidget extends StatelessWidget {
                       ],
                     );
                   }
-              return Container(
+              return SizedBox(
                   height: 100,
                   width: screenSize.width*0.85,
                   //width: 350,
-                  child: Center(child: CircularProgressIndicator(),));
+                  child: const Center(child: CircularProgressIndicator(),));
               }
           )
         ),

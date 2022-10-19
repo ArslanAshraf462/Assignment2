@@ -43,7 +43,7 @@ class _DetailVenderScreenState extends State<DetailVenderScreen> {
     ),
     child: GestureDetector(
     onTap: () => Navigator.of(context).pop(),
-    child: PopScreenWidget(title: 'Back to results')),
+    child: PopScreenWidget(title: AppTextAssets.detailScreenBackText)),
     ),
     Consumer<ProductDetailServices>(
 
@@ -86,11 +86,11 @@ class _DetailVenderScreenState extends State<DetailVenderScreen> {
           );
        // }
     }
-     return Container(
+     return SizedBox(
        width: screenSize.width*0.89,
        // width: 350,
          height: 350,
-         child: Center(
+         child: const Center(
            child: CircularProgressIndicator(),
          ),
      );

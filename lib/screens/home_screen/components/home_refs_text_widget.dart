@@ -16,10 +16,10 @@ class HomeRefsTextWidget extends StatelessWidget {
           Text(title,style: ConstantTextStyle.homeTextHeadingStyle
           ),
           Row(
-            children: [
-              const Text("View all",style: ConstantTextStyle.viewAllTextStyle,
+            children: const [
+              Text(AppTextAssets.viewAllText,style: ConstantTextStyle.viewAllTextStyle,
               ),
-              const Icon(Icons.arrow_forward,color: Color(0xffF3D434),size: 14,)
+              Icon(Icons.arrow_forward,color: Color(0xffF3D434),size: 14,)
             ],
           ),
         ],

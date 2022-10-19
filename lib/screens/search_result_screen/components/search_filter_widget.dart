@@ -64,7 +64,7 @@ class SearchFilterWidget extends StatelessWidget {
               width: screenSize.width*0.6,
               // height: 48,
               // width: 240,
-              hintText: searchText),
+              hintText: AppTextAssets.searchText),
           GestureDetector(
             onTap: () => startAddNewTransaction(context),
             child: Container(
@@ -90,7 +90,7 @@ class SearchFilterWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    Text('Filters',style: TextStyle(color: Colors.white),),
+                    Text(AppTextAssets.filterButtonText,style: TextStyle(color: Colors.white),),
                     Icon(Icons.tune,color: Colors.white,),
                   ],
                 ),

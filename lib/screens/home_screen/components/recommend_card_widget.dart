@@ -110,7 +110,7 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                               // height: 18,
                                               // width: 36,
                                             ),
-                                            SizedBox(width: 5,),
+                                            const SizedBox(width: 5,),
                                           ],
                                         );
                                       }
@@ -128,7 +128,7 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
 
           );
         }
-        return Center(child: CircularProgressIndicator(),);
+        return const Center(child: CircularProgressIndicator(),);
       }
     );
 

@@ -38,16 +38,16 @@ class CategoryDetailWidget extends StatelessWidget {
                     HorizontalSizedWidget(20.0),
                     GestureDetector(
                       onTap: () => Navigator.of(context).pop(),
-                      child: PopScreenWidget(title: 'Home'),
+                      child: PopScreenWidget(title: AppTextAssets.searchBackText),
                     ),
                     HorizontalSizedWidget(50.0),
-                    TitleWidget(title: 'Search Result', fontWeight: FontWeight.normal),
+                    TitleWidget(title: AppTextAssets.searchTitleText, fontWeight: FontWeight.normal),
                   ],
                 ),
                 VerticalSizedWidget(41),
                 SearchFilterWidget(),
                 VerticalSizedWidget(30),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: Text('25 Results for “Recommended Products”')
                 ),
