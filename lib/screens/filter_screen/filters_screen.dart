@@ -68,7 +68,9 @@ class FiltersScreen extends StatelessWidget {
                          screenSize.height*0.09,
                        //    70
                        ),
-                       ClearApplyButtonWidget(),
+                       ClearApplyButtonWidget(
+                         onPressed: () => Navigator.of(context).pop(),
+                       ),
                        VerticalSizedWidget(
                          screenSize.height*0.035,
                        //    25

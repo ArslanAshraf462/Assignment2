@@ -35,7 +35,7 @@ class AllReviewsFilterScreen extends StatelessWidget {
                       //    40.0
                       ),
                       RadioButtonWidget(items: items,),
-                      ClearApplyButtonWidget(),
+                      ClearApplyButtonWidget(onPressed: () => Navigator.of(context).pop(),),
                       VerticalSizedWidget(
                           screenSize.height*0.35
                       //    270.0

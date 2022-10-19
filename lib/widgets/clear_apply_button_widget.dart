@@ -4,7 +4,8 @@ import '../constants.dart';
 import 'horizontal_sized_widget.dart';
 
 class ClearApplyButtonWidget extends StatelessWidget {
-  const ClearApplyButtonWidget({Key? key}) : super(key: key);
+  final VoidCallback onPressed;
+  const ClearApplyButtonWidget({Key? key,required  this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,8 @@ class ClearApplyButtonWidget extends StatelessWidget {
             height: screenSize.height*0.07,
             // width: 145,
             // height: 55,
-            child: TextButton(onPressed: (){}, child: Text('Clear All'),
+            child: TextButton(onPressed: onPressed,
+              child: Text('Clear All'),
               style: ConstantButtonStyle.clearButtonStyle,
             ),
           ),

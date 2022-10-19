@@ -95,7 +95,7 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                 padding: const EdgeInsets.only(top: 10.0,left: 8,bottom: 12.0),
                                 child: Container(
                                   height: 20,
-                                 width: screenSize.width*0.25,
+                                 width: screenSize.width*0.4,
                                  // width: 120,
                                   child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
@@ -106,9 +106,10 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                             snapshot.data!.results![index].vendors![numb].vendor!.isEmpty
                                                 ? Container()
                                                 : ContainerWidget(text: snapshot.data!.results![index].vendors![numb].vendor!.toString(),
-                                              width: screenSize.width*0.12,
-                                              //width: 36,
-                                              height: 18,),
+                                              // width: screenSize.width*0.12,
+                                              // height: 18,
+                                              // width: 36,
+                                            ),
                                             SizedBox(width: 5,),
                                           ],
                                         );

@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 
 class ContainerWidget extends StatelessWidget {
   final String text;
-  final double width;
-  final double height;
+  // final double width;
+  // final double height;
   const ContainerWidget({
     Key? key,required this.text,
-    required this.width,
-    required this.height,
+    // required this.width,
+    // required this.height,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width,
-      height: height,
+      // width: width,
+      // height: height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5.0),
         border: Border.all(

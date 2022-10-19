@@ -142,7 +142,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
           ),
           child: Container(
             height: screenSize.height*0.02,
-            width: screenSize.width*0.25,
+            width: screenSize.width*0.4,
             // height: 20,
             // width: 120,
             child: ListView.builder(
@@ -154,8 +154,8 @@ class SearchResultGridViewWidget extends StatelessWidget {
                       snapshot.data!.results![index].vendors![numb].vendor!.isEmpty
                           ? Container()
                           : ContainerWidget(text: snapshot.data!.results![index].vendors![numb].vendor!.toString(),
-                        width: screenSize.width*0.12,
-                        height: screenSize.height*0.02,
+                        // width: screenSize.width*0.12,
+                        // height: screenSize.height*0.02,
                         // width: 36,
                         // height: 18,
                       ),
@@ -306,8 +306,8 @@ class SearchResultGridViewWidget extends StatelessWidget {
                                                 children:  [
                                                   for(int ind=0;ind<snapshot.data!.results![index].vendors!.length;ind++)...[
                                                        ContainerWidget(
-                                                        width: screenSize.width*0.12,
-                                                        height: screenSize.height*0.023,
+                                                        // width: screenSize.width*0.12,
+                                                        // height: screenSize.height*0.023,
                                                         // width: 36,
                                                         // height: 18,
                                                         text: snapshot.data!.results![index].vendors![ind].vendor!.toString(),

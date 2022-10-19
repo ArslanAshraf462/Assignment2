@@ -117,8 +117,8 @@ class _CardWidgetState extends State<CardWidget> {
                                                       //  left: 30.0
                                                     ),
                                                     child: ContainerWidget(
-                                                      width: screenSize.width*0.12,
-                                                      height: screenSize.height*0.03,
+                                                      // width: screenSize.width*0.12,
+                                                      // height: screenSize.height*0.03,
                                                       // width: 36,
                                                       // height: 18,
                                                       text: snapshot.data!.results![index2].vendors![ind].vendor!.toString(),
