@@ -76,56 +76,73 @@ class _MyAppState extends State<MyApp> {
           //   });
           // },
           ),
-          bottomNavigationBar: ClipRRect(
-            child: BottomAppBar(
-            shape: const CircularNotchedRectangle(),
+          bottomNavigationBar: Builder(
+            builder: (context) {
+              Size screenSize=MediaQuery.of(context).size;
+              return ClipRRect(
+                child: BottomAppBar(
+                shape: const CircularNotchedRectangle(),
         notchMargin: 7,
         child: Container(
          height: 65,
-          color: Colors.transparent,
-          child: Row(
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-            Row(
-           // crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              HorizontalSizedWidget(25),
-              BottomBarBtnWidget(title: 'Home', icon: Icons.home,pageNumber: 0,onPressed: () {
-                setState(() {
-                  selectedPage=0;
-                });
-              },),
-              HorizontalSizedWidget(60),
-              BottomBarBtnWidget(title: 'Menu', icon: Icons.menu,pageNumber: 1,onPressed: () {
-                setState(() {
-                  selectedPage=1;
-                });
-              },),
-            ],
-          ),
-          Row(
-           // crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              HorizontalSizedWidget(90),
-              BottomBarBtnWidget(title: 'Favorite', icon: Icons.favorite,pageNumber: 2,onPressed: () {
-                setState(() {
-                  selectedPage=2;
-                });
-              },),
-              HorizontalSizedWidget(45),
-              BottomBarBtnWidget(title: 'Account', icon: Icons.person,pageNumber: 3,onPressed: () {
-                setState(() {
-                  selectedPage=3;
-                });
-              },),
-             // HorizontalSizedWidget(20),
-            ],
-          ),
-          ]
+              color: Colors.transparent,
+              child: Row(
+                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                Row(
+               // crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  HorizontalSizedWidget(
+                    screenSize.width*0.07
+                      //25
+                  ),
+                  BottomBarBtnWidget(title: 'Home', icon: Icons.home,pageNumber: 0,onPressed: () {
+                    setState(() {
+                      selectedPage=0;
+                    });
+                  },),
+                  HorizontalSizedWidget(
+                    screenSize.width*0.15
+                      //60
+                  ),
+                  BottomBarBtnWidget(title: 'Menu', icon: Icons.menu,pageNumber: 1,onPressed: () {
+                    setState(() {
+                      selectedPage=1;
+                    });
+                  },),
+                ],
+              ),
+              Row(
+               // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  HorizontalSizedWidget(
+                    screenSize.width*0.23
+                      //90
+                  ),
+                  BottomBarBtnWidget(title: 'Favorite', icon: Icons.favorite,pageNumber: 2,onPressed: () {
+                    setState(() {
+                      selectedPage=2;
+                    });
+                  },),
+                  HorizontalSizedWidget(
+                    screenSize.width*0.11
+                      //45
+                  ),
+                  BottomBarBtnWidget(title: 'Account', icon: Icons.person,pageNumber: 3,onPressed: () {
+                    setState(() {
+                      selectedPage=3;
+                    });
+                  },),
+                 // HorizontalSizedWidget(20),
+                ],
+              ),
+              ]
         ),
         ),
       ),
-      ),
+      );
+            }
+          ),
         ),
       ),
     );
