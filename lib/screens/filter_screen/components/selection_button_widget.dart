@@ -14,7 +14,7 @@ class _SelectionButtonWidgetState extends State<SelectionButtonWidget> {
   bool _hasBeenPressed=false;
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     return SizedBox(
       height: screenSize.height*0.05,
       width: screenSize.width*0.28,

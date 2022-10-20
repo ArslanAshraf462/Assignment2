@@ -24,7 +24,7 @@ class _DetailVenderScreenState extends State<DetailVenderScreen> {
   @override
   Widget build(BuildContext context) {
    // print(id);
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     return Scaffold(
     backgroundColor: AppColorAssets.appWhiteColor,
     body: SingleChildScrollView(

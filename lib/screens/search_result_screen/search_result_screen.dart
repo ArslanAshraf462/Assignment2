@@ -14,7 +14,7 @@ class SearchResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColorAssets.appWhiteColor,
       body: GestureDetector(

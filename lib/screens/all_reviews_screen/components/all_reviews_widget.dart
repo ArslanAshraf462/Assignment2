@@ -69,7 +69,7 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
         return Column(
           children: [
             VerticalSizedWidget(

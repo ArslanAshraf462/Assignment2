@@ -10,7 +10,7 @@ class FilterSelectBtnWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.only(
         left: screenSize.width *0.05,

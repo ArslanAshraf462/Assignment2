@@ -14,7 +14,7 @@ class FiltersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     return SingleChildScrollView(
         child: SafeArea(
             child: Column(

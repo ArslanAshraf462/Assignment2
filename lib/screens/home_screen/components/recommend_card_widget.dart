@@ -20,7 +20,7 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
   }
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     return  Consumer<RecommendedProductServices>(
       builder: (context,snapshot,_) {
         if(snapshot.isloaded){

@@ -12,7 +12,7 @@ class CategoriesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     Provider.of<CategoriesServices>(context,listen: false).getCategoriesdata();
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,

@@ -16,7 +16,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     return Column(
       children: [
       if(ids==25)...[
