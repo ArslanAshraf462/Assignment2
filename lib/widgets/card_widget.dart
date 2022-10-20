@@ -22,7 +22,7 @@ class _CardWidgetState extends State<CardWidget> {
   }
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     return Column(
       children: [
            Consumer<NewProductServices>(
@@ -34,7 +34,7 @@ class _CardWidgetState extends State<CardWidget> {
                        GestureDetector(
                          onTap: () {
                            id=snapshot.data!.results![index2].id;
-                           Navigator.of(context).push(
+                         Navigator.of(context).push(
                                MaterialPageRoute(builder: (context) => DetailVenderScreen(snapshot.data!.results![index2].id!.toInt()),));
                          },
                          child: Card(

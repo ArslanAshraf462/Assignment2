@@ -9,7 +9,7 @@ class ClearApplyButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     return Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,

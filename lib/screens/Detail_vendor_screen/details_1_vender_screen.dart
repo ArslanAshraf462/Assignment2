@@ -48,8 +48,7 @@ class _DetailVenderScreenState extends State<DetailVenderScreen> {
     Consumer<ProductDetailServices>(
 
     builder: (context,snapshot,_) {
-      if(snapshot.isloading){
-      // if(id==snapshot.data!.id){
+      if(snapshot.isloading) {
           return Column(
             children: [
               Stack(
@@ -84,7 +83,6 @@ class _DetailVenderScreenState extends State<DetailVenderScreen> {
 
             ],
           );
-       // }
     }
      return SizedBox(
        width: screenSize.width*0.89,

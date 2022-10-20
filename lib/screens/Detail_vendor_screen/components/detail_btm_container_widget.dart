@@ -15,7 +15,7 @@ class DetailBottomContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     Provider.of<ProductDetailServices>(context,listen: false).getProductDetaildata(id5);
     return Container(
       height: 533,
@@ -36,7 +36,6 @@ class DetailBottomContainerWidget extends StatelessWidget {
         builder: (context,snapshot,_) {
          if(snapshot.isloading)
            {
-            // if(id==snapshot.data!.id){
                return Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
@@ -148,10 +147,8 @@ class DetailBottomContainerWidget extends StatelessWidget {
                    ),
                  ],
                );
-            // }
-
            }
-          return Container();//Center(child: CircularProgressIndicator(),);
+          return Container();
         }
       ),
     );

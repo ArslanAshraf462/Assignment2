@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:http/http.dart';
+
 import '/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -23,7 +25,7 @@ class ProductDetailServices with ChangeNotifier {
 
   Future getProductDetaildata(int idss) async {
     String url = 'https://data-otterli-staging.com/api/product_details/$idss';
-    var response = await http.get(Uri.parse(url),
+    Response response = await http.get(Uri.parse(url),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',

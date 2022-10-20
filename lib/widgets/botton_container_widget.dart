@@ -9,7 +9,7 @@ class BottomContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize=MediaQuery.of(context).size;
+    Size screenSize=MediaQuery.of(context).size;
     return Container(
       width: double.infinity,
       height: screenSize.height*0.87,
