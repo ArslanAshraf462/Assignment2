@@ -58,21 +58,24 @@ class SearchResultScreen extends StatelessWidget {
                    : const Text(AppTextAssets.newProductItemText),
                 ),
                 VerticalSizedWidget(26),
-                 SizedBox(
-                  width: double.infinity,
-                 height: screenSize.height*8,
-                 // height: 550,
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      left: screenSize.width*0.05,
-                        right: screenSize.width*0.05,
-                        // left: 20,
-                        // right: 20,
+                 Padding(
+                   padding: EdgeInsets.only(bottom: screenSize.height*0.15),
+                   child: SizedBox(
+                    width: double.infinity,
+                   height: screenSize.height*8,
+                   // height: 550,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: screenSize.width*0.05,
+                          right: screenSize.width*0.05,
+                          // left: 20,
+                          // right: 20,
+                      ),
+                      child: SearchResultGridViewWidget(ids: idCount,),
                     ),
-                    child: SearchResultGridViewWidget(ids: idCount,),
-                  ),
                 ),
-                VerticalSizedWidget(60),
+                 ),
+                //VerticalSizedWidget(60),
               ],
             ),
           ),

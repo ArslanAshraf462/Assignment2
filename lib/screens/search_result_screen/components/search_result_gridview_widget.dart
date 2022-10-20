@@ -2,6 +2,7 @@ import '../../../services/recommended_product_service.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
+import '../../../widgets/vertical_sized_widget.dart';
 import '../../Detail_vendor_screen/details_1_vender_screen.dart';
 import 'package:flutter/material.dart';
 

@@ -32,7 +32,7 @@ class ProductDetailModel {
     yellowCard : json['yellow_card'],
     categories : json['categories'].cast<String>(),
       vendors: List<dynamic>.from(json['vendors']).map((e) => Vendors.fromJson(e)).toList(),
-    reviews : json['reviews'] != null ? Reviews.fromJson(json['reviews']) : null,
+    reviews : Reviews.fromJson(json['reviews']),
     dateAdded : json['date_added'],
     );
   }
@@ -52,7 +52,7 @@ class Vendors {
         id : json['id'],
         available : json['available'],
         url : json['url'],
-    price : json['price'] != null ? Price.fromJson(json['price']) : null,
+    price : Price.fromJson(json['price']),
     vendor : json['vendor'],
     );
   }
@@ -77,11 +77,10 @@ class Reviews {
   int? ratingCount;
 
   Reviews({this.avgRating, this.ratingCount});
-
-  factory Reviews.fromJson(Map<String, dynamic> json) {
-    return Reviews(
-        avgRating : json['avg_rating'],
-        ratingCount : json['rating_count'],
-    );
-  }
+factory Reviews.fromJson(Map<String, dynamic> json){
+  return Reviews(
+    avgRating: json['avg_rating'],
+    ratingCount: json['rating_count'],
+  );
+}
 }

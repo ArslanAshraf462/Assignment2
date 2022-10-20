@@ -40,7 +40,7 @@ class Results {
         name : json['name'],
         imageUrl : json['image_url'],
     yellowCard : json['yellow_card'],
-    reviews : json['reviews'] != null ? Reviews.fromJson(json['reviews']) : null,
+    reviews : Reviews.fromJson(json['reviews']),
       vendors: List<dynamic>.from(json['vendors']).map((e) => Vendors.fromJson(e)).toList(),
     dateAdded : json['date_added'],
     notes : json['notes'],
@@ -76,7 +76,7 @@ class Vendors {
         id : json['id'],
         available : json['available'],
         url : json['url'],
-    price : json['price'] != null ? Price.fromJson(json['price']) : null,
+    price : Price.fromJson(json['price']),
     vendor : json['vendor'],
     );
   }
