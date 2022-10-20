@@ -26,7 +26,7 @@ class _DetailVenderScreenState extends State<DetailVenderScreen> {
    // print(id);
     var screenSize=MediaQuery.of(context).size;
     return Scaffold(
-    backgroundColor: Colors.white,
+    backgroundColor: AppColorAssets.appWhiteColor,
     body: SingleChildScrollView(
     child: SafeArea(
     child:  Column(
@@ -75,7 +75,7 @@ class _DetailVenderScreenState extends State<DetailVenderScreen> {
                       icon: const Icon(
                         Icons.info,
                         size: 14,
-                        color: Colors.grey,
+                        color: AppColorAssets.appGreyColor,
                       ),
                     ),
                   ),

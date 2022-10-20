@@ -13,13 +13,13 @@ class HomeRefsTextWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title,style: ConstantTextStyle.homeTextHeadingStyle
+          Text(title,style: AppTextStyleAssets.homeTextHeadingStyle
           ),
           Row(
             children: const [
-              Text(AppTextAssets.viewAllText,style: ConstantTextStyle.viewAllTextStyle,
+              Text(AppTextAssets.viewAllText,style: AppTextStyleAssets.viewAllTextStyle,
               ),
-              Icon(Icons.arrow_forward,color: Color(0xffF3D434),size: 14,)
+              Icon(Icons.arrow_forward,color: AppColorAssets.appRatingStarColor,size: 14,)
             ],
           ),
         ],

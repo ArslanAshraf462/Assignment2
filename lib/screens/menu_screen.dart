@@ -12,7 +12,7 @@ class MenuScreen extends StatelessWidget {
         children: [
           Image.asset(AppAssets.navImage, width: double.infinity,),
           VerticalSizedWidget(280),
-          Center(child: Text('This is menu screen!'),),
+          const Center(child: Text(AppTextAssets.menuScreenText),),
         ],
       ),
     );

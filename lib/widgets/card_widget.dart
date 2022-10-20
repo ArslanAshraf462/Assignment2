@@ -39,7 +39,7 @@ class _CardWidgetState extends State<CardWidget> {
                          },
                          child: Card(
                            elevation: 1,
-                           color: Colors.white,
+                           color: AppColorAssets.appWhiteColor,
                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
                            child: SizedBox(
                              height:screenSize.height*0.15,
@@ -51,7 +51,7 @@ class _CardWidgetState extends State<CardWidget> {
                                children: [
                                   Padding(
                                    padding: EdgeInsets.only(left: screenSize.width*0.8,top: screenSize.height*0.01,),
-                                   child: FavoriteIconWidget(),
+                                   child: const FavoriteIconWidget(),
                                  ),
                                  Row(
                                    children: [
@@ -75,7 +75,7 @@ class _CardWidgetState extends State<CardWidget> {
                                              // height: 60,
                                              // width: 200,
                                              child: Text(snapshot.data!.results![index2].name.toString(),
-                                                 style: ConstantTextStyle.productBodyHeadingStyle),
+                                                 style: AppTextStyleAssets.productBodyHeadingStyle),
                                            ),
                                          ),
                                          // SizedBox(
@@ -95,7 +95,7 @@ class _CardWidgetState extends State<CardWidget> {
                                            child: Row(
                                              children: [
                                                for(int index3 = 0; index3 < snapshot.data!.results![index2].vendors!.length; index3++)...[
-                                                 Text('\$' + snapshot.data!.results![index2].vendors![index3].price!.price.toString(),style: ConstantTextStyle.productBodyPriceStyle,),
+                                                 Text('\$${snapshot.data!.results![index2].vendors![index3].price!.price}',style: AppTextStyleAssets.productBodyPriceStyle,),
                                                ],
 
                                                Padding(
@@ -105,8 +105,8 @@ class _CardWidgetState extends State<CardWidget> {
                                                  ),
                                                  child: Row(
                                                    children: const [
-                                                     Icon(Icons.star_half,color: Color(0xffF3D434),size: 14,),
-                                                     Text('0.0',style: ConstantTextStyle.productBodyRatingStyle,),
+                                                     Icon(Icons.star_half,color: AppColorAssets.appRatingStarColor,size: 14,),
+                                                     Text('0.0',style: AppTextStyleAssets.productBodyRatingStyle,),
                                                    ],
                                                  ),
                                                ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+
 class RadioButtonWidget extends StatefulWidget {
   final List items;
   RadioButtonWidget({required this.items});
@@ -18,11 +20,11 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
       itemCount: widget.items.length,
       itemBuilder: (context, index) {
         return  ListTile(
-          title: Text(widget.items[index].toString(), style: TextStyle(fontWeight: FontWeight.bold),),
+          title: Text(widget.items[index].toString(), style: const TextStyle(fontWeight: FontWeight.bold),),
           leading: Radio(
             fillColor:
             MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) => Color(0xff07AD5A)),
+                    (Set<MaterialState> states) => AppColorAssets.appGreenColor),
             value: index,
             groupValue: current,
             onChanged: (value) {

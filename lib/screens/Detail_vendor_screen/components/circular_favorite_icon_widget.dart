@@ -1,3 +1,4 @@
+import '../../../constants.dart';
 import '../../../widgets/favorite_icon_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -10,10 +11,10 @@ class CircularFavoriteIconWidget extends StatelessWidget {
       width: 52,
       height: 52,
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.red),
+          border: Border.all(color: AppColorAssets.appRedColor),
           borderRadius: const BorderRadius.all(Radius.circular(100)),
       ),
-      child: FavoriteIconWidget(),
+      child: const FavoriteIconWidget(),
     );
   }
 }

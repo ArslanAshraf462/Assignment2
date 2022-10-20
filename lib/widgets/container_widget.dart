@@ -20,7 +20,7 @@ class ContainerWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(5.0),
         border: Border.all(
             width: 1,
-            color: const Color(0xff00A651)
+            color: AppColorAssets.vendorCategoryColor
         ),
       ),
       child: Padding(
@@ -28,7 +28,7 @@ class ContainerWidget extends StatelessWidget {
         child: Center(
           child: Text(text,
               textAlign: TextAlign.center,
-              style: ConstantTextStyle.containerWidgetTextStyle),
+              style: AppTextStyleAssets.containerWidgetTextStyle),
         ),
       ),
     );

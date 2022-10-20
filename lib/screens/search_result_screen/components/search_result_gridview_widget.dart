@@ -19,7 +19,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
     return Column(
       children: [
       if(ids==25)...[
-    Container(
+    SizedBox(
       width: double.infinity,
       height: screenSize.height*1.25,
       //height: 500,
@@ -48,7 +48,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
       children: [
       Card(
       elevation: 1,
-      color: const Color(0xffFFFFFF),
+      color: AppColorAssets.appWhiteColor,
       shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12.0)),
       child: SizedBox(
@@ -93,7 +93,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
       ),
       child: Text(snapshot.data!.results![index].name.toString(),
       overflow: TextOverflow.ellipsis,
-      style: ConstantTextStyle
+      style: AppTextStyleAssets
           .recommendTextHeadStyle,),
       ),
       Padding(
@@ -119,15 +119,15 @@ class SearchResultGridViewWidget extends StatelessWidget {
               itemBuilder: (context,num) {
                 return Text('\$${snapshot.data!.results![index].vendors![num].price!.price}',
 
-                    style: ConstantTextStyle.recommendTextBodyStyle);
+                    style: AppTextStyleAssets.recommendTextBodyStyle);
               }
           ),
         ),
       Row(children: [
       const Icon(Icons.star_half,
-      color: Color(0xffF3D434),
+      color: AppColorAssets.appRatingStarColor,
       size: 14,),
-        Text(snapshot.data!.results![index].reviews!.avgRating.toString(),style: ConstantTextStyle.recommendTextBodyStyle),
+        Text(snapshot.data!.results![index].reviews!.avgRating.toString(),style: AppTextStyleAssets.recommendTextBodyStyle),
       ],),
       ],
       ),
@@ -186,7 +186,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
     ),
       ],
         if(ids==75)...[
-          Container(
+          SizedBox(
             width: double.infinity,
             height: screenSize.height*1.25,
             child: Consumer<NewProductServices>(
@@ -215,7 +215,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
                                 //if(snapshot.data!.count == 25)...[
                                 Card(
                                   elevation: 1,
-                                  color: const Color(0xffFFFFFF),
+                                  color: AppColorAssets.appWhiteColor,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12.0)),
                                   child: SizedBox(
@@ -258,7 +258,7 @@ class SearchResultGridViewWidget extends StatelessWidget {
                                               ),
                                               child: Text(snapshot.data!.results![index].name.toString(),
                                                 overflow: TextOverflow.ellipsis,
-                                                style: ConstantTextStyle
+                                                style: AppTextStyleAssets
                                                     .recommendTextHeadStyle,),
                                             ),
                                             Padding(
@@ -282,15 +282,15 @@ class SearchResultGridViewWidget extends StatelessWidget {
                                                         itemBuilder: (context,num) {
                                                           return Text('\$${snapshot.data!.results![index].vendors![num].price!.price}',
 
-                                                              style: ConstantTextStyle.recommendTextBodyStyle);
+                                                              style: AppTextStyleAssets.recommendTextBodyStyle);
                                                         }
                                                     ),
                                                   ),
                                                   Row(children: const [
                                                     Icon(Icons.star_half,
-                                                      color: Color(0xffF3D434),
+                                                      color: AppColorAssets.appRatingStarColor,
                                                       size: 14,),
-                                                    Text('0.0', style: ConstantTextStyle
+                                                    Text('0.0', style: AppTextStyleAssets
                                                         .recommendTextBodyStyle,),
                                                   ],)
                                                 ],

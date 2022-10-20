@@ -37,7 +37,7 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                   },
                   child: Card(
                     elevation: 1,
-                    color: const Color(0xffFFFFFF),
+                    color: AppColorAssets.appWhiteColor,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
                     child: SizedBox(
                       width: screenSize.width*0.47,
@@ -63,13 +63,13 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                 padding: const EdgeInsets.only(top: 8.0,left: 10.0),
                                 child: Text(snapshot.data!.results![index].name.toString(),
                                     overflow: TextOverflow.ellipsis,
-                                    style: ConstantTextStyle.recommendTextHeadStyle),),
+                                    style: AppTextStyleAssets.recommendTextHeadStyle),),
                               Padding(
                                 padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 7.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       height: 18,
                                      width: screenSize.width*0.1,
                                      // width: 40,
@@ -78,14 +78,14 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                           itemBuilder: (context,num) {
                                             return Text('\$${snapshot.data!.results![index].vendors![num].price!.price}',
 
-                                                style: ConstantTextStyle.recommendTextBodyStyle);
+                                                style: AppTextStyleAssets.recommendTextBodyStyle);
                                           }
                                       ),
                                     ),
                                     Row(children: [
-                                      const Icon(Icons.star_half,color: Color(0xffF3D434),size: 14,),
+                                      const Icon(Icons.star_half,color: AppColorAssets.appRatingStarColor,size: 14,),
                                       Text(snapshot.data!.results![index].reviews!.avgRating.toString(),
-                                          style: ConstantTextStyle.recommendTextBodyStyle,
+                                          style: AppTextStyleAssets.recommendTextBodyStyle,
                                       ),
                                     ],)
                                   ],
@@ -93,7 +93,7 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 10.0,left: 8,bottom: 12.0),
-                                child: Container(
+                                child: SizedBox(
                                   height: 20,
                                  width: screenSize.width*0.4,
                                  // width: 120,

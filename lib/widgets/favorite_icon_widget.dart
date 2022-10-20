@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../constants.dart';
 class FavoriteIconWidget extends StatefulWidget {
   const FavoriteIconWidget({
     Key? key,
@@ -18,8 +20,8 @@ class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
           _isSelected=!_isSelected;
         });
       },
-        child:_isSelected ?const Icon(Icons.favorite,color: Colors.red,):
-    const Icon(Icons.favorite_border_outlined,color: Colors.red,)
+        child:_isSelected ?const Icon(Icons.favorite,color: AppColorAssets.appRedColor,):
+    const Icon(Icons.favorite_border_outlined,color: AppColorAssets.appRedColor,)
     );
   }
 }

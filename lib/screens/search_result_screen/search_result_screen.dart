@@ -10,13 +10,13 @@ import '../../widgets/vertical_sized_widget.dart';
 
 class SearchResultScreen extends StatelessWidget {
   final int idCount;
-  SearchResultScreen(this.idCount);
+   SearchResultScreen(this.idCount);
 
   @override
   Widget build(BuildContext context) {
     var screenSize=MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColorAssets.appWhiteColor,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: SingleChildScrollView(
@@ -35,7 +35,7 @@ class SearchResultScreen extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () => Navigator.of(context).pop(),
-                        child: PopScreenWidget(title: AppTextAssets.searchBackText),
+                        child: PopScreenWidget(title: AppTextAssets.homeText),
                     ),
                     HorizontalSizedWidget(
                         screenSize.width*0.15
@@ -54,8 +54,8 @@ class SearchResultScreen extends StatelessWidget {
                   ),
                   child:
                   idCount == 25
-                      ? Text(AppTextAssets.recommendedItemText)
-                   : Text(AppTextAssets.newProductItemText),
+                      ? const Text(AppTextAssets.recommendedItemText)
+                   : const Text(AppTextAssets.newProductItemText),
                 ),
                 VerticalSizedWidget(26),
                  SizedBox(

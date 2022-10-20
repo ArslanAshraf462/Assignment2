@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../constants.dart';
+
 class CategoryVenderWidget extends StatelessWidget {
   final String text;
   final double height;
@@ -12,7 +14,7 @@ class CategoryVenderWidget extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-          border: Border.all(color: const Color(0xff00A651)),
+          border: Border.all(color: AppColorAssets.vendorCategoryColor),
           borderRadius: const BorderRadius.all(Radius.circular(15))),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
@@ -22,7 +24,7 @@ class CategoryVenderWidget extends StatelessWidget {
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
-            color: Color(0xff00A651),
+            color: AppColorAssets.vendorCategoryColor,
           ),
         ),
       ),

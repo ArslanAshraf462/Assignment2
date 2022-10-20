@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../constants.dart';
 import 'selection_button_widget.dart';
 import '../../../widgets/vertical_sized_widget.dart';
 class FilterSelectBtnWidget extends StatelessWidget {
@@ -22,17 +23,17 @@ class FilterSelectBtnWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SelectionButtonWidget(text: 'Tesco',),
-              SelectionButtonWidget(text: 'Aldi',),
-              SelectionButtonWidget(text: 'Asda',),
+              SelectionButtonWidget(text: AppTextAssets.tescoText,),
+              SelectionButtonWidget(text: AppTextAssets.aldiText,),
+              SelectionButtonWidget(text: AppTextAssets.asdaText,),
             ],),
           VerticalSizedWidget(15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SelectionButtonWidget(text: 'Sainsbury\'s',),
-              SelectionButtonWidget(text: 'Lidl',),
-              SelectionButtonWidget(text: 'Ocado',),
+              SelectionButtonWidget(text: AppTextAssets.sainsburyText,),
+              SelectionButtonWidget(text: AppTextAssets.lidlText,),
+              SelectionButtonWidget(text: AppTextAssets.ocadoText,),
             ],),
         ],
       ),

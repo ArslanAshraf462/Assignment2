@@ -25,7 +25,7 @@ class SearchFilterWidget extends StatelessWidget {
              //so you don't have to change MaterialApp canvasColor
              child: Container(
                  decoration: const BoxDecoration(
-                     color: Colors.white,
+                     color: AppColorAssets.appWhiteColor,
                      borderRadius: BorderRadius.only(
                          topLeft: Radius.circular(50.0),
                          topRight: Radius.circular(50.0))),
@@ -35,7 +35,7 @@ class SearchFilterWidget extends StatelessWidget {
                    child: FiltersScreen(
                      child: IconButton(
                        onPressed: () => Navigator.pop(ctx),
-               icon: const Icon(Icons.close,color: Color(0xffAFAFAF),
+               icon: const Icon(Icons.close,color: AppColorAssets.appDataColor,
                ),
              ),
                    ),
@@ -74,7 +74,7 @@ class SearchFilterWidget extends StatelessWidget {
               // width: 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
-                color: Color(0xff00A651),
+                color: AppColorAssets.vendorCategoryColor,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(1),
@@ -90,8 +90,8 @@ class SearchFilterWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    Text(AppTextAssets.filterButtonText,style: TextStyle(color: Colors.white),),
-                    Icon(Icons.tune,color: Colors.white,),
+                    Text(AppTextAssets.filterButtonText,style: TextStyle(color: AppColorAssets.appWhiteColor),),
+                    Icon(Icons.tune,color: AppColorAssets.appWhiteColor,),
                   ],
                 ),
               ),

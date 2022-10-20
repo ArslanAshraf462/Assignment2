@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 class AllReviewsFilterScreen extends StatelessWidget {
   final Widget child;
   AllReviewsFilterScreen({super.key, required this.child});
-  List items = itemz;
+  List items = AppTextAssets.itemz;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class AllReviewsFilterScreen extends StatelessWidget {
                       left: screenSize.width*0.08,
                     //  left: 33,top: 12,
                     ),
-                    child: const Text(AppTextAssets.sortByText,style: ConstantTextStyle.sortBy,),
+                    child: const Text(AppTextAssets.sortByText,style: AppTextStyleAssets.sortBy,),
                   ),
                 ],
               ),

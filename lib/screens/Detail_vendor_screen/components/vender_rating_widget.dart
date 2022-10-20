@@ -30,7 +30,7 @@ class VendorRatingWidget extends StatelessWidget {
             //so you don't have to change MaterialApp canvasColor
             child: Container(
               decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: AppColorAssets.appWhiteColor,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(50.0),
                       topRight: Radius.circular(50.0))),
@@ -41,7 +41,7 @@ class VendorRatingWidget extends StatelessWidget {
                   id2: id1,
                   child: IconButton(
                   onPressed: () => Navigator.pop(ctx),
-                  icon: const Icon(Icons.close,color: Color(0xffAFAFAF),
+                  icon: const Icon(Icons.close,color: AppColorAssets.appDataColor,
                   ),
                 ),
                 ),
@@ -67,25 +67,25 @@ class VendorRatingWidget extends StatelessWidget {
                 const Icon(
                   Icons.star_half,
                   size: 20,
-                  color: Color(0xffF3D434),
+                  color: AppColorAssets.appRatingStarColor,
                 ),
                 Text(
-                  '$ratings  Rating',
-                  style: ConstantTextStyle.vendorRatingWidgetTxtStyle,
+                  '$ratings  ${AppTextAssets.appRatingText}',
+                  style: AppTextStyleAssets.vendorRatingWidgetTxtStyle,
                 )
               ],
             ),
             Row(
               children: <Widget>[
                  Text(
-                  '$reviews reviews ',
-                  style: ConstantTextStyle.vendorRatingWidgetTxtStyle,
+                  '$reviews ${AppTextAssets.appReviewText}',
+                  style: AppTextStyleAssets.vendorRatingWidgetTxtStyle,
                 ),
                 TextButton(
                     onPressed: () =>startAddNewTransaction(context,id1),
                     child: const Text(
-                      'See all',
-                      style: ConstantTextStyle.vendorRtgWgtSeeAllTxtStyle,
+                      AppTextAssets.seeAllText,
+                      style: AppTextStyleAssets.vendorRtgWgtSeeAllTxtStyle,
                     ),
                 ),
               ],
@@ -95,15 +95,15 @@ class VendorRatingWidget extends StatelessWidget {
         Column(
           children: <Widget>[
             const Text(
-              'Give your rating',
-              style: ConstantTextStyle.vendorRatingWidgetTxtStyle,
+              AppTextAssets.giveRatingText,
+              style: AppTextStyleAssets.vendorRatingWidgetTxtStyle,
             ),
             const SizedBox(
               height: 12,
             ),
             RatingBar.builder(
               itemBuilder: (context, _) {
-                return Icon(Icons.star, color: Colors.amber,);
+                return const Icon(Icons.star, color: AppColorAssets.appRatingStarColor,);
               },
               onRatingUpdate: (rating) {
                 this.rating=rating;

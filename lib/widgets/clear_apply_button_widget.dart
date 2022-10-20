@@ -14,27 +14,27 @@ class ClearApplyButtonWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
             width: screenSize.width*0.4,
             height: screenSize.height*0.07,
             // width: 145,
             // height: 55,
             child: TextButton(onPressed: onPressed,
-              child: Text('Clear All'),
               style: ConstantButtonStyle.clearButtonStyle,
+              child: const Text(AppTextAssets.clearBtnText),
             ),
           ),
           HorizontalSizedWidget(
             screenSize.width*0.02
               //10.0
           ),
-          Container(
+          SizedBox(
             width: screenSize.width*0.4,
             height: screenSize.height*0.07,
             // width: 145,
             // height: 55,
-            child: ElevatedButton(onPressed: (){}, child: Text('Apply'),
-              style: ConstantButtonStyle.applyButtonStyle,
+            child: ElevatedButton(onPressed: (){},
+              style: ConstantButtonStyle.applyButtonStyle, child: const Text(AppTextAssets.applyBtnText),
             ),
           ),
         ]

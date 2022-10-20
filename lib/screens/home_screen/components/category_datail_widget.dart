@@ -38,7 +38,7 @@ class CategoryDetailWidget extends StatelessWidget {
                     HorizontalSizedWidget(20.0),
                     GestureDetector(
                       onTap: () => Navigator.of(context).pop(),
-                      child: PopScreenWidget(title: AppTextAssets.searchBackText),
+                      child: PopScreenWidget(title: AppTextAssets.homeText),
                     ),
                     HorizontalSizedWidget(50.0),
                     TitleWidget(title: AppTextAssets.searchTitleText, fontWeight: FontWeight.normal),
@@ -113,7 +113,7 @@ class CategoryDetailWidget extends StatelessWidget {
                                                               top: 8.0, left: 10.0),
                                                           child: Text(snapshot.data!.name.toString(),
                                                             overflow: TextOverflow.ellipsis,
-                                                            style: ConstantTextStyle
+                                                            style: AppTextStyleAssets
                                                                 .recommendTextHeadStyle,),
                                                         ),
                                                         Padding(
@@ -131,7 +131,7 @@ class CategoryDetailWidget extends StatelessWidget {
                                                                     itemBuilder: (context,num) {
                                                                       return Text('\$${snapshot.data!.vendors![num].price!.price}',
 
-                                                                          style: ConstantTextStyle.recommendTextBodyStyle);
+                                                                          style: AppTextStyleAssets.recommendTextBodyStyle);
                                                                     }
                                                                 ),
                                                               ),
@@ -139,7 +139,7 @@ class CategoryDetailWidget extends StatelessWidget {
                                                                 Icon(Icons.star_half,
                                                                   color: Color(0xffF3D434),
                                                                   size: 14,),
-                                                                Text('0.0', style: ConstantTextStyle
+                                                                Text('0.0', style: AppTextStyleAssets
                                                                     .recommendTextBodyStyle,),
                                                               ],)
                                                             ],

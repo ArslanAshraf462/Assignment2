@@ -10,7 +10,7 @@ import '../../widgets/radio_button_widget.dart';
 class FiltersScreen extends StatelessWidget {
   final Widget child;
   FiltersScreen({required this.child});
-  List items = item;
+  List items = AppTextAssets.item;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class FiltersScreen extends StatelessWidget {
                            right: screenSize.width*0.7,
                              //right: 250,
                          ),
-                         child: Text('Filters',style: ConstantTextStyle.filterSrnFilterHeadingStyle,),
+                         child: const Text(AppTextAssets.filterText,style: AppTextStyleAssets.filterSrnFilterHeadingStyle,),
                        ),
                        VerticalSizedWidget(
                          screenSize.height*0.009,
@@ -53,8 +53,8 @@ class FiltersScreen extends StatelessWidget {
                          child: Row(
                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                            children: const [
-                             Text('Supermarkets',style: ConstantTextStyle.filterSrnSuperMrktStyle,),
-                             Text('Reset',style: ConstantTextStyle.filterSrnResetStyle,
+                             Text(AppTextAssets.superMarketText,style: AppTextStyleAssets.filterSrnSuperMrktStyle,),
+                             Text(AppTextAssets.resetText,style: AppTextStyleAssets.filterSrnResetStyle,
                              ),
                            ],
                          ),
@@ -63,7 +63,7 @@ class FiltersScreen extends StatelessWidget {
                          screenSize.height*0.025,
                            //18
                        ),
-                       FilterSelectBtnWidget(),
+                       const FilterSelectBtnWidget(),
                        VerticalSizedWidget(
                          screenSize.height*0.09,
                        //    70
@@ -83,8 +83,8 @@ class FiltersScreen extends StatelessWidget {
                         left: screenSize.width*0.08,
                         //left: 33,top: 25,
                       ),
-                      child: const Text('Sort by',
-                        style: ConstantTextStyle.sortBy,
+                      child: const Text(AppTextAssets.sortByText,
+                        style: AppTextStyleAssets.sortBy,
                       ),
                     ),
                   ],

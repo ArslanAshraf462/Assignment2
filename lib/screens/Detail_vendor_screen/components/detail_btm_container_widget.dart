@@ -21,7 +21,7 @@ class DetailBottomContainerWidget extends StatelessWidget {
       height: 533,
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: AppColorAssets.appWhiteColor,
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(50), topRight: Radius.circular(50),
           ),
@@ -56,13 +56,13 @@ class DetailBottomContainerWidget extends StatelessWidget {
                                  snapshot.data!.name.toString(),
                                  //overflow: TextOverflow.ellipsis,
                                  softWrap: true,
-                                 style: ConstantTextStyle.detailBtmHeadngTxtStyle,
+                                 style: AppTextStyleAssets.detailBtmHeadngTxtStyle,
                                ),
                              ),
                              VerticalSizedWidget(4),
                              Text(
-                               'Units: ${snapshot.data!.units.toString()}',
-                               style: ConstantTextStyle.detailBtmUnitTxtStyle,
+                               '${AppTextAssets.unitsText} ${snapshot.data!.units.toString()}',
+                               style: AppTextStyleAssets.detailBtmUnitTxtStyle,
                              ),
                            ],
                          ),
@@ -74,7 +74,7 @@ class DetailBottomContainerWidget extends StatelessWidget {
                      padding: EdgeInsets.only(left: 24,top: 12),
                      child: Text(
                        '\$${snapshot.data!.vendors![0].price!.price}',
-                       style: ConstantTextStyle.detailBtmPriceTxtStyle,
+                       style: AppTextStyleAssets.detailBtmPriceTxtStyle,
                      ),
                    ),
                    //   ],
@@ -89,8 +89,8 @@ class DetailBottomContainerWidget extends StatelessWidget {
                    const Padding(
                      padding: EdgeInsets.only(left: 24,top: 20),
                      child: Text(
-                       'Categories',
-                       style: ConstantTextStyle.vendrRtgCategoryTxtStyle,
+                       AppTextAssets.categoryText,
+                       style: AppTextStyleAssets.vendrRtgCategoryTxtStyle,
                      ),
                    ),
                    Padding(
@@ -116,12 +116,12 @@ class DetailBottomContainerWidget extends StatelessWidget {
                      child: Row(
                        children: const [
                          Text(
-                           'Product Notes ',
-                           style: ConstantTextStyle.vendrProductTxtStyle,
+                           AppTextAssets.productNotesText,
+                           style: AppTextStyleAssets.vendrProductTxtStyle,
                          ),
                          Text(
-                           '(click to see more)',
-                           style: ConstantTextStyle.vendrCTSMTxtStyle,
+                           AppTextAssets.seeMoreText,
+                           style: AppTextStyleAssets.vendrCTSMTxtStyle,
                          ),
                        ],
                      ),
@@ -141,7 +141,7 @@ class DetailBottomContainerWidget extends StatelessWidget {
                    // ),
                    Padding(
                      padding: const EdgeInsets.only(left: 22,top: 30,right: 18),
-                     child: ElevatedButtonWidget(text: 'Tesco',
+                     child: ElevatedButtonWidget(text: AppTextAssets.elevatedVendorText,
                          width: screenSize.width*0.89,
                          //width: 350,
                          height: 56),

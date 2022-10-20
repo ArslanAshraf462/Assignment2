@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var screenSize=MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColorAssets.appWhiteColor,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: SingleChildScrollView(
@@ -77,9 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       // top: 26.0,
                       // left: 24,
                   ),
-                  child: const Text(AppTextAssets.categoriesText, style: ConstantTextStyle.homeTextHeadingStyle),
+                  child: const Text(AppTextAssets.allCategoriesText, style: AppTextStyleAssets.homeTextHeadingStyle),
                 ),
-                CategoriesWidget(),
+                const CategoriesWidget(),
                 Consumer<RecommendedProductServices>(
                   builder: (context, snapshot,_) {
                   return GestureDetector(

@@ -15,17 +15,17 @@ class TextFieldWidget extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        border: Border.all(width: 1,color: Colors.grey),
+        border: Border.all(width: 1,color: AppColorAssets.appGreyColor),
       ),
       child: TextField(
         decoration: InputDecoration(
           border: InputBorder.none,
           prefixIcon: const Icon(
             Icons.search,
-            color: Colors.grey,
+            color: AppColorAssets.appGreyColor,
           ),
           hintText: hintText,
-          hintStyle: ConstantTextStyle.textFieldWidgetStyle,
+          hintStyle: AppTextStyleAssets.textFieldWidgetStyle,
         ),
       ),
     );

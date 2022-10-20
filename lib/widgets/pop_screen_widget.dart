@@ -8,7 +8,7 @@ class PopScreenWidget extends StatelessWidget {
     return  Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Icon(Icons.arrow_back_ios_new_outlined),
+        const Icon(Icons.arrow_back_ios_new_outlined),
         Text(title),
       ],
     );

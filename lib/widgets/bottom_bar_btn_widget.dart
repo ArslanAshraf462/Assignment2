@@ -17,14 +17,17 @@ class BottomBarBtnWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children:  [
-          selectedPage==pageNumber? Icon(icon,color: Color(0xff07AD5A),): Icon(icon,color: Colors.grey,),
+          selectedPage==pageNumber
+              ? Icon(icon,color: AppColorAssets.appGreenColor,)
+              : Icon(icon,color: AppColorAssets.appGreyColor,),
           selectedPage == pageNumber? Text(title,style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w400,
-            color: Color(0xff07AD5A),
+            color: AppColorAssets.appGreenColor,
           ),): Text(title,style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w400,
+            color: AppColorAssets.appGreyColor,
           ),),
         ],
       ),

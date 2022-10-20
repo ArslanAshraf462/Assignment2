@@ -46,8 +46,8 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
             color: Colors.transparent, //could change this to Color(0xFF737373),
             //so you don't have to change MaterialApp canvasColor
             child: Container(
-              decoration: const BoxDecoration(
-                  color: Colors.white,
+              decoration:  const BoxDecoration(
+                  color: AppColorAssets.appWhiteColor,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(50.0),
                       topRight: Radius.circular(50.0))),
@@ -56,7 +56,8 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                 behavior: HitTestBehavior.opaque,
                 child: AllReviewsFilterScreen(child: IconButton(
                   onPressed: () => Navigator.pop(ctx),
-                  icon: const Icon(Icons.close,color: Color(0xffAFAFAF),
+                  icon: const Icon(Icons.close,
+                    color: AppColorAssets.appDataColor,
                   ),
                 ),),
               ),
@@ -76,7 +77,7 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                 //20.0
             ),
             ElevatedButtonWidget(
-              text: 'Add your review',
+              text: AppTextAssets.elevatedReviewsText,
             width: screenSize.width*0.55,
             height: screenSize.height* 0.07,
             // width: 232.0,
@@ -93,10 +94,10 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('200 reviews'),
+                    const Text(AppTextAssets.totalReviewsText),
                     GestureDetector(
                       onTap: () =>startAddNewTransaction(context),
-                      child: Icon(Icons.tune),),
+                      child: const Icon(Icons.tune),),
                   ],
                 ),
               ),
@@ -107,7 +108,7 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                 bottom: screenSize.height*0.009,
                 //  left: 16.0,right: 16.0,bottom: 6.0,
                 ),
-                child: Divider(),
+                child: const Divider(),
               ),
               Expanded(
                 child: Consumer<ReviewsServices>(
@@ -130,14 +131,14 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                                     Column(
                                       children: [
                                         const CircleAvatar(
-                                          backgroundImage: AssetImage('assets/images/image.png'),
+                                          backgroundImage: AssetImage(AppAssets.circleAvatarImage),
                                         ),
                                         VerticalSizedWidget(
                                           screenSize.height*0.004
                                             //3.0
                                         ),
                                         Text(review.data!.results![index2].username.toString(),
-                                          style: ConstantTextStyle.reviewNameTxtStyle,
+                                          style: AppTextStyleAssets.reviewNameTxtStyle,
                                         ),
                                       ],
                                     ),
@@ -151,7 +152,7 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                                       children: [
                                         RatingBar.builder(
                                           itemBuilder: (context, _) {
-                                            return Icon(Icons.star, color: Colors.amber,);
+                                            return const Icon(Icons.star, color: AppColorAssets.appRatingStarColor,);
                                           },
                                           onRatingUpdate: (rating) {
                                             rating=review.data!.results![index2].rating!.toDouble();
@@ -166,7 +167,7 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                                           width: screenSize.width*0.7,
                                           //width: 250.0,
                                           child: Text(review.data!.results![index2].review.toString(),
-                                            style: TextStyle(color: Color(0xffAFAFAF),),
+                                            style: const TextStyle(color: AppColorAssets.appDataColor,),
                                           ),
                                         ),
                                       ],
@@ -178,7 +179,7 @@ class _AllReviewsWidgetState extends State<AllReviewsWidget> {
                           }
 
                         return Container();
-                      },) : SizedBox.shrink();
+                      },) : const SizedBox.shrink();
                   }
                 ),
               ),

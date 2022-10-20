@@ -19,7 +19,7 @@ import 'package:provider/provider.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Color(0xff07AD5A),
+    statusBarColor: AppColorAssets.appGreenColor,
     statusBarBrightness: Brightness.dark,
   ),
   );
@@ -59,10 +59,6 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (_) => RecommendedProductServices(),),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           resizeToAvoidBottomInset: false,
@@ -96,7 +92,7 @@ class _MyAppState extends State<MyApp> {
                     screenSize.width*0.07
                       //25
                   ),
-                  BottomBarBtnWidget(title: 'Home', icon: Icons.home,pageNumber: 0,onPressed: () {
+                  BottomBarBtnWidget(title: AppTextAssets.homeText, icon: Icons.home,pageNumber: 0,onPressed: () {
                     setState(() {
                       selectedPage=0;
                     });
@@ -105,7 +101,7 @@ class _MyAppState extends State<MyApp> {
                     screenSize.width*0.15
                       //60
                   ),
-                  BottomBarBtnWidget(title: 'Menu', icon: Icons.menu,pageNumber: 1,onPressed: () {
+                  BottomBarBtnWidget(title: AppTextAssets.menuText, icon: Icons.menu,pageNumber: 1,onPressed: () {
                     setState(() {
                       selectedPage=1;
                     });
@@ -119,7 +115,7 @@ class _MyAppState extends State<MyApp> {
                     screenSize.width*0.23
                       //90
                   ),
-                  BottomBarBtnWidget(title: 'Favorite', icon: Icons.favorite,pageNumber: 2,onPressed: () {
+                  BottomBarBtnWidget(title: AppTextAssets.favoriteText, icon: Icons.favorite,pageNumber: 2,onPressed: () {
                     setState(() {
                       selectedPage=2;
                     });
@@ -128,7 +124,7 @@ class _MyAppState extends State<MyApp> {
                     screenSize.width*0.11
                       //45
                   ),
-                  BottomBarBtnWidget(title: 'Account', icon: Icons.person,pageNumber: 3,onPressed: () {
+                  BottomBarBtnWidget(title: AppTextAssets.accountText, icon: Icons.person,pageNumber: 3,onPressed: () {
                     setState(() {
                       selectedPage=3;
                     });

@@ -12,7 +12,7 @@ class AccountScreen extends StatelessWidget {
         children: [
           Image.asset(AppAssets.navImage, width: double.infinity,),
           VerticalSizedWidget(280),
-          Center(child: Text('This is account screen!'),),
+          const Center(child: Text(AppTextAssets.accountScreenText),),
         ],
       ),
     );

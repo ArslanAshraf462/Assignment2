@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+
 class FloatingActionBtnWidget extends StatelessWidget {
 //   final VoidCallback onPressed;
 // FloatingActionBtnWidget({required this.onPressed});
@@ -8,7 +10,7 @@ class FloatingActionBtnWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {},
-      backgroundColor: const Color(0xff07AD5A),
+      backgroundColor: AppColorAssets.appGreenColor,
       child: const Icon(Icons.search),
     );
   }

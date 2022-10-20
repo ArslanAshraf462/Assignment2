@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+
 class BottomContainerWidget extends StatelessWidget {
   final Widget child;
   final Widget closeIcon;
@@ -19,7 +21,7 @@ class BottomContainerWidget extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Color(0xffFFFFFF).withOpacity(1.0),
+            color: AppColorAssets.appWhiteColor.withOpacity(1.0),
           ),
         ],
       ),
