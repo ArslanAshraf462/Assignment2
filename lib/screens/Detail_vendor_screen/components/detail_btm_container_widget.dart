@@ -73,7 +73,7 @@ class DetailBottomContainerWidget extends StatelessWidget {
                    Padding(
                      padding: EdgeInsets.only(left: 24,top: 12),
                      child: Text(
-                       snapshot.data!.vendors![0].price!.price.toString(),
+                       '\$${snapshot.data!.vendors![0].price!.price}',
                        style: ConstantTextStyle.detailBtmPriceTxtStyle,
                      ),
                    ),
