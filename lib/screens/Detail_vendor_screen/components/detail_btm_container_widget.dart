@@ -16,7 +16,7 @@ class DetailBottomContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize=MediaQuery.of(context).size;
-    Provider.of<ProductDetailServices>(context,listen: false).getProductDetaildata(id5);
+    //Provider.of<ProductDetailServices>(context,listen: false).getProductDetaildata(id5);
     return Container(
       height: 533,
       width: double.infinity,
@@ -32,9 +32,10 @@ class DetailBottomContainerWidget extends StatelessWidget {
             ),
           ]
       ),
-      child: Consumer<ProductDetailServices>(
-        builder: (context,snapshot,_) {
-         if(snapshot.isloading)
+      child: FutureBuilder(
+        future: ProductDetailServices().getProductDetaildata(id5),
+        builder: (context,snapshot) {
+         if(snapshot.hasData)
            {
                return Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,19 +95,24 @@ class DetailBottomContainerWidget extends StatelessWidget {
                    ),
                    Padding(
                      padding: const EdgeInsets.only(left: 24,right: 24,top: 10),
-                     child: Wrap(
-                       //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                       spacing: 8.0,
-                       runSpacing: 8.0,
+                     child: Row(
                        children: [
-                         for(int cat=0;cat<snapshot.data!.categories!.length;cat++)...[
-                           CategoryVenderWidget(text: snapshot.data!.categories![cat].toString(),
-                             height: 38,
-                             width: screenSize.width*0.23,
-                             // width: 90,
+                         Expanded(
+                           child: Wrap(
+                             spacing: 8.0,
+                             runSpacing: 3,
+                             children: [
+                               for(int cat=0;cat<snapshot.data!.categories!.length;cat++)...[
+                                 CategoryVenderWidget(text: snapshot.data!.categories![cat].toString(),
+                                   // height: 38,
+                                   // width: screenSize.width*0.23,
+                                   // width: 90,
+                                 ),
+                                 // HorizontalSizedWidget(8),
+                               ],
+                             ],
                            ),
-                           // HorizontalSizedWidget(8),
-                         ],
+                         ),
                        ],
                      ),
                    ),

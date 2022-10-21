@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 import '../model/product_detail_model.dart';
 
-class ProductDetailServices with ChangeNotifier {
+class ProductDetailServices  {
 
   ProductDetailModel? _data;
 
@@ -23,7 +23,7 @@ class ProductDetailServices with ChangeNotifier {
 
 
 
-  Future getProductDetaildata(int idss) async {
+  Future<ProductDetailModel?> getProductDetaildata(int idss) async {
     String url = 'https://data-otterli-staging.com/api/product_details/$idss';
     Response response = await http.get(Uri.parse(url),
         headers: {
@@ -35,10 +35,12 @@ class ProductDetailServices with ChangeNotifier {
     if(response.statusCode == 200 || response.statusCode == 201) {
       _data=ProductDetailModel.fromJson(json.decode(response.body));
       _isloading=true;
-      notifyListeners();
+      return _data;
+     // notifyListeners();
+
     }else{
       _isloading=false;
-      notifyListeners();
+     // notifyListeners();
       throw Exception('Error');
     }
   }

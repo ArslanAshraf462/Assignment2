@@ -10,9 +10,9 @@ class NewProductServices with ChangeNotifier {
 
   bool get isLoading => _isLoading;
 
-  // set isLoading(bool value) {
-  //   _isLoading = value;
-  // }
+  set isLoading(bool value) {
+    _isLoading = value;
+  }
 
   NewProductModel? get data => _data;
 

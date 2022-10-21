@@ -2,7 +2,6 @@ import '../../constants.dart';
 import 'components/search_filter_widget.dart';
 import 'components/search_result_gridview_widget.dart';
 import 'package:flutter/material.dart';
-
 import '../../widgets/horizontal_sized_widget.dart';
 import '../../widgets/pop_screen_widget.dart';
 import '../../widgets/title_widget.dart';
@@ -14,7 +13,15 @@ class SearchResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize=MediaQuery.of(context).size;
+    //double size=MediaQuery.of(context).size.height;
+    double widthSize=MediaQuery.of(context).size.width;
+    // double height=AppBar().preferredSize.height;
+    // var heght = MediaQuery.of(context).viewPadding.top;
+    // var bottomheight=MediaQuery.of(context).viewInsets.bottom;
+    // var screen =size-height;
+    // var topheight =screen-heght;
+    // var screenSize=topheight-bottomheight;
+
     return Scaffold(
       backgroundColor: AppColorAssets.appWhiteColor,
       body: GestureDetector(
@@ -30,7 +37,7 @@ class SearchResultScreen extends StatelessWidget {
                 Row(
                   children: [
                     HorizontalSizedWidget(
-                      screenSize.width*0.04
+                        widthSize*0.04
                        // 20.0
                     ),
                     GestureDetector(
@@ -38,7 +45,7 @@ class SearchResultScreen extends StatelessWidget {
                         child: PopScreenWidget(title: AppTextAssets.homeText),
                     ),
                     HorizontalSizedWidget(
-                        screenSize.width*0.15
+                        widthSize*0.15
                         //50.0
                     ),
                     TitleWidget(title: AppTextAssets.searchTitleText, fontWeight: FontWeight.normal),
@@ -49,7 +56,7 @@ class SearchResultScreen extends StatelessWidget {
                 VerticalSizedWidget(30),
                 Padding(
                   padding: EdgeInsets.only(
-                    left: screenSize.width*0.05,
+                    left: widthSize*0.05,
                       //left: 20,
                   ),
                   child:
@@ -58,24 +65,23 @@ class SearchResultScreen extends StatelessWidget {
                    : const Text(AppTextAssets.newProductItemText),
                 ),
                 VerticalSizedWidget(26),
-                 Padding(
-                   padding: EdgeInsets.only(bottom: screenSize.height*0.15),
-                   child: SizedBox(
-                    width: double.infinity,
-                   height: screenSize.height*8,
-                   // height: 550,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        left: screenSize.width*0.05,
-                          right: screenSize.width*0.05,
-                          // left: 20,
-                          // right: 20,
-                      ),
-                      child: SearchResultGridViewWidget(ids: idCount,),
-                    ),
-                ),
+                 SingleChildScrollView(
+                   child: Column(
+                     children: [
+                       Padding(
+                         padding: EdgeInsets.only(
+                           left: widthSize*0.05,
+                             right: widthSize*0.05,
+                             // left: 20,
+                             // right: 20,
+                         ),
+                         child: SearchResultGridViewWidget(ids: idCount,),
+                       ),
+                      // VerticalSizedWidget(60),
+                     ],
+                   ),
                  ),
-                //VerticalSizedWidget(60),
+
               ],
             ),
           ),

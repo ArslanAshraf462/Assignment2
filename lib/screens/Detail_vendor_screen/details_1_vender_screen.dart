@@ -6,21 +6,11 @@ import '../../constants.dart';
 import 'components/detail_btm_container_widget.dart';
 import '../../widgets/pop_screen_widget.dart';
 import '../../widgets/vertical_sized_widget.dart';
-class DetailVenderScreen extends StatefulWidget {
+class DetailVenderScreen extends StatelessWidget {
   final int ids;
   DetailVenderScreen(this.ids);
 
-  @override
-  State<DetailVenderScreen> createState() => _DetailVenderScreenState();
-}
-
-class _DetailVenderScreenState extends State<DetailVenderScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    Provider.of<ProductDetailServices>(context,listen: false).getProductDetaildata(widget.ids);
-    super.initState();
-  }
+  // @override
   @override
   Widget build(BuildContext context) {
    // print(id);
@@ -45,10 +35,10 @@ class _DetailVenderScreenState extends State<DetailVenderScreen> {
     onTap: () => Navigator.of(context).pop(),
     child: PopScreenWidget(title: AppTextAssets.detailScreenBackText)),
     ),
-    Consumer<ProductDetailServices>(
-
-    builder: (context,snapshot,_) {
-      if(snapshot.isloading) {
+    FutureBuilder(
+      future: ProductDetailServices().getProductDetaildata(ids),
+    builder: (context,snapshot) {
+      if(snapshot.hasData) {
           return Column(
             children: [
               Stack(
@@ -83,18 +73,21 @@ class _DetailVenderScreenState extends State<DetailVenderScreen> {
 
             ],
           );
-    }
-     return SizedBox(
-       width: screenSize.width*0.89,
-       // width: 350,
-         height: 350,
-         child: const Center(
-           child: CircularProgressIndicator(),
-         ),
-     );
+    }else{
+        return SizedBox(
+          width: screenSize.width*0.89,
+          // width: 350,
+          height: 350,
+          child: const Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
+      }
+
+
     }
     ),
-    DetailBottomContainerWidget(widget.ids),
+    DetailBottomContainerWidget(ids),
     ],
     ),
     ),

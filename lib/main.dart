@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (_) => NewProductServices(),),
         ChangeNotifierProvider(create: (_) => CategoriesServices(),),
         ChangeNotifierProvider(create: (_) => ReviewsServices(),),
-        ChangeNotifierProvider(create: (_) => ProductDetailServices(),),
+        //ChangeNotifierProvider(create: (_) => ProductDetailServices(),),
         ChangeNotifierProvider(create: (_) => RecommendedProductServices(),),
       ],
       child: MaterialApp(

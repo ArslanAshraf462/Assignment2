@@ -33,7 +33,6 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                     id=snapshot.data!.results![index].id;
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                       return DetailVenderScreen(snapshot.data!.results![index].id!.toInt());}));
-
                   },
                   child: Card(
                     elevation: 1,
@@ -70,7 +69,7 @@ class _RecommendedCardWidgetState extends State<RecommendedCardWidget> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     SizedBox(
-                                      height: 18,
+                                      height: 17,
                                      width: screenSize.width*0.1,
                                      // width: 40,
                                       child: ListView.builder(
